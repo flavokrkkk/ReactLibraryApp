@@ -1,5 +1,6 @@
 import React from 'react';
 import './NavBar.scss'
+import { NavLink } from 'react-router-dom';
 
 
 const NavBar = () => {
@@ -7,17 +8,21 @@ const NavBar = () => {
         <div className="NavBar">
         <div className="NavBar__content">
             <div className="NavBar__content-leftSide">
-                    <div className="NavBar-logo">Sbook</div>
+                    <NavLink style={{textDecoration: 'none'}} to={'/catalog'}>
+                        <div className="NavBar-logo">
+                            Sbook
+                        </div>
+                    </NavLink>
             </div>
             <div className="NavBar__content-center">
-                <div>
+                <NavLink to={'/catalog'} style={{textDecoration: 'none', color: '#fff'}} >
                     Каталог
-                </div>
+                </NavLink>
             </div>
             <div className="NavBar__content-rightSide">
-                <p className="NavBar__content-rightSide-content">
+                <NavLink to={'/mybooks'} style={{textDecoration: 'none', color: '#fff'}} className="NavBar__content-rightSide-content">
                     My books
-                </p>
+                </NavLink>
             </div>
         </div> 
         </div>

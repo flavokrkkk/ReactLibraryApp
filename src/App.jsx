@@ -1,11 +1,12 @@
 import LibraryCatalog from './components/Library/LibraryCatalog'
 import NavBar from './components/NavBar/NavBar'
+import AppRouter from './routes/AppRouter'
 
 function App() {
   return (
     <div>
       <NavBar/>
-      <LibraryCatalog/>
+      <AppRouter/>
     </div>
   )
 }

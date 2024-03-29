@@ -1,16 +1,19 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import LibraryList from './LibraryList';
 import './LibraryCatalog.scss'
-
+import { fetchMovies} from '../../store/asyncActions/asyncData';
 
 const LibraryCatalog = () => {
 
     const dispatch = useDispatch()
 
-//Получаем массива с книгами
+    //Получаем массива с книгами
     const books = useSelector(state => state.books.books)
-    console.log(books)
+
+    useEffect(() => {
+        dispatch(fetchMovies())
+    }, [])
 
     return (
         <div className='Library__Catalog-Container'>  
