@@ -1,4 +1,3 @@
-import React from 'react';
 import { useNavigate } from 'react-router-dom';
 
 const LibraryList = ({book}) => {
@@ -8,13 +7,13 @@ const LibraryList = ({book}) => {
     return (
         <div className='Library__Catalog-Item' onClick={() => navigate(`/info/${book.id}`)}>
             <div className='Library__Catalog-Item-Title'>
-               {book.id}. {book.original_title}
+               {book.id}. {book.title}
             </div>
             <div className='Library__Catalog-Item-Descr'>
-                {book.overview}
+                {book.body}
             </div>
             <div className='Library__Catalog-Item-Author'>
-                {book.release_date}
+                {book.userId}
             </div>
             <button onClick={() => navigate(`/info/${book.id}`)} className='Library__Button-Item'>Хочу прочитать</button>
         </div>

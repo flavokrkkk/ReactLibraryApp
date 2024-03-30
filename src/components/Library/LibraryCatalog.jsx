@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import LibraryList from './LibraryList';
 import './LibraryCatalog.scss'
@@ -15,12 +15,14 @@ const LibraryCatalog = () => {
         dispatch(fetchMovies())
     }, [])
 
+    console.log(books);
     return (
         <div className='Library__Catalog-Container'>  
             <div className='Library__Catalog-Wrapper'>
                 <h1 className='Library__Catalog-Title'>
                     Каталог
                 </h1>
+                <hr/>
             {books.length > 0
              ?
              <div className='Library__Catalog-List'>
