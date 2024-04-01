@@ -13,7 +13,7 @@ const LibraryList = ({book}) => {
                 {book.body}
             </div>
             <div className='Library__Catalog-Item-Author'>
-                {book.userId}
+                <h1 style={{fontWeight: 400, textTransform: 'uppercase'}}>Онлайн-библиотека Sbook</h1>
             </div>
             <button onClick={() => navigate(`/info/${book.id}`)} className='Library__Button-Item'>Хочу прочитать</button>
         </div>

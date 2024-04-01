@@ -4,8 +4,8 @@ export const IS_DISABLED = 'IS_DISABLED'
 
 const initialState = {
     status: {
-        available: false,
-        readed: false,
+        available: true,
+        readed: {},
         onHands: false,
         disabled: false
     }

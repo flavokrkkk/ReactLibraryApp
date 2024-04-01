@@ -10,7 +10,7 @@ export const rootReducer = combineReducers({
     status: statusReducer,
     oneBook: bookReducer,
     users: userReducer,
-    myBook: myBooksReducer
+    myBook: myBooksReducer,
 })
 
 export const store = createStore(rootReducer, applyMiddleware(thunk))

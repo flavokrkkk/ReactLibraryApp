@@ -45,7 +45,7 @@
     text-align: center;
     margin-top: 30px;
     button {
-        width: 110px;
+        width: 130px;
         height: 30px;
         font-family: "Roboto", sans-serif;
         font-weight: 300;
@@ -57,4 +57,15 @@
             background-color: #ababc9;
         }
 }
+}
+
+
+.MyBooks__SubTitle {
+    text-align: center;
+    margin-top: 30px;
+    font-size: 28px;
+}
+
+.MyBooks__Button-Static {
+    text-align: center;
 }

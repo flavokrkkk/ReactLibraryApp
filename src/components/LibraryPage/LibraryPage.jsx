@@ -3,9 +3,9 @@ import { useParams } from 'react-router-dom';
 import './LibraryPage.scss'
 import { useDispatch, useSelector } from 'react-redux';
 import {fetchOneBook, fetchUsers } from '../../store/asyncActions/asyncData';
-import { REMOVE_USER } from '../../store/userReducer';
-import { EDIT_STATUS } from '../../store/statusReducer';
+import { ADD_USER, REMOVE_USER } from '../../store/userReducer';
 import { ADD_MYBOOKS } from '../../store/myBooksReducer';
+import { Button } from 'antd';
 
 const LibraryPage = () => {
 
@@ -29,15 +29,19 @@ const LibraryPage = () => {
 
     //Логика по disabled кнопки
 
-
-    const isReaded = () => {
-        dispatch({type: EDIT_STATUS, payload: !status.readed})
-    }
-
     const addMyBook = () => {
         alert('Книга  добавлена в My Book')
-        dispatch({type: ADD_MYBOOKS, payload: books})
+        dispatch({type: ADD_MYBOOKS, readed: false, payload: books})
         setDisabled(true)
+    }
+
+    const addUser = (userName) => {
+        const customer = {
+            id: Date.now(),
+            name: userName
+        }
+
+        dispatch({type: ADD_USER, payload: customer})
     }
 
     useEffect(() => {
@@ -61,7 +65,6 @@ const LibraryPage = () => {
            <div className='Library__Page-Button-Group'>
                { status.available === true ? <button>Доступна</button> : <button disabled>Не доступна</button>}
                { status.onHands === false ? <button>На руках</button> : <button style={{background:"#8282db"}} disabled>На руках</button>}
-               { status.readed === true ?  <button style={{background:"#8282db"}} onClick={isReaded}>Прочитана</button> : <button onClick={isReaded}  >Не Прочитана</button>}
            </div>
            {
             disabled 
@@ -70,13 +73,17 @@ const LibraryPage = () => {
             :
             <button className='Library__Page-Button' onClick={addMyBook}>Добавить в MyBooks</button>
            }
+           
            <div className='Libray__Page-Users'>
                 <hr/>
-                <h1>Пользователи с книгой</h1>
-                {users.map(user => 
+                <h1>Пользователи которые хотят прочитать: </h1>
+                <div className='Library__Page-AddUser'>
+                    <Button onClick={() => addUser(prompt())}>Записаться в очередь</Button>
+                </div>
+                {users.map((user, index) => 
                     <>
                         <div className='Libray__Page-User'>
-                           {user.id}. {user.name}
+                           {index + 1}. {user.name}
                            <p>{user.email}</p>
                            <button onClick={() => onRead(user.id)} className='Libray__Page-User-Button'>Прочитал</button>
                         </div>
