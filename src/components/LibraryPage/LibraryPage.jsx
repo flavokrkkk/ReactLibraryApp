@@ -67,27 +67,37 @@ const LibraryPage = () => {
             <div className='Library__Page-Main-Title'>
                 <h1>Информация о книге</h1>
             </div>
-            <div className='Library__Page-Title'>
-                <h2>{oneBook.title}</h2>
-            </div>
-           <hr/>
-           <div className='Library__Page-Descr'>
-                {oneBook.body}
-           </div>
-           <div className='Library__Page-Descr-Bold'>
-                {oneBook.body}
-           </div>
-           <div className='Library__Page-Button-Group'>
-               { status.available === true ? <button>Доступна</button> : <button disabled>Не доступна</button>}
-               { status.onHands === false ? <button>На руках</button> : <button style={{background:"#8282db"}} disabled>На руках</button>}
-           </div>
-           {
-            disabled 
+
+            { oneBook.lengh !== 0 
             ?
-            <button className='Library__Page-Button' disabled onClick={addMyBook}>Добавить в MyBooks</button>
-            :
-            <button className='Library__Page-Button' onClick={addMyBook}>Добавить в MyBooks</button>
-           }
+           <div> 
+                <div className='Library__Page-Title'>
+                    <h2>{oneBook.title}</h2>
+                </div>
+            <hr/>
+                <div className='Library__Page-Descr'>
+                    {oneBook.body}
+                </div>
+
+                <div className='Library__Page-Descr-Bold'>
+                        {oneBook.body}
+                </div>
+
+                <div className='Library__Page-Button-Group'>
+                    { status.available === true ? <button>Доступна</button> : <button disabled>Не доступна</button>}
+                    { status.onHands === false ? <button>На руках</button> : <button style={{background:"#8282db"}} disabled>На руках</button>}
+                </div>
+                {
+                    disabled 
+                    ?
+                    <button className='Library__Page-Button' disabled onClick={addMyBook}>Добавить в MyBooks</button>
+                    :
+                    <button className='Library__Page-Button' onClick={addMyBook}>Добавить в MyBooks</button>
+                }
+           </div>
+           :
+           <h2>Информация о книге отсутсвует</h2>
+            }
            
            <div className='Libray__Page-Users'>
                 <hr/>

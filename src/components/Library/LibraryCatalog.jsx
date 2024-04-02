@@ -25,8 +25,6 @@ const LibraryCatalog = () => {
         return books.sort().filter(book => book.title.toLowerCase().includes(value.toLowerCase()))
     }, [value, books])
 
-    console.log(books)
-
     useEffect(() => {
         dispatch(fetchMovies(currentPage))
     }, [currentPage])
@@ -44,7 +42,7 @@ const LibraryCatalog = () => {
                     <Button style={{height: 40}} type="default">Submit</Button>
                 </Space.Compact>
                 </div>
-                <LibraryCatalogAdd/>
+                {/* <LibraryCatalogAdd/> */}
                 <hr/>
             <LibaryCatalogList
                 searchAndSortedBook={searchAndSortedBook}

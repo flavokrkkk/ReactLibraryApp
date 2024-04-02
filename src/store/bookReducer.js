@@ -2,7 +2,6 @@ export const FETCH_BOOKS = 'FETCH_BOOKS'
 export const SET_CURRENT_PAGE = 'SET_CURRENT_PAGE'
 export const ADD_BOOK = 'ADD_BOOK'
 
-
 const initialState = {
     books: [],
     currentPage: 1,
@@ -15,7 +14,6 @@ export const bookReducer = (state = initialState, action) => {
             case ADD_BOOK :
                 return {state, books: [action.payload, ...state.books]}
             case SET_CURRENT_PAGE: 
-                return {...state, currentPage: action.payload}
             default:
                 return state
         }
