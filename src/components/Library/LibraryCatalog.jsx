@@ -6,7 +6,6 @@ import { Button, Input, Space } from 'antd';
 import LibaryCatalogList from './LibaryCatalogList';
 import Pagination from '../Pagination/Pagination';
 import { setCurrentPage } from '../../store/bookReducer';
-import LibraryCatalogAdd from './LibraryCatalogAdd';
 
 const LibraryCatalog = () => {
 

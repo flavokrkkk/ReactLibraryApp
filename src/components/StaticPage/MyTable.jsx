@@ -7,7 +7,6 @@ const MyTable = () => {
 
   const books = useSelector(state => state.books.books)
   const users = useSelector(state => state.users.users)
-  const myBook = useSelector(state => state.myBook.myBook)
   const userTwo = useSelector(state => state.usersTwo.usersTwo)
 
   //Таблица

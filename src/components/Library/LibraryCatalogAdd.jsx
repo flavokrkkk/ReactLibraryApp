@@ -1,6 +1,6 @@
 import { Button, Input } from "antd";
 import { useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { ADD_BOOK } from "../../store/bookReducer";
 // import { ADD_ONE_BOOK } from "../../store/bookOneReducer";
 
@@ -9,7 +9,6 @@ const LibraryCatalogAdd = () => {
     const [title, setTitle] = useState('')
     const [body, setBody] = useState('')
 
-    const oneBook = useSelector(state => state.oneBook.oneBook)
 
     const dispatch = useDispatch()
 
@@ -20,7 +19,6 @@ const LibraryCatalogAdd = () => {
             body: body
         }
         dispatch({type: ADD_BOOK, payload: books})
-        // dispatch({type: ADD_ONE_BOOK, payload: books})
     }
 
     return (

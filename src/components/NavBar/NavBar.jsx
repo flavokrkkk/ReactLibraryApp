@@ -1,4 +1,3 @@
-import React from 'react';
 import './NavBar.scss'
 import { NavLink } from 'react-router-dom';
 import { CATALOG, MYBOOKS } from '../../utils/const';
