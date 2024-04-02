@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import './LibraryPage.scss'
 import { useDispatch, useSelector } from 'react-redux';
-import {fetchOneBook, fetchUsers } from '../../store/asyncActions/asyncData';
+import { fetchUsers, getOneBook } from '../../store/asyncActions/asyncData';
 import { ADD_USERONE, REMOVE_USER } from '../../store/userReducer';
 import { ADD_MYBOOKS } from '../../store/myBooksReducer';
 import LibraryPageList from './LibraryPageList';
@@ -16,15 +16,14 @@ const LibraryPage = () => {
     const params = useParams()
     
     //Получаем данные из store
-    const [books, setBooks] = useState({})
     const [disabled, setDisabled] = useState(false)
-
 
     const dispatch = useDispatch()
 
     const users = useSelector(state => state.users.users)
     const status = useSelector(state => state.status.status)
     const userTwo = useSelector(state => state.usersTwo.usersTwo)
+    const oneBook = useSelector(state => state.oneBook.oneBook)
 
     //Функция добавления userов которые добавили в myBook
     const pushUserInMyBook = (users) => {
@@ -44,7 +43,7 @@ const LibraryPage = () => {
 
     const addMyBook = () => {
         alert('Книга  добавлена в My Book')
-        dispatch({type: ADD_MYBOOKS, readed: false, payload: books})
+        dispatch({type: ADD_MYBOOKS, readed: false, payload: oneBook})
         dispatch({type: ADD_USERTWO, payload: {id: 1111, name: 'Egor Yarovitsyn', email: 'egoryarovitsyn1@gmail.com'}})
         setDisabled(true)
     }
@@ -59,7 +58,7 @@ const LibraryPage = () => {
 
     useEffect(() => {
         dispatch(fetchUsers())
-        fetchOneBook(params.id).then(data => setBooks(data))
+        dispatch(getOneBook(params.id))
         setDisabled()
     }, [])
 
@@ -69,14 +68,14 @@ const LibraryPage = () => {
                 <h1>Информация о книге</h1>
             </div>
             <div className='Library__Page-Title'>
-                <h2>{books.title}</h2>
+                <h2>{oneBook.title}</h2>
             </div>
            <hr/>
            <div className='Library__Page-Descr'>
-                {books.body}
+                {oneBook.body}
            </div>
            <div className='Library__Page-Descr-Bold'>
-                {books.body}
+                {oneBook.body}
            </div>
            <div className='Library__Page-Button-Group'>
                { status.available === true ? <button>Доступна</button> : <button disabled>Не доступна</button>}
