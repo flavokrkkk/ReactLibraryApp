@@ -4,6 +4,7 @@ import { bookReducer } from "./bookReducer";
 import { userReducer } from "./userReducer";
 import { statusReducer } from "./statusReducer";
 import { myBooksReducer } from "./myBooksReducer";
+import { userTwoReducer } from "./userTwoReducer";
 
 export const rootReducer = combineReducers({
     books: bookReducer,
@@ -11,6 +12,7 @@ export const rootReducer = combineReducers({
     oneBook: bookReducer,
     users: userReducer,
     myBook: myBooksReducer,
+    usersTwo: userTwoReducer
 })
 
 export const store = createStore(rootReducer, applyMiddleware(thunk))

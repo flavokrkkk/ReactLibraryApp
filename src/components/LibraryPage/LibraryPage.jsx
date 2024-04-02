@@ -3,8 +3,11 @@ import { useParams } from 'react-router-dom';
 import './LibraryPage.scss'
 import { useDispatch, useSelector } from 'react-redux';
 import {fetchOneBook, fetchUsers } from '../../store/asyncActions/asyncData';
-import { ADD_USER, REMOVE_USER } from '../../store/userReducer';
+import { ADD_USERONE, REMOVE_USER } from '../../store/userReducer';
 import { ADD_MYBOOKS } from '../../store/myBooksReducer';
+import LibraryPageList from './LibraryPageList';
+import { ADD_USERTWO, REMOVE_USER_TWO } from '../../store/userTwoReducer';
+import LibraryPageListTwo from './LibraryPageListTwo';
 import { Button } from 'antd';
 
 const LibraryPage = () => {
@@ -12,15 +15,25 @@ const LibraryPage = () => {
     //Целпяем id с поисковой строки
     const params = useParams()
     
-    //Получаем массив с юзерами
+    //Получаем данные из store
     const [books, setBooks] = useState({})
     const [disabled, setDisabled] = useState(false)
 
-    const users = useSelector(state => state.users.users)
-    const status = useSelector(state => state.status.status)
-    // const myBook = useSelector(state => state.myBook.myBook)
 
     const dispatch = useDispatch()
+
+    const users = useSelector(state => state.users.users)
+    const status = useSelector(state => state.status.status)
+    const userTwo = useSelector(state => state.usersTwo.usersTwo)
+
+    //Функция добавления userов которые добавили в myBook
+    const pushUserInMyBook = (users) => {
+        dispatch({type: ADD_USERTWO, payload: users})
+    }
+    //Функция удаления пользователей из myBook
+    const removeUserinMyBook = (users) => {
+        dispatch({type: REMOVE_USER_TWO, payload: users})
+    }
 
     //Функция удаления пользователя
     const onRead = (id) => {
@@ -32,6 +45,7 @@ const LibraryPage = () => {
     const addMyBook = () => {
         alert('Книга  добавлена в My Book')
         dispatch({type: ADD_MYBOOKS, readed: false, payload: books})
+        dispatch({type: ADD_USERTWO, payload: {id: 1111, name: 'Egor Yarovitsyn', email: 'egoryarovitsyn1@gmail.com'}})
         setDisabled(true)
     }
 
@@ -40,20 +54,22 @@ const LibraryPage = () => {
             id: Date.now(),
             name: userName
         }
-
-        dispatch({type: ADD_USER, payload: customer})
+        dispatch({type: ADD_USERONE, payload: customer})
     }
 
     useEffect(() => {
-        dispatch(fetchUsers(10))
+        dispatch(fetchUsers())
         fetchOneBook(params.id).then(data => setBooks(data))
         setDisabled()
     }, [])
 
     return (
         <div className='Library__Page-Container'>
+            <div className='Library__Page-Main-Title'>
+                <h1>Информация о книге</h1>
+            </div>
             <div className='Library__Page-Title'>
-                <h1>{books.title}</h1>
+                <h2>{books.title}</h2>
             </div>
            <hr/>
            <div className='Library__Page-Descr'>
@@ -76,19 +92,30 @@ const LibraryPage = () => {
            
            <div className='Libray__Page-Users'>
                 <hr/>
-                <h1>Пользователи которые хотят прочитать: </h1>
+                <h2>Вы можете отслеживать очереди пользователей и читать любимые книжки!</h2>
                 <div className='Library__Page-AddUser'>
                     <Button onClick={() => addUser(prompt())}>Записаться в очередь</Button>
                 </div>
-                {users.map((user, index) => 
-                    <>
-                        <div className='Libray__Page-User'>
-                           {index + 1}. {user.name}
-                           <p>{user.email}</p>
-                           <button onClick={() => onRead(user.id)} className='Libray__Page-User-Button'>Прочитал</button>
-                        </div>
-                    </>
-                    )}
+
+                <div className='Library__Page-Static'>
+                    <div>
+                        <h2>В избранном: </h2>
+                        <LibraryPageList
+                        users={users}
+                        onRead={onRead}
+                        pushUserInMyBook={pushUserInMyBook}
+                        />
+                    </div>
+                    
+                    <div>
+                        <h2>В MyBooks: </h2>
+                        <LibraryPageListTwo
+                        userTwo={userTwo}
+                        removeUserinMyBook={removeUserinMyBook}
+                        />
+                    </div>
+                </div>
+               
            </div>
         </div>
     );

@@ -21,7 +21,7 @@
 
 .Library__Catalog-Item {
     border: 1px solid black;
-    padding: 20px;
+    padding: 30px;
     border-radius: 20px;
     margin-bottom: 40px;
 }
@@ -29,22 +29,20 @@
 .Library__Catalog-Item-Title {
     font-size: 22px;
     font-weight: 500;
-    padding-bottom: 20px;
+    padding-bottom: 40px;
 }
 
 .Library__Catalog-Item-Descr {
     font-size: 18px;
     font-weight: 300;
-    padding-bottom: 15px;
+    padding-bottom: 40px;
 }
 
 .Library__Catalog-Item-Author {
     font-size: 18px;
     font-weight: 300;
-    // padding-bottom: 10px;
+    padding-bottom: 10px;
     padding-top: 10px;
-    // text-align: end;
-    // padding-right: 80px;
 }
 
 .Library__Button-Item {
@@ -102,24 +100,3 @@
   font-size: 28px;
 }
 
-.pages {
-  margin: 30px 0;
-  .page {
-    border: 1px solid lightblue;
-    border-radius: 90%;
-    padding: 5px 10px;
-    margin: 0 10px;
-    cursor: pointer;
-  }
-  
- 
-}
-
-.current__page {
-  border: '2px solid gray';
-  font-weight: 700;
-  border-radius: 90%;
-  padding: 5px 10px;
-  margin: 0 10px;
-  cursor: pointer;
-}

@@ -39,7 +39,7 @@ const MyBooks = () => {
                 :
                  myBook.map(book =>
                     <>
-                        <div className="MyBook__List" >
+                        <div className="MyBook__List" key={book.id}>
                             <div className="MyBook__List-Wrapper">
                                 <h2>{book.id}. {book.title}</h2>
                                 <hr/>

@@ -1,13 +1,13 @@
 import { useNavigate } from 'react-router-dom';
 
-const LibraryList = ({book}) => {
+const LibraryList = ({book, index}) => {
 
     const navigate = useNavigate()
 
     return (
         <div className='Library__Catalog-Item' onClick={() => navigate(`/info/${book.id}`)}>
             <div className='Library__Catalog-Item-Title'>
-               {book.id}. {book.title}
+               {index + 1}. {book.title}
             </div>
             <div className='Library__Catalog-Item-Descr'>
                 {book.body}

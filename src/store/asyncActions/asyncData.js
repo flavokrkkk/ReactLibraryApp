@@ -4,22 +4,36 @@ import { FETCH_BOOKS} from "../bookReducer"
 
 export const fetchUsers = (limit = 10) => {
     return async function(dispatch) {
-        const response = await axios.get(`https://jsonplaceholder.typicode.com/users?limit=${limit}`)
-        return dispatch({type: ADD_USERS, payload: response.data})
+        try {
+            const response = await axios.get(`https://jsonplaceholder.typicode.com/users?limit=${limit}`)
+            return dispatch({type: ADD_USERS, payload: response.data})
+        } catch (err) {
+            console.log(err)
+        }
+        
     }
 }
 
 export const fetchMovies = (currentPage) => {
     return async function(dispatch) {
-        const response = await axios.get(`https://jsonplaceholder.typicode.com/posts?_page=${currentPage}`)
-        return dispatch({type: FETCH_BOOKS, payload: response.data})
+        try {
+            const response = await axios.get(`https://jsonplaceholder.typicode.com/posts?_page=${currentPage}`)
+            return dispatch({type: FETCH_BOOKS, payload: response.data})
+        } catch (err) {
+            console.log(err)
+        }
+        
     }
 }
 
 
 export const fetchOneBook = async (id) => {
-        const response = await axios.get(`https://jsonplaceholder.typicode.com/posts/${id}`)
-        return response.data
+        try {
+            const response = await axios.get(`https://jsonplaceholder.typicode.com/posts/${id}`)
+            return response.data
+        } catch (err) {
+            console.log(err)
+        }
 }
 
 

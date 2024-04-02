@@ -8,7 +8,7 @@ const MyTable = () => {
   const books = useSelector(state => state.books.books)
   const users = useSelector(state => state.users.users)
   const myBook = useSelector(state => state.myBook.myBook)
-
+  const userTwo = useSelector(state => state.usersTwo.usersTwo)
 
   //Таблица
   const columns = [
@@ -24,7 +24,7 @@ const MyTable = () => {
       key: 'age',
     },
     {
-      title: 'Прочитано',
+      title: 'Избранное',
       dataIndex: 'address',
       key: 'address',
     },
@@ -40,9 +40,9 @@ const MyTable = () => {
     {
       key: '1',
       name: `${books.length} книг`,
-      age: `${users.length} пользователя`,
-      address: `${books.length * users.length} книжек забронировано`,
-      action: ` ${myBook.length}- кол-во книг в MyBook`,
+      age: `${users.length + userTwo.length} пользователей онлайн`,
+      address: `${users.length} книжки в избранном`,
+      action: ` ${userTwo.length} кол-во книг в MyBook`,
     },
   ];
 

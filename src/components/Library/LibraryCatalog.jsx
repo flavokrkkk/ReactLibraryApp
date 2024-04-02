@@ -1,10 +1,12 @@
 import { useEffect, useMemo, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import LibraryList from './LibraryList';
 import './LibraryCatalog.scss'
 import { fetchMovies} from '../../store/asyncActions/asyncData';
 import { Button, Input, Space } from 'antd';
+import LibaryCatalogList from './LibaryCatalogList';
+import Pagination from '../Pagination/Pagination';
 import { setCurrentPage } from '../../store/bookReducer';
+import LibraryCatalogAdd from './LibraryCatalogAdd';
 
 const LibraryCatalog = () => {
 
@@ -18,16 +20,12 @@ const LibraryCatalog = () => {
 
     const currentPage = useSelector(state => state.books.currentPage)
 
-    const totalPage = useSelector(state => state.books.totalPage)
-
-    const pages = [1, 2, 3, 4, 5]
-
-    const pageCount = Math.ceil(totalPage)
-
     //Поиск книг c помощью useMemo
     const searchAndSortedBook = useMemo(() => {
-        return books.sort().filter(book => book.title.includes(value))
+        return books.sort().filter(book => book.title.toLowerCase().includes(value.toLowerCase()))
     }, [value, books])
+
+    console.log(books)
 
     useEffect(() => {
         dispatch(fetchMovies(currentPage))
@@ -42,40 +40,20 @@ const LibraryCatalog = () => {
                 </h1>
                 <div className='Library__Catalog-Input'>
                 <Space.Compact style={{ width: '70%'}}>
-                    <Input value={value} onChange={(e) => setValue(e.target.value)} style={{height: 40}} defaultValue='Поиск...' />
+                    <Input value={value} onChange={(e) => setValue(e.target.value)} style={{height: 40}} placeholder='Поиск книг...'/>
                     <Button style={{height: 40}} type="default">Submit</Button>
                 </Space.Compact>
                 </div>
+                <LibraryCatalogAdd/>
                 <hr/>
-            {searchAndSortedBook.length > 0
-             ?
-             <div className='Library__Catalog-List'>
-                {searchAndSortedBook.map(book => 
-                        <>
-                            <LibraryList
-                                book={book}
-                            />
-                        </>
-                    )}
-             </div>
-             :
-             <div className='Library__Catalog-List-Zero'>
-                <h1>К сожалению каталог пуст!</h1>
-             </div>
-            }
+            <LibaryCatalogList
+                searchAndSortedBook={searchAndSortedBook}
+            />
             </div>
-            <div className='pages'>
-                    {pages.map(page => 
-                            <span
-                            className={currentPage == page ? 
-                            'current__page': 'page'} 
-                            key={page.id}
-                            onClick={() => dispatch(setCurrentPage(page))}
-                            >
-                            {page}
-                            </span>
-                        )}
-            </div>
+            <Pagination 
+                setCurrentPage={setCurrentPage}
+                currentPage={currentPage}
+            />
         </div>
     );
 };
