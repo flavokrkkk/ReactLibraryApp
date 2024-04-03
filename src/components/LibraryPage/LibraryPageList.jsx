@@ -1,6 +1,6 @@
 import { Button } from 'antd';
 
-const LibraryPageList = ({users, onRead, pushUserInMyBook}) => {
+const LibraryPageList = ({users, onRead, pushUserInMyBook, oneBook}) => {
 
     return (
         <>
@@ -12,7 +12,9 @@ const LibraryPageList = ({users, onRead, pushUserInMyBook}) => {
                     <div className='Libray__Page-User' key={user.id}>
                         {index + 1}. {user.name}
                         <p>{user.email}</p>
-                        <Button 
+                       {oneBook.dostup === true 
+                       ? 
+                       <Button 
                         className='Libray__Page-User-Button'
                         onClick={() => {
                         pushUserInMyBook(user)
@@ -21,6 +23,11 @@ const LibraryPageList = ({users, onRead, pushUserInMyBook}) => {
                             >
                                 push to myBook
                         </Button>
+                        :
+                        <Button disabled className='Libray__Page-User-Button'>
+                            push to myBook
+                        </Button>
+                        }
                         
                     </div>
                 </div>

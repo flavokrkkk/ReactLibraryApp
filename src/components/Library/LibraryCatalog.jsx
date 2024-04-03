@@ -41,7 +41,6 @@ const LibraryCatalog = () => {
                     <Button style={{height: 40}} type="default">Submit</Button>
                 </Space.Compact>
                 </div>
-                {/* <LibraryCatalogAdd/> */}
                 <hr/>
             <LibaryCatalogList
                 searchAndSortedBook={searchAndSortedBook}

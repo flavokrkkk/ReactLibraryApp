@@ -16,7 +16,6 @@ const LibraryPage = () => {
     const params = useParams()
     
     //Получаем данные из store
-    const [disabled, setDisabled] = useState(false)
 
     const dispatch = useDispatch()
 
@@ -45,7 +44,6 @@ const LibraryPage = () => {
         alert('Книга  добавлена в My Book')
         dispatch({type: ADD_MYBOOKS, readed: false, payload: oneBook})
         dispatch({type: ADD_USERTWO, payload: {id: 1111, name: 'Egor Yarovitsyn', email: 'egoryarovitsyn1@gmail.com'}})
-        setDisabled(true)
     }
 
     const addUser = (userName) => {
@@ -56,11 +54,17 @@ const LibraryPage = () => {
         dispatch({type: ADD_USERONE, payload: customer})
     }
 
+
     useEffect(() => {
-        dispatch(fetchUsers())
+        dispatch(fetchUsers(10))
         dispatch(getOneBook(params.id))
-        setDisabled()
     }, [])
+
+    
+
+    useEffect(() => {
+        userTwo.length > 3 ? oneBook.dostup = false : oneBook.dostup = true
+    }, [userTwo, users, pushUserInMyBook, removeUserinMyBook])
 
     return (
         <div className='Library__Page-Container'>
@@ -84,13 +88,13 @@ const LibraryPage = () => {
                 </div>
 
                 <div className='Library__Page-Button-Group'>
-                    { status.available === true ? <button>Доступна</button> : <button disabled>Не доступна</button>}
+                    { oneBook.dostup === true ? <button>Доступна</button> : <button style={{background:"#8282db"}} disabled>Не доступна</button>}
                     { status.onHands === false ? <button>На руках</button> : <button style={{background:"#8282db"}} disabled>На руках</button>}
                 </div>
-                {
-                    disabled 
+                { 
+                    oneBook.dostup === false
                     ?
-                    <button className='Library__Page-Button' disabled onClick={addMyBook}>Добавить в MyBooks</button>
+                    <button className='Library__Page-Button' disabled >Добавить в MyBooks</button>
                     :
                     <button className='Library__Page-Button' onClick={addMyBook}>Добавить в MyBooks</button>
                 }
@@ -112,6 +116,7 @@ const LibraryPage = () => {
                         <LibraryPageList
                         users={users}
                         onRead={onRead}
+                        oneBook={oneBook}
                         pushUserInMyBook={pushUserInMyBook}
                         />
                     </div>
