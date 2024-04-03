@@ -7,13 +7,12 @@ const LibaryCatalogList = ({searchAndSortedBook}) => {
              ?
              <div className='Library__Catalog-List'>
                 {searchAndSortedBook.map((book, index) => 
-                        <>
+                        <div key={index}>
                             <LibraryList
-                                key={book.id}
                                 book={book}
                                 index={index}
                             />
-                        </>
+                        </div>
                     )}
              </div>
              :

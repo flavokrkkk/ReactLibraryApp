@@ -7,7 +7,7 @@ const LibraryPageListTwo = ({userTwo, removeUserinMyBook}) => {
           ?
           userTwo.map((user, index) => 
                 <div key={user.id}>
-                    <div className='Libray__Page-User' key={user.id}>
+                    <div className='Libray__Page-User'>
                         {index + 1}. {user.name}
                         <p>{user.email}</p>
                         <Button onClick={() => removeUserinMyBook(user.id)} className='Libray__Page-User-Button'>is Readed</Button>

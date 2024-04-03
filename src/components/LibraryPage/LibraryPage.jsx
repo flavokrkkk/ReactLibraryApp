@@ -24,6 +24,7 @@ const LibraryPage = () => {
     const userTwo = useSelector(state => state.usersTwo.usersTwo)
     const oneBook = useSelector(state => state.oneBook.oneBook)
 
+    console.log(status.onHands)
     //Функция добавления userов которые добавили в myBook
     const pushUserInMyBook = (users) => {
         dispatch({type: ADD_USERTWO, payload: users})
@@ -43,7 +44,7 @@ const LibraryPage = () => {
     const addMyBook = () => {
         alert('Книга  добавлена в My Book')
         dispatch({type: ADD_MYBOOKS, readed: false, payload: oneBook})
-        dispatch({type: ADD_USERTWO, payload: {id: 1111, name: 'Egor Yarovitsyn', email: 'egoryarovitsyn1@gmail.com'}})
+        dispatch({type: ADD_USERTWO, payload: {id: 101, name: 'Egor Yarovitsyn', email: 'egoryarovitsyn1@gmail.com'}})
     }
 
     const addUser = (userName) => {
@@ -56,15 +57,14 @@ const LibraryPage = () => {
 
 
     useEffect(() => {
+        userTwo.length > 3 ? oneBook.dostup = false : oneBook.dostup = true
+    }, [userTwo, users, pushUserInMyBook, removeUserinMyBook])
+
+
+    useEffect(() => {
         dispatch(fetchUsers(10))
         dispatch(getOneBook(params.id))
     }, [])
-
-    
-
-    useEffect(() => {
-        userTwo.length > 3 ? oneBook.dostup = false : oneBook.dostup = true
-    }, [userTwo, users, pushUserInMyBook, removeUserinMyBook])
 
     return (
         <div className='Library__Page-Container'>
@@ -89,14 +89,14 @@ const LibraryPage = () => {
 
                 <div className='Library__Page-Button-Group'>
                     { oneBook.dostup === true ? <button>Доступна</button> : <button style={{background:"#8282db"}} disabled>Не доступна</button>}
-                    { status.onHands === false ? <button>На руках</button> : <button style={{background:"#8282db"}} disabled>На руках</button>}
+                    { status.onHands === true ? <button style={{background:"#8282db"}} disabled>На руках</button>: <button>На руках</button> }
                 </div>
                 { 
                     oneBook.dostup === false
                     ?
                     <button className='Library__Page-Button' disabled >Добавить в MyBooks</button>
                     :
-                    <button className='Library__Page-Button' onClick={addMyBook}>Добавить в MyBooks</button>
+                    <button className='Library__Page-Button'  onClick={addMyBook}>Добавить в MyBooks</button>
                 }
            </div>
            :

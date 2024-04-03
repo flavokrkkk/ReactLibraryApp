@@ -38,14 +38,14 @@ const MyBooks = () => {
                 <h1 className="MyBooks__SubTitle">MyBooks пуст!</h1>
                 :
                  myBook.map(book =>
-                    <>
-                        <div className="MyBook__List" key={book.id}>
+                    <div key={book.id}>
+                        <div className="MyBook__List" >
                             <div className="MyBook__List-Wrapper">
                                 <h2>{book.id}. {book.title}</h2>
                                 <hr/>
                                 <h2>Описание:</h2>
                                 <div className="MyBook__List-Descr">
-                                    <text>{book.body}</text>
+                                    <h3>{book.body}</h3>
                                 </div>
                             </div>
                             <div className="MyBook__List-Button">
@@ -66,7 +66,7 @@ const MyBooks = () => {
                                     }
                             </div>
                         </div>
-                    </> 
+                    </div> 
                 )
             }
             

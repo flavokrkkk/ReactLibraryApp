@@ -20,7 +20,9 @@ export const fetchUsers = (limit = 10) => {
 export const fetchMovies = (currentPage) => {
     return async function(dispatch) {
         try {
-            const response = await axios.get(`https://jsonplaceholder.typicode.com/posts?_page=${currentPage}`)
+            const response = await axios.get(`https://jsonplaceholder.typicode.com/posts`, {
+                params: {_page: currentPage}
+            })
             return dispatch({type: FETCH_BOOKS, payload: response.data})
         } catch (err) {
             console.log(err)

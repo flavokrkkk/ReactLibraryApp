@@ -7,9 +7,8 @@ const LibraryPageList = ({users, onRead, pushUserInMyBook, oneBook}) => {
           { users.length > 0
             ?
           users.map((user, index) => 
-                <>
-                <div>
-                    <div className='Libray__Page-User' key={user.id}>
+                <div key={user.id}>
+                    <div className='Libray__Page-User' >
                         {index + 1}. {user.name}
                         <p>{user.email}</p>
                        {oneBook.dostup === true 
@@ -31,7 +30,6 @@ const LibraryPageList = ({users, onRead, pushUserInMyBook, oneBook}) => {
                         
                     </div>
                 </div>
-                </>
             )
             :
             <h3>Пользователи еще не добавили книги!</h3>
