@@ -31,14 +31,13 @@ const MyBooks = () => {
                 <Button onClick={() => navigate(STATIC)} style={{width: '80%'}}>Статистика</Button>
             </div>
             <hr/>
-
             {
                 myBook.length === 0 
                 ?
                 <h1 className="MyBooks__SubTitle">MyBooks пуст!</h1>
                 :
-                 myBook.map(book =>
-                    <div key={book.id}>
+                 myBook.map((book, index) =>
+                    <div key={index}>
                         <div className="MyBook__List" >
                             <div className="MyBook__List-Wrapper">
                                 <h2>{book.id}. {book.title}</h2>
@@ -69,7 +68,6 @@ const MyBooks = () => {
                     </div> 
                 )
             }
-            
         </div>
     );
 };

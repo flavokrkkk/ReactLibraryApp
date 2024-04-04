@@ -4,27 +4,30 @@ import './LibraryPage.scss'
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchUsers, getOneBook } from '../../store/asyncActions/asyncData';
 import { ADD_USERONE, REMOVE_USER } from '../../store/userReducer';
-import { ADD_MYBOOKS } from '../../store/myBooksReducer';
+import { ADD_MYBOOKS} from '../../store/myBooksReducer';
 import LibraryPageList from './LibraryPageList';
 import { ADD_USERTWO, REMOVE_USER_TWO } from '../../store/userTwoReducer';
 import LibraryPageListTwo from './LibraryPageListTwo';
 import { Button } from 'antd';
+import { SET_DOSTUP_BOOK } from '../../store/bookOneReducer';
+import { EDIT_STATUS_ONHANDS } from '../../store/statusReducer';
 
 const LibraryPage = () => {
 
     //Целпяем id с поисковой строки
     const params = useParams()
-    
-    //Получаем данные из store
 
+    const [inMyBooks, setInMyBooks] = useState(false)
+
+    //Получаем данные из store
     const dispatch = useDispatch()
 
     const users = useSelector(state => state.users.users)
     const status = useSelector(state => state.status.status)
     const userTwo = useSelector(state => state.usersTwo.usersTwo)
     const oneBook = useSelector(state => state.oneBook.oneBook)
+    const myBook = useSelector(state => state.myBook.myBook)
 
-    console.log(status.onHands)
     //Функция добавления userов которые добавили в myBook
     const pushUserInMyBook = (users) => {
         dispatch({type: ADD_USERTWO, payload: users})
@@ -41,11 +44,26 @@ const LibraryPage = () => {
 
     //Логика по disabled кнопки
 
-    const addMyBook = () => {
-        alert('Книга  добавлена в My Book')
+    const myBooksId = (id) => {
+        let bool = false
+        myBook.forEach(el => {
+            if(el.id === id) {
+                bool = true
+            }
+        })
+        return bool
+    }
+    
+
+   const addMyBook = () => {
+        if(inMyBooks){
+            alert('Книга уже добавлена!')
+        } 
         dispatch({type: ADD_MYBOOKS, readed: false, payload: oneBook})
         dispatch({type: ADD_USERTWO, payload: {id: 101, name: 'Egor Yarovitsyn', email: 'egoryarovitsyn1@gmail.com'}})
+        setInMyBooks(true)
     }
+
 
     const addUser = (userName) => {
         const customer = {
@@ -57,14 +75,30 @@ const LibraryPage = () => {
 
 
     useEffect(() => {
-        userTwo.length > 3 ? oneBook.dostup = false : oneBook.dostup = true
-    }, [userTwo, users, pushUserInMyBook, removeUserinMyBook])
+        if (oneBook.dostup !== userTwo.length < 3) {
+            dispatch({type: SET_DOSTUP_BOOK, payload: userTwo.length < 3})
+        } 
+        
+    }, [userTwo.length, pushUserInMyBook, removeUserinMyBook])
+
+    useEffect(() => {
+        if(status.onHands === userTwo.length < 1) {
+            dispatch({type: EDIT_STATUS_ONHANDS, payload: !status.onHands})
+            console.log('Я true', status.onHands)
+        }
+        console.log('Я false', status.onHands)
+    }, [userTwo.length, pushUserInMyBook, removeUserinMyBook])
+
 
 
     useEffect(() => {
         dispatch(fetchUsers(10))
         dispatch(getOneBook(params.id))
     }, [])
+
+    useEffect(() => {
+        setInMyBooks()
+    }, [inMyBooks])
 
     return (
         <div className='Library__Page-Container'>
@@ -91,13 +125,18 @@ const LibraryPage = () => {
                     { oneBook.dostup === true ? <button>Доступна</button> : <button style={{background:"#8282db"}} disabled>Не доступна</button>}
                     { status.onHands === true ? <button style={{background:"#8282db"}} disabled>На руках</button>: <button>На руках</button> }
                 </div>
-                { 
+                {   
+                    myBooksId(oneBook.id)
+                    ?
+                    <button className='Library__Page-Button' disabled >Добавлена в MyBooks</button>
+                    :
                     oneBook.dostup === false
                     ?
-                    <button className='Library__Page-Button' disabled >Добавить в MyBooks</button>
+                    <button className='Library__Page-Button' disabled >Добавлена в MyBooks</button>
                     :
-                    <button className='Library__Page-Button'  onClick={addMyBook}>Добавить в MyBooks</button>
+                    <button className='Library__Page-Button' onClick={addMyBook}>Добавить в MyBooks</button>
                 }
+                
            </div>
            :
            <h2>Информация о книге отсутсвует</h2>

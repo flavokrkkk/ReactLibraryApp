@@ -1,5 +1,7 @@
 export const ADD_MYBOOKS = 'ADD_MYBOOKS';
 export const REMOVE_MYBOOKS = 'REMOVE_MYBOOKS'
+export const IN_MYBOOKS = 'IN_MYBOOKS'
+
 
 
 const initialState = {

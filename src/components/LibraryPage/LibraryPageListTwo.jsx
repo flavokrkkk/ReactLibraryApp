@@ -6,7 +6,7 @@ const LibraryPageListTwo = ({userTwo, removeUserinMyBook}) => {
         { userTwo.length > 0
           ?
           userTwo.map((user, index) => 
-                <div key={user.id}>
+                <div key={index}>
                     <div className='Libray__Page-User'>
                         {index + 1}. {user.name}
                         <p>{user.email}</p>

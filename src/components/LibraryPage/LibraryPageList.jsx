@@ -7,7 +7,7 @@ const LibraryPageList = ({users, onRead, pushUserInMyBook, oneBook}) => {
           { users.length > 0
             ?
           users.map((user, index) => 
-                <div key={user.id}>
+                <div key={index}>
                     <div className='Libray__Page-User' >
                         {index + 1}. {user.name}
                         <p>{user.email}</p>
