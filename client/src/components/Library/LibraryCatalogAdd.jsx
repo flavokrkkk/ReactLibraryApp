@@ -9,7 +9,6 @@ const LibraryCatalogAdd = () => {
     const [title, setTitle] = useState('')
     const [body, setBody] = useState('')
 
-
     const dispatch = useDispatch()
 
     const addNewBook = () => {

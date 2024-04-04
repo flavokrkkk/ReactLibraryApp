@@ -5,7 +5,6 @@ import { REMOVE_MYBOOKS } from "../../store/myBooksReducer";
 import { Button } from "antd";
 import { useNavigate } from "react-router-dom";
 import { STATIC } from "../../utils/const";
-import { useEffect } from "react";
 
 const MyBooks = () => {
 

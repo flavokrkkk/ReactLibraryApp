@@ -11,6 +11,7 @@ import LibraryPageListTwo from './LibraryPageListTwo';
 import { Button } from 'antd';
 import { SET_DOSTUP_BOOK } from '../../store/bookOneReducer';
 import { EDIT_STATUS_ONHANDS } from '../../store/statusReducer';
+import ButtonAdd from './ButtonAdd';
 
 const LibraryPage = () => {
 
@@ -63,9 +64,9 @@ const LibraryPage = () => {
      //Функция удаления пользователей из myBook
      const removeUserinMyBook = (user) => {
         dispatch({type: REMOVE_USER_TWO, payload: user})
-        // if(userTwo[0].id === 101) {
-        //     dispatch({type: REMOVE_MYBOOKS, payload: oneBook.id})
-        // } 
+        if(userTwo[0].id === 101) {
+            dispatch({type: REMOVE_MYBOOKS, payload: oneBook.id})
+        } 
     }
 
     const addUser = (userName) => {
@@ -126,18 +127,11 @@ const LibraryPage = () => {
                     { oneBook.dostup === true ? <button>Доступна</button> : <button style={{background:"#8282db"}} disabled>Не доступна</button>}
                     { status.onHands === true ? <button style={{background:"#8282db"}} disabled>На руках</button>: <button>На руках</button> }
                 </div>
-                {   
-                    myBooksId(oneBook.id)
-                    ?
-                    <button className='Library__Page-Button' disabled >Добавлена в MyBooks</button>
-                    :
-                    oneBook.dostup === false
-                    ?
-                    <button className='Library__Page-Button' disabled >Добавлена в MyBooks</button>
-                    :
-                    <button className='Library__Page-Button' onClick={addMyBook}>Добавить в MyBooks</button>
-                }
-                
+                <ButtonAdd
+                oneBook={oneBook}
+                addMyBook={addMyBook}
+                myBooksId={myBooksId}
+                />
            </div>
            :
            <h2>Информация о книге отсутсвует</h2>
