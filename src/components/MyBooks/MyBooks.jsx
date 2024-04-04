@@ -5,6 +5,7 @@ import { REMOVE_MYBOOKS } from "../../store/myBooksReducer";
 import { Button } from "antd";
 import { useNavigate } from "react-router-dom";
 import { STATIC } from "../../utils/const";
+import { useEffect } from "react";
 
 const MyBooks = () => {
 
@@ -22,6 +23,7 @@ const MyBooks = () => {
         setTimeout(() => {
             dispatch({type: REMOVE_MYBOOKS, payload: id})
         }, 500)
+        console.log('remove')
     }
 
     return (

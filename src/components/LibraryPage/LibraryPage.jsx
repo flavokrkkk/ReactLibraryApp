@@ -4,7 +4,7 @@ import './LibraryPage.scss'
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchUsers, getOneBook } from '../../store/asyncActions/asyncData';
 import { ADD_USERONE, REMOVE_USER } from '../../store/userReducer';
-import { ADD_MYBOOKS} from '../../store/myBooksReducer';
+import { ADD_MYBOOKS, REMOVE_MYBOOKS} from '../../store/myBooksReducer';
 import LibraryPageList from './LibraryPageList';
 import { ADD_USERTWO, REMOVE_USER_TWO } from '../../store/userTwoReducer';
 import LibraryPageListTwo from './LibraryPageListTwo';
@@ -32,11 +32,7 @@ const LibraryPage = () => {
     const pushUserInMyBook = (users) => {
         dispatch({type: ADD_USERTWO, payload: users})
     }
-    //Функция удаления пользователей из myBook
-    const removeUserinMyBook = (users) => {
-        dispatch({type: REMOVE_USER_TWO, payload: users})
-    }
-
+   
     //Функция удаления пользователя
     const onRead = (id) => {
         dispatch({type: REMOVE_USER, payload: id})
@@ -54,7 +50,7 @@ const LibraryPage = () => {
         return bool
     }
     
-
+    //Функция добавления книги в myBook
    const addMyBook = () => {
         if(inMyBooks){
             alert('Книга уже добавлена!')
@@ -64,6 +60,13 @@ const LibraryPage = () => {
         setInMyBooks(true)
     }
 
+     //Функция удаления пользователей из myBook
+     const removeUserinMyBook = (user) => {
+        dispatch({type: REMOVE_USER_TWO, payload: user})
+        // if(userTwo[0].id === 101) {
+        //     dispatch({type: REMOVE_MYBOOKS, payload: oneBook.id})
+        // } 
+    }
 
     const addUser = (userName) => {
         const customer = {
@@ -84,9 +87,7 @@ const LibraryPage = () => {
     useEffect(() => {
         if(status.onHands === userTwo.length < 1) {
             dispatch({type: EDIT_STATUS_ONHANDS, payload: !status.onHands})
-            console.log('Я true', status.onHands)
         }
-        console.log('Я false', status.onHands)
     }, [userTwo.length, pushUserInMyBook, removeUserinMyBook])
 
 
