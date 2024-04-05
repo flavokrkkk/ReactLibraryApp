@@ -15,7 +15,13 @@ const LibraryCatalog = () => {
 
     //Получаем отсортированный список книг
     const books = useSelector(state => state.books.books).sort()
+    
+    //Получаем состояние для идентификатора загрузки
     const loading = useSelector(state => state.books.loading)
+
+    //Получаем состояние для обработки ошибок
+    const error = useSelector(state => state.books.error)
+
     //Пагинация при скролле
     const currentPage = useSelector(state => state.books.currentPage)
 
@@ -27,7 +33,17 @@ const LibraryCatalog = () => {
     useEffect(() => {
         dispatch(fetchMovies(currentPage))
     }, [currentPage])
-
+    console.log(error)
+    if(error)  {    
+        return (
+            <h1 
+            className='Library__Catalog-Container Library__Catalog-Title'
+            style={{marginTop: '350px'}}
+            >
+                {error}
+            </h1>
+        )
+    }
 
     if(loading)  {
         return (
@@ -39,6 +55,8 @@ const LibraryCatalog = () => {
             </h1>
         )
     }
+
+    
 
     return (
         <div className='Library__Catalog-Container'>  
