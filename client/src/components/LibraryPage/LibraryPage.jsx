@@ -45,9 +45,6 @@ const LibraryPage = () => {
         setInMyBooks(true)
     }
 
-
-
-
     useEffect(() => {
         dispatch(fetchUsers(10))
         dispatch(getOneBook(params.id))

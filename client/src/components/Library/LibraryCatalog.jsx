@@ -33,7 +33,8 @@ const LibraryCatalog = () => {
     useEffect(() => {
         dispatch(fetchMovies(currentPage))
     }, [currentPage])
-    console.log(error)
+
+
     if(error)  {    
         return (
             <h1 
@@ -56,7 +57,6 @@ const LibraryCatalog = () => {
         )
     }
 
-    
 
     return (
         <div className='Library__Catalog-Container'>  
