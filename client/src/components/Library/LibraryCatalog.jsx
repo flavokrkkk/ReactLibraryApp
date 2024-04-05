@@ -13,13 +13,13 @@ const LibraryCatalog = () => {
 
     const dispatch = useDispatch()
 
-    //Пагинация при скролле
-
+    //Получаем отсортированный список книг
     const books = useSelector(state => state.books.books).sort()
 
+    //Пагинация при скролле
     const currentPage = useSelector(state => state.books.currentPage)
 
-    //Поиск книг c помощью useMemo
+    // Реализация поиска книг c помощью useMemo
     const searchAndSortedBook = useMemo(() => {
         return books.sort().filter(book => book.title.toLowerCase().includes(value.toLowerCase()))
     }, [value, books])
