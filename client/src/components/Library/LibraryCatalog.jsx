@@ -15,7 +15,7 @@ const LibraryCatalog = () => {
 
     //Получаем отсортированный список книг
     const books = useSelector(state => state.books.books).sort()
-
+    const loading = useSelector(state => state.books.loading)
     //Пагинация при скролле
     const currentPage = useSelector(state => state.books.currentPage)
 
@@ -28,6 +28,17 @@ const LibraryCatalog = () => {
         dispatch(fetchMovies(currentPage))
     }, [currentPage])
 
+
+    if(loading)  {
+        return (
+            <h1 
+            className='Library__Catalog-Container Library__Catalog-Title'
+            style={{marginTop: '350px'}}
+            >
+                Loading...
+            </h1>
+        )
+    }
 
     return (
         <div className='Library__Catalog-Container'>  
