@@ -1,7 +1,7 @@
 import React from 'react';
 import { Route, Routes } from 'react-router-dom';
 import { routes } from './routes';
-import LibraryCatalog from '../components/Library/LibraryCatalog';
+import AuthPage from '../components/Authorization/AuthPage';
 
 const AppRouter = () => {
     return (
@@ -9,7 +9,7 @@ const AppRouter = () => {
             {routes.map(({path, Component}) => 
                     <Route key={path} path={path} Component={Component}/>
                 )}
-                <Route path='*' Component={LibraryCatalog}/>
+                <Route path='*' Component={AuthPage}/>
         </Routes>
     );
 };

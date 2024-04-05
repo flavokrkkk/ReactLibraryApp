@@ -1,3 +1,4 @@
+import AuthPage from "../components/Authorization/AuthPage";
 import LibraryCatalog from "../components/Library/LibraryCatalog";
 import LibraryPage from "../components/LibraryPage/LibraryPage";
 import MyBooks from "../components/MyBooks/MyBooks";
@@ -23,6 +24,11 @@ export const routes = [
     {
         path: STATIC,
         Component: StaticPage
+    },
+
+    {
+        path: '/auth',
+        Component: AuthPage
     },
 
 ]
