@@ -9,6 +9,10 @@ const AuthPage = () => {
 
     const navigate = useNavigate()
 
+    const navigateTo = () => {
+        navigate('/catalog')
+    }
+
     return (
         <section className='main-block' style={{display: 'flex', justifyContent: 'center', alignItems: 'center', minHeight: '90vh', width: '100%'}}>
             <div className='form-box'>
@@ -44,9 +48,9 @@ const AuthPage = () => {
                         {
                             isAuth == true
                             ?
-                            <button className='btn-log' onClick={() => navigate('/catalog')}>Sign in</button>
+                            <button className='btn-log' onClick={navigateTo}>Sign in</button>
                             :
-                            <button className='btn-log' onClick={() => navigate('/catalog')}>Sign up</button>
+                            <button className='btn-log' onClick={navigateTo}>Sign up</button>
                         }
                         
                         <Link to={CATALOG} style={{textDecoration: 'none'}}>

@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState } from 'react';
+import { useCallback, useEffect, useMemo, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import './LibraryCatalog.scss'
 import { fetchMovies} from '../../store/asyncActions/asyncData';
@@ -29,6 +29,10 @@ const LibraryCatalog = () => {
     const searchAndSortedBook = useMemo(() => {
         return books.sort().filter(book => book.title.toLowerCase().includes(value.toLowerCase()))
     }, [value, books])
+
+    const onChange = useCallback((e) => {
+        setValue(e.target.value)
+    }, [])
 
     useEffect(() => {
         dispatch(fetchMovies(currentPage))
@@ -66,7 +70,7 @@ const LibraryCatalog = () => {
                 </h1>
                 <div className='Library__Catalog-Input'>
                 <Space.Compact style={{ width: '70%'}}>
-                    <Input value={value} onChange={(e) => setValue(e.target.value)} style={{height: 40}} placeholder='Поиск книг...'/>
+                    <Input value={value} onChange={onChange} style={{height: 40}} placeholder='Поиск книг...'/>
                     <Button style={{height: 40}} type="default">Submit</Button>
                 </Space.Compact>
                 </div>

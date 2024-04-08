@@ -19,6 +19,8 @@ const LibraryCatalogAdd = () => {
         dispatch({type: ADD_BOOK, payload: books})
     }
 
+    //onChange вижу, но компонент не используется
+
     return (
         <div>
             <Input value={title} onChange={(e) => setTitle(e.target.value)}/>
