@@ -43,7 +43,6 @@ const UserList = ({status, oneBook}) => {
         } 
     }
 
-    
     useEffect(() => {
         if (oneBook.dostup !== userTwo.length < 3) {
             dispatch({type: SET_DOSTUP_BOOK, payload: userTwo.length < 3})

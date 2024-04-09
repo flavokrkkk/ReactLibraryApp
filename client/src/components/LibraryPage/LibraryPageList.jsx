@@ -1,6 +1,12 @@
 import { Button } from 'antd';
+import { useCallback } from 'react';
 
 const LibraryPageList = ({users, onRead, pushUserInMyBook, oneBook}) => {
+
+    const actionWithUser = useCallback((user) => {
+        pushUserInMyBook(user)
+        onRead(user.id)
+    }, [])
 
     return (
         <>
@@ -16,10 +22,7 @@ const LibraryPageList = ({users, onRead, pushUserInMyBook, oneBook}) => {
                        ? 
                        <Button 
                         className='Libray__Page-User-Button'
-                        onClick={() => {
-                        pushUserInMyBook(user)
-                        onRead(user.id)
-                        }}
+                        onClick={() => actionWithUser(user)}
                             >
                                 push to myBook
                         </Button>
