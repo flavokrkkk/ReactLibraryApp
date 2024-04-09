@@ -14,7 +14,7 @@ const StaticPage = () => {
             <hr/>
             <Table/>
             <div style={{textAlign: 'center'}}>
-                <Button onClick={() => deletedStatic()}>Сброс статистики</Button>
+                <Button onClick={deletedStatic}>Сброс статистики</Button>
             </div>
         </div>
     );
