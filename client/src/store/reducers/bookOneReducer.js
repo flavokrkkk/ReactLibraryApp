@@ -1,6 +1,4 @@
-export const GET_ONE_BOOK = 'GET_ONE_BOOK'
-export const SET_DOSTUP_BOOK = 'SET_DOSTUP_BOOK'
-
+import { GET_ONE_BOOK, SET_DOSTUP_BOOK } from "../actionCreators"
 
 const initialState = {
     oneBook: {

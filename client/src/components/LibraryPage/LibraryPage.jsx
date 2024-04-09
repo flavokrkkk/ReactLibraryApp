@@ -3,15 +3,16 @@ import { useParams } from 'react-router-dom';
 import './LibraryPage.scss'
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchUsers, getOneBook } from '../../store/asyncActions/asyncData';
-import { ADD_MYBOOKS} from '../../store/myBooksReducer';
-import { ADD_USERTWO } from '../../store/userTwoReducer';
 import ButtonAdd from './ButtonAdd';
 import UserList from './UserList';
+import  {useAction}  from '../../store';
 
 const LibraryPage = () => {
 
     //Целпяем id с поисковой строки
     const params = useParams()
+
+    const {addMyBooksAction, addUserTwoAction} = useAction()
 
     //Состояние для disabled кнопки
     const [inMyBooks, setInMyBooks] = useState(false)
@@ -40,8 +41,8 @@ const LibraryPage = () => {
         if(inMyBooks){
             alert('Книга уже добавлена!')
         } 
-        dispatch({type: ADD_MYBOOKS, readed: false, payload: oneBook})
-        dispatch({type: ADD_USERTWO, payload: {id: 101, name: 'Egor Yarovitsyn', email: 'egoryarovitsyn1@gmail.com'}})
+        addMyBooksAction(oneBook)
+        addUserTwoAction({id: 101, name: 'Egor Yarovitsyn', email: 'egoryarovitsyn1@gmail.com'})
         setInMyBooks(true)
     }
 

@@ -1,10 +1,10 @@
-import { useDispatch } from 'react-redux';
 import './Pagination.scss'
+import { useAction } from '../../store';
 
-const Pagination = ({currentPage, setCurrentPage}) => {
+const Pagination = ({currentPage}) => {
     const pages = [1, 2, 3, 4, 5]
 
-    const dispatch = useDispatch()
+    const {setCurrentPage} = useAction()
 
     return (
     <div className='pages'>
@@ -13,7 +13,7 @@ const Pagination = ({currentPage, setCurrentPage}) => {
                 className={currentPage == page ? 
                 'current__page': 'page'} 
                 key={index}
-                onClick={() => dispatch(setCurrentPage(page))}
+                onClick={() => setCurrentPage(page)}
                 >
                 {page}
                 </span>

@@ -1,20 +1,25 @@
 import { useEffect } from "react";
-import { ADD_USERONE, REMOVE_USER } from "../../store/userReducer";
-import { ADD_USERTWO, REMOVE_USER_TWO } from "../../store/userTwoReducer";
-import { useDispatch, useSelector } from "react-redux";
-import { SET_DOSTUP_BOOK } from "../../store/bookOneReducer";
-import { EDIT_STATUS_ONHANDS } from "../../store/statusReducer";
+import { useSelector } from "react-redux";
 import { Button } from "antd";
 import LibraryPageList from "./LibraryPageList";
 import LibraryPageListTwo from "./LibraryPageListTwo";
+import { useAction } from "../../store";
 
 const UserList = ({status, oneBook}) => {
 
     //Получаем списки userов из store
     const users = useSelector(state => state.users.users)
     const userTwo = useSelector(state => state.usersTwo.usersTwo)
-
-    const dispatch = useDispatch()
+    const {
+            addUserOneAction,
+            addUserTwoAction,
+            editStatusAction, 
+            removeMyBooksAction, 
+            removeUserAction, 
+            removeUserTwoAction, 
+            setAvailableBookAction
+            } 
+    = useAction()
 
     //Функция добавления usera в очередь за книгой
     const addUser = (userName) => {
@@ -22,37 +27,37 @@ const UserList = ({status, oneBook}) => {
             id: Date.now(),
             name: userName
         }
-        dispatch({type: ADD_USERONE, payload: customer})
+        addUserOneAction(customer)
     }
 
     //Функция удаления пользователя
     const onRead = (id) => {
-        dispatch({type: REMOVE_USER, payload: id})
+        removeUserAction(id)
     }   
 
     //Функция добавления userов которые добавили в myBook
     const pushUserInMyBook = (users) => {
-        dispatch({type: ADD_USERTWO, payload: users})
+        addUserTwoAction(users)
     }
 
     //Функция удаления пользователей из myBook
     const removeUserinMyBook = (user) => {
-        dispatch({type: REMOVE_USER_TWO, payload: user})
+            removeUserTwoAction(user)
         if(userTwo[0].id === 101) {
-            dispatch({type: REMOVE_MYBOOKS, payload: oneBook.id})
+            removeMyBooksAction(user.id)
         } 
     }
 
     useEffect(() => {
         if (oneBook.dostup !== userTwo.length < 3) {
-            dispatch({type: SET_DOSTUP_BOOK, payload: userTwo.length < 3})
+                setAvailableBookAction(userTwo.length < 3)
         } 
         
     }, [userTwo.length, pushUserInMyBook, removeUserinMyBook])
 
     useEffect(() => {
         if(status.onHands === userTwo.length < 1) {
-            dispatch({type: EDIT_STATUS_ONHANDS, payload: !status.onHands})
+                editStatusAction( !status.onHands)
         }
     }, [userTwo.length, pushUserInMyBook, removeUserinMyBook])
 

@@ -5,7 +5,6 @@ import { fetchMovies} from '../../store/asyncActions/asyncData';
 import { Button, Input, Space } from 'antd';
 import LibaryCatalogList from './LibaryCatalogList';
 import Pagination from '../Pagination/Pagination';
-import { setCurrentPage } from '../../store/bookReducer';
 
 const LibraryCatalog = () => {
 
@@ -80,7 +79,6 @@ const LibraryCatalog = () => {
             />
             </div>
             <Pagination 
-                setCurrentPage={setCurrentPage}
                 currentPage={currentPage}
             />
         </div>

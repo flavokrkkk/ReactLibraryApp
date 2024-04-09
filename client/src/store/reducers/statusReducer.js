@@ -1,6 +1,4 @@
-export const EDIT_STATUS = 'EDIT_STATUS'
-export const EDIT_STATUS_ONHANDS = 'EDIT_STATUS_ONHANDS'
-
+import { EDIT_STATUS, EDIT_STATUS_ONHANDS } from "../actionCreators"
 
 const initialState = {
     status: {

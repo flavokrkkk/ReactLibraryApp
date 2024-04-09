@@ -1,6 +1,6 @@
+import { ADD_USERTWO, REMOVE_USER_TWO } from "../actionCreators"
 
-export const ADD_USERTWO = 'ADD_USER'
-export const REMOVE_USER_TWO = 'REMOVE_USER_TWO'
+
 const initialState = {
     usersTwo: [],
 }

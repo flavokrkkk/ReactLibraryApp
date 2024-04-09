@@ -8,7 +8,7 @@ const NavBar = () => {
         <div className="NavBar">
         <div className="NavBar__content">
             <div className="NavBar__content-leftSide">
-                    <NavLink style={{textDecoration: 'none'}} to={CATALOG}>
+                    <NavLink style={{textDecoration: 'none'}} to={'/auth'}>
                         <div className="NavBar-logo">
                             Sbook
                         </div>

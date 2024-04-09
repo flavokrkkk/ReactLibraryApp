@@ -1,6 +1,4 @@
-export const REMOVE_USER = 'REMOVE_USER'
-export const ADD_USERS = 'ADD_USERS'
-export const ADD_USERONE = 'ADD_USERONE'
+import { ADD_USERONE, ADD_USERS, REMOVE_USER } from "../actionCreators"
 
 const initialState = {
     users: [],
