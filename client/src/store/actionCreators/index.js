@@ -10,7 +10,7 @@ export const FETCH_BOOKS_LOADING = 'FETCH_BOOKS_LOADING'
 export const FETCH_BOOKS_ERROR = 'FETCH_BOOKS_ERROR'
 //bookOne
 export const GET_ONE_BOOK = 'GET_ONE_BOOK'
-export const SET_DOSTUP_BOOK = 'SET_DOSTUP_BOOK'
+export const SET_AVAILABLE_BOOK = 'SET_AVAILABLE_BOOK'
 //status
 export const EDIT_STATUS = 'EDIT_STATUS'
 export const EDIT_STATUS_ONHANDS = 'EDIT_STATUS_ONHANDS'
@@ -34,7 +34,7 @@ export const fetchBooksErrorAction = payload => ({type: FETCH_BOOKS_ERROR, paylo
 export const setCurrentPage = payload => ({type: SET_CURRENT_PAGE, payload})
 
 //Action-creators 3
-export const setAvailableBookAction = payload => ({type: SET_DOSTUP_BOOK, payload})
+export const setAvailableBookAction = payload => ({type: SET_AVAILABLE_BOOK, payload})
 export const getOneBookAction = payload => ({type: GET_ONE_BOOK, payload})
 
 //Action-creators 4
