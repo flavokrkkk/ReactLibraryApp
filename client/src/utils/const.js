@@ -1,5 +1,5 @@
-export const CATALOG = '/catalog'
-export const MYBOOKS = '/mybooks'
-export const INFO = '/info/:id'
-export const STATIC = '/static'
-export const AUTH = '/auth'
+export const CATALOG = "/catalog";
+export const MYBOOKS = "/mybooks";
+export const INFO = "/info/:id";
+export const STATIC = "/static";
+export const AUTH = "/auth";
