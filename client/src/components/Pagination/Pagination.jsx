@@ -1,25 +1,24 @@
-import './Pagination.scss'
-import { useAction } from '../../store';
+import "./Pagination.scss";
+import { useAction } from "../../store";
 
-const Pagination = ({currentPage}) => {
-    const pages = [1, 2, 3, 4, 5]
+const Pagination = ({ currentPage }) => {
+  const pages = [1, 2, 3, 4, 5];
 
-    const {setCurrentPage} = useAction()
+  const { setCurrentPage } = useAction();
 
-    return (
-    <div className='pages'>
-        {pages.map((page, index) => 
-                <span
-                className={currentPage == page ? 
-                'current__page': 'page'} 
-                key={index}
-                onClick={() => setCurrentPage(page)}
-                >
-                {page}
-                </span>
-            )}
+  return (
+    <div className="pages">
+      {pages.map((page, index) => (
+        <span
+          className={currentPage == page ? "current__page" : "page"}
+          key={index}
+          onClick={() => setCurrentPage(page)}
+        >
+          {page}
+        </span>
+      ))}
     </div>
-    );
+  );
 };
 
 export default Pagination;

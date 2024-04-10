@@ -1,5 +1,5 @@
 import { useSelector } from "react-redux";
-import './MyBooks.scss'
+import "./MyBooks.scss";
 import { Button } from "antd";
 import { useNavigate } from "react-router-dom";
 import { STATIC } from "../../utils/const";
@@ -8,44 +8,45 @@ import { useCallback } from "react";
 import { useAction } from "../../store";
 
 const MyBooks = () => {
+  const myBook = useSelector((state) => state.myBook.myBook);
+  const status = useSelector((state) => state.status.status);
 
-    const myBook = useSelector(state => state.myBook.myBook)
-    const status = useSelector(state => state.status.status)
-    
-    const {editStatusBookAction, removeMyBooksAction} = useAction()
+  const { editStatusBookAction, removeMyBooksAction } = useAction();
 
-    const navigate = useNavigate()
+  const navigate = useNavigate();
 
-    const isReaded = (book) => {
-        editStatusBookAction(book)
-    }
+  const isReaded = (book) => {
+    editStatusBookAction(book);
+  };
 
-    const navigateTo = useCallback(() => {
-        navigate(STATIC)
-    }, [])
+  const navigateTo = useCallback(() => {
+    navigate(STATIC);
+  }, []);
 
-    const removeBook = (id) => {
-        setTimeout(() => {
-            removeMyBooksAction(id)
-        }, 500)
-        console.log('remove')
-    }
+  const removeBook = (id) => {
+    setTimeout(() => {
+      removeMyBooksAction(id);
+    }, 500);
+    console.log("remove");
+  };
 
-    return (
-        <div className="MyBooks__Container">
-            <h1 className="MyBooks__Title">MyBooks</h1>
-            <div className="MyBooks__Button-Static">
-                <Button onClick={navigateTo} style={{width: '80%'}}>Статистика</Button>
-            </div>
-            <hr/>
-            <MyBooksList
-                status={status}
-                myBook={myBook}
-                removeBook={removeBook}
-                isReaded={isReaded}
-            />
-        </div>
-    );
+  return (
+    <div className="MyBooks__Container">
+      <h1 className="MyBooks__Title">MyBooks</h1>
+      <div className="MyBooks__Button-Static">
+        <Button onClick={navigateTo} style={{ width: "80%" }}>
+          Статистика
+        </Button>
+      </div>
+      <hr />
+      <MyBooksList
+        status={status}
+        myBook={myBook}
+        removeBook={removeBook}
+        isReaded={isReaded}
+      />
+    </div>
+  );
 };
 
 export default MyBooks;
