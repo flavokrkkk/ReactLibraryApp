@@ -1,13 +1,8 @@
-export const ADD_MYBOOKS = 'ADD_MYBOOKS';
-export const REMOVE_MYBOOKS = 'REMOVE_MYBOOKS'
-export const IN_MYBOOKS = 'IN_MYBOOKS'
-
-
+import { ADD_MYBOOKS, REMOVE_MYBOOKS } from "../actionCreators"
 
 const initialState = {
     myBook: [],
 }
-
 
 export const myBooksReducer = (state = initialState, action) => {
         switch(action.type) {
@@ -19,4 +14,5 @@ export const myBooksReducer = (state = initialState, action) => {
                 return state
         }
 }
+
 

@@ -1,11 +1,12 @@
-import { applyMiddleware, combineReducers, createStore } from "redux";
+import { applyMiddleware, combineReducers, createStore, bindActionCreators } from "redux";
 import { thunk } from "redux-thunk";
-import { bookReducer } from "./bookReducer";
-import { userReducer } from "./userReducer";
-import { statusReducer } from "./statusReducer";
-import { myBooksReducer } from "./myBooksReducer";
-import { userTwoReducer } from "./userTwoReducer";
-import { bookOneReducer } from "./bookOneReducer";
+import { bookReducer } from "./reducers/bookReducer";
+import { userReducer } from "./reducers/userReducer";
+import { statusReducer } from "./reducers/statusReducer";
+import { myBooksReducer } from "./reducers/myBooksReducer";
+import { userTwoReducer } from "./reducers/userTwoReducer";
+import { bookOneReducer } from "./reducers/bookOneReducer";
+import ActionCreators from './actionCreators/index.js'
 
 export const rootReducer = combineReducers({
     books: bookReducer,
@@ -18,3 +19,8 @@ export const rootReducer = combineReducers({
 })
 
 export const store = createStore(rootReducer, applyMiddleware(thunk))
+
+
+export const useAction = () => {
+    return bindActionCreators(ActionCreators, store.dispatch)
+}
