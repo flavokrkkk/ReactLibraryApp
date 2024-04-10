@@ -13,13 +13,13 @@ export const GET_ONE_BOOK = 'GET_ONE_BOOK'
 export const SET_AVAILABLE_BOOK = 'SET_AVAILABLE_BOOK'
 //status
 export const EDIT_STATUS = 'EDIT_STATUS'
-export const EDIT_STATUS_ONHANDS = 'EDIT_STATUS_ONHANDS'
+export const EDIT_STATUS_ON_HANDS = 'EDIT_STATUS_ON_HANDS'
 //user
 export const REMOVE_USER = 'REMOVE_USER'
 export const ADD_USERS = 'ADD_USERS'
-export const ADD_USERONE = 'ADD_USERONE'
+export const ADD_USER_ONE = 'ADD_USER_ONE'
 //userTwo
-export const ADD_USERTWO = 'ADD_USER'
+export const ADD_USER_TWO = 'ADD_USER'
 export const REMOVE_USER_TWO = 'REMOVE_USER_TWO'
 
 
@@ -38,16 +38,16 @@ export const setAvailableBookAction = payload => ({type: SET_AVAILABLE_BOOK, pay
 export const getOneBookAction = payload => ({type: GET_ONE_BOOK, payload})
 
 //Action-creators 4
-export const editStatusAction = payload => ({type: EDIT_STATUS_ONHANDS, payload})
+export const editStatusAction = payload => ({type: EDIT_STATUS_ON_HANDS, payload})
 export const editStatusBookAction = payload => ({type: EDIT_STATUS, payload})
 
 //Action-creators 5
 export const addUserAction = payload => ({type: ADD_USERS, payload})
-export const addUserOneAction = payload => ({type: ADD_USERONE, payload})
+export const addUserOneAction = payload => ({type: ADD_USER_ONE, payload})
 export const removeUserAction = payload => ({type: REMOVE_USER, payload})
 
 //Action-creators 6
-export const addUserTwoAction = payload => ({type: ADD_USERTWO, payload})
+export const addUserTwoAction = payload => ({type: ADD_USER_TWO, payload})
 export const removeUserTwoAction = payload => ({type: REMOVE_USER_TWO, payload})
 
 
