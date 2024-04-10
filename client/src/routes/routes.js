@@ -6,29 +6,28 @@ import StaticPage from "../components/StaticPage/StaticPage";
 import { CATALOG, INFO, MYBOOKS, STATIC } from "../utils/const";
 
 export const routes = [
-    {
-        path: CATALOG,
-        Component: LibraryCatalog
-    },
+  {
+    path: CATALOG,
+    Component: LibraryCatalog,
+  },
 
-    {
-        path: MYBOOKS,
-        Component: MyBooks
-    },
+  {
+    path: MYBOOKS,
+    Component: MyBooks,
+  },
 
-    {
-        path: INFO,
-        Component: LibraryPage
-    },
+  {
+    path: INFO,
+    Component: LibraryPage,
+  },
 
-    {
-        path: STATIC,
-        Component: StaticPage
-    },
+  {
+    path: STATIC,
+    Component: StaticPage,
+  },
 
-    {
-        path: '/auth',
-        Component: AuthPage
-    },
-
-]
+  {
+    path: "/auth",
+    Component: AuthPage,
+  },
+];

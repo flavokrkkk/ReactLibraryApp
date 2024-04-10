@@ -1,71 +1,66 @@
 .MyBooks__Title {
-    font-family: "Roboto", sans-serif;
-    text-align: center;
-    font-weight: 400;
-    font-size: 42px;
-    margin-bottom: 30px;
-    color: #1A1A1A;
+  font-family: "Roboto", sans-serif;
+  text-align: center;
+  font-weight: 400;
+  font-size: 42px;
+  margin-bottom: 30px;
+  color: #1a1a1a;
 }
 
 .MyBooks__Container {
-    max-width: 75%;
-    margin: 0 auto;
-    font-family: "Roboto", sans-serif;
-    text-align: start;
-    font-weight: 300;
-    h2 {
-        font-size: 18px;
-        font-weight: 400;
-        text-align: center;
-        margin-bottom: 10px;
-    }
-    hr {
-        margin-bottom: 30px;
-        margin-top: 30px;
-    }
-    
+  max-width: 75%;
+  margin: 0 auto;
+  font-family: "Roboto", sans-serif;
+  text-align: start;
+  font-weight: 300;
+  h2 {
+    font-size: 18px;
+    font-weight: 400;
+    text-align: center;
+    margin-bottom: 10px;
+  }
+  hr {
+    margin-bottom: 30px;
+    margin-top: 30px;
+  }
 }
 
-
-
 .MyBook__List {
-    max-width: 70%;
-    margin: 0 auto;
-    border: 1px solid black;
-    padding: 30px;
-    margin-bottom: 20px;
+  max-width: 70%;
+  margin: 0 auto;
+  border: 1px solid black;
+  padding: 30px;
+  margin-bottom: 20px;
 }
 
 .MyBook__List-Descr {
-    text-align: center;
-    
+  text-align: center;
 }
 
 .MyBook__List-Button {
-    text-align: center;
-    margin-top: 30px;
-    button {
-        width: 130px;
-        height: 30px;
-        font-family: "Roboto", sans-serif;
-        font-weight: 300;
-        background-color: #D0D0E5;
-        border: 1px solid #D9D9D9; 
-        border-radius: 3px;
-        transition: 0.5s linear;
-        &:hover {
-            background-color: #ababc9;
-        }
+  text-align: center;
+  margin-top: 30px;
+  button {
+    width: 130px;
+    height: 30px;
+    font-family: "Roboto", sans-serif;
+    font-weight: 300;
+    background-color: #d0d0e5;
+    border: 1px solid #d9d9d9;
+    border-radius: 3px;
+    transition: 0.5s linear;
+    &:hover {
+      background-color: #ababc9;
+    }
+  }
 }
-}
-
 
 .MyBooks__SubTitle {
-    text-align: center;
-    margin-top: 30px;
-    font-size: 28px;
+  text-align: center;
+  margin-top: 30px;
+  font-size: 28px;
 }
 
 .MyBooks__Button-Static {
-    text-align: center;
+  text-align: center;
 }

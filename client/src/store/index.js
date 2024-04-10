@@ -8,13 +8,13 @@ import { userTwoReducer } from "./userTwoReducer";
 import { bookOneReducer } from "./bookOneReducer";
 
 export const rootReducer = combineReducers({
-    books: bookReducer,
-    status: statusReducer,
-    users: userReducer,
-    idBook: bookReducer,
-    myBook: myBooksReducer,
-    usersTwo: userTwoReducer,
-    oneBook: bookOneReducer,
-})
+  books: bookReducer,
+  status: statusReducer,
+  users: userReducer,
+  idBook: bookReducer,
+  myBook: myBooksReducer,
+  usersTwo: userTwoReducer,
+  oneBook: bookOneReducer,
+});
 
-export const store = createStore(rootReducer, applyMiddleware(thunk))
+export const store = createStore(rootReducer, applyMiddleware(thunk));

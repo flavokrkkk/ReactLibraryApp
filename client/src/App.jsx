@@ -1,14 +1,13 @@
-import LibraryCatalog from './components/Library/LibraryCatalog'
-import NavBar from './components/NavBar/NavBar'
-import AppRouter from './routes/AppRouter'
+import NavBar from "./components/NavBar/NavBar";
+import AppRouter from "./routes/AppRouter";
 
 function App() {
   return (
     <div>
-      <NavBar/>
-      <AppRouter/>
+      <NavBar />
+      <AppRouter />
     </div>
-  )
+  );
 }
 
-export default App
+export default App;
