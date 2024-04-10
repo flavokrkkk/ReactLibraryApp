@@ -1,6 +1,6 @@
 import './NavBar.scss'
 import { NavLink } from 'react-router-dom';
-import { CATALOG, MYBOOKS } from '../../utils/const';
+import { AUTH, CATALOG, MYBOOKS } from '../../utils/const';
 
 
 const NavBar = () => {
@@ -8,7 +8,7 @@ const NavBar = () => {
         <div className="NavBar">
         <div className="NavBar__content">
             <div className="NavBar__content-leftSide">
-                    <NavLink style={{textDecoration: 'none'}} to={CATALOG}>
+                    <NavLink style={{textDecoration: 'none'}} to={AUTH}>
                         <div className="NavBar-logo">
                             Sbook
                         </div>

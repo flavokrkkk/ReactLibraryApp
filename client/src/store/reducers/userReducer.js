@@ -1,6 +1,4 @@
-export const REMOVE_USER = 'REMOVE_USER'
-export const ADD_USERS = 'ADD_USERS'
-export const ADD_USERONE = 'ADD_USERONE'
+import { ADD_USERS, ADD_USER_ONE, REMOVE_USER } from "../actionCreators"
 
 const initialState = {
     users: [],
@@ -13,7 +11,7 @@ export const userReducer = (state = initialState, action) => {
                 return {...state, users: state.users.filter(user => user.id !== action.payload)}
             case ADD_USERS:
                 return {state, users: [...state.users, ...action.payload]}
-            case ADD_USERONE:
+            case ADD_USER_ONE:
                 return {state, users: [...state.users, action.payload]}
             default:
                 return state

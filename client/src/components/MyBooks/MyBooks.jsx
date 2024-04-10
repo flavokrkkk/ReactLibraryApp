@@ -1,23 +1,23 @@
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 import './MyBooks.scss'
-import { EDIT_STATUS } from "../../store/statusReducer";
-import { REMOVE_MYBOOKS } from "../../store/myBooksReducer";
 import { Button } from "antd";
 import { useNavigate } from "react-router-dom";
 import { STATIC } from "../../utils/const";
 import MyBooksList from "./MyBooksList";
 import { useCallback } from "react";
+import { useAction } from "../../store";
 
 const MyBooks = () => {
 
     const myBook = useSelector(state => state.myBook.myBook)
     const status = useSelector(state => state.status.status)
-    const dispatch = useDispatch()
+    
+    const {editStatusBookAction, removeMyBooksAction} = useAction()
 
     const navigate = useNavigate()
 
     const isReaded = (book) => {
-        dispatch({type: EDIT_STATUS, payload: book})
+        editStatusBookAction(book)
     }
 
     const navigateTo = useCallback(() => {
@@ -26,7 +26,7 @@ const MyBooks = () => {
 
     const removeBook = (id) => {
         setTimeout(() => {
-            dispatch({type: REMOVE_MYBOOKS, payload: id})
+            removeMyBooksAction(id)
         }, 500)
         console.log('remove')
     }

@@ -1,9 +1,4 @@
-export const FETCH_BOOKS = 'FETCH_BOOKS'
-export const SET_CURRENT_PAGE = 'SET_CURRENT_PAGE'
-export const ADD_BOOK = 'ADD_BOOK'
-export const FETCH_BOOKS_LOADING = 'FETCH_BOOKS_LOADING'
-export const FETCH_BOOKS_ERROR = 'FETCH_BOOKS_ERROR'
-
+import { ADD_BOOK, FETCH_BOOKS, FETCH_BOOKS_ERROR, FETCH_BOOKS_LOADING, SET_CURRENT_PAGE } from "../actionCreators"
 
 const initialState = {
     books: [],
@@ -28,8 +23,3 @@ export const bookReducer = (state = initialState, action) => {
                 return state
         }
 } 
-
-
-export const setCurrentPage = (page) => ({type: SET_CURRENT_PAGE, payload: page })
-
-//1.24

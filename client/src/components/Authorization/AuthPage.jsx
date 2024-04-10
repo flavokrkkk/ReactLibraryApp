@@ -10,7 +10,7 @@ const AuthPage = () => {
     const navigate = useNavigate()
 
     const navigateTo = () => {
-        navigate('/catalog')
+        navigate(CATALOG)
     }
 
     const noAuthRoute = () => {
