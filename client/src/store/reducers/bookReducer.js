@@ -13,6 +13,9 @@ const initialState = {
   error: null,
 };
 
+let book = "";
+book = 5;
+
 export const bookReducer = (state = initialState, action) => {
   switch (action.type) {
     case FETCH_BOOKS_LOADING:

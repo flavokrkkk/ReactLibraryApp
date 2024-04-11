@@ -1,0 +1,73 @@
+.Library__Catalog-Item {
+  border: 1px solid black;
+  padding: 30px;
+  border-radius: 20px;
+  margin-bottom: 40px;
+}
+
+.Library__Catalog-Item-Title {
+  font-size: 22px;
+  font-weight: 500;
+  padding-bottom: 40px;
+}
+
+.Library__Catalog-Item-Descr {
+  font-size: 18px;
+  font-weight: 300;
+  padding-bottom: 40px;
+}
+
+.Library__Catalog-Item-Author {
+  font-size: 18px;
+  font-weight: 300;
+  padding-bottom: 10px;
+  padding-top: 10px;
+}
+
+.Library__Button-Item {
+  width: 60%;
+  height: 50px;
+  margin-top: 22px;
+  display: inline-block;
+  cursor: pointer;
+  color: #000000;
+  text-transform: uppercase;
+  font-size: 12px;
+  letter-spacing: 0.15rem;
+  transition: all 0.3s;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+  &:after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    background-color: #fff;
+    z-index: -2;
+    border: 1px solid white;
+  }
+  &:before {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0%;
+    height: 100%;
+    background-color: darken(white, 15%);
+    transition: all 0.3s;
+    z-index: -1;
+    border: 1px solid white;
+  }
+  &:hover {
+    color: #fff;
+    &:before {
+      width: 100%;
+    }
+  }
+}
+
+.Library__Catalog-Item-Author-Title {
+  font-weight: 400;
+  text-transform: uppercase;
+}

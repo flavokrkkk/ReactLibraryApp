@@ -1,5 +1,5 @@
-import LibraryCatalog from "./components/Library/LibraryCatalog";
-import NavBar from "./components/NavBar/NavBar";
+import LibraryCatalog from "./pages/LibraryCatalog/LibraryCatalog";
+import NavBar from "./components/UI/NavBar/NavBar";
 import AppRouter from "./routes/AppRouter";
 
 function App() {

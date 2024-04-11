@@ -1,4 +1,5 @@
-import MyBookButton from "./MyBookButton";
+import MyBookButton from "../UI/Button/ButtonMyBook/MyBookButton.jsx";
+import "./MyBooksList.scss";
 
 const MyBooksList = ({ myBook, status, isReaded, removeBook }) => {
   return (

@@ -1,8 +1,8 @@
-import AuthPage from "../components/Authorization/AuthPage";
-import LibraryCatalog from "../components/Library/LibraryCatalog";
-import LibraryPage from "../components/LibraryPage/LibraryPage";
-import MyBooks from "../components/MyBooks/MyBooks";
-import StaticPage from "../components/StaticPage/StaticPage";
+import AuthPage from "../pages/AuthPage/AuthPage";
+import LibraryCatalog from "../pages/LibraryCatalog/LibraryCatalog";
+import LibraryPage from "../pages/LibraryPage/LibraryPage";
+import MyBooks from "../pages/MyBooksPage/MyBooks";
+import StaticPage from "../pages/StaticPage/StaticPage";
 import { CATALOG, INFO, MYBOOKS, STATIC } from "../utils/const";
 
 export const routes = [
