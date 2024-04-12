@@ -1,4 +1,4 @@
-import MyBookButton from "../UI/Button/ButtonMyBook/MyBookButton.jsx";
+import ButtonGroup from "../ButtonGroup/ButtonGroup";
 import "./MyBooksList.scss";
 
 const MyBooksList = ({ myBook, status, isReaded, removeBook }) => {
@@ -7,8 +7,8 @@ const MyBooksList = ({ myBook, status, isReaded, removeBook }) => {
       {myBook.length === 0 ? (
         <h1 className="MyBooks__SubTitle">MyBooks пуст!</h1>
       ) : (
-        myBook.map((book, index) => (
-          <div key={index}>
+        myBook.map((book) => (
+          <div key={book.id}>
             <div className="MyBook__List">
               <div className="MyBook__List-Wrapper">
                 <h2>
@@ -20,7 +20,8 @@ const MyBooksList = ({ myBook, status, isReaded, removeBook }) => {
                   <h3>{book.body}</h3>
                 </div>
               </div>
-              <MyBookButton
+
+              <ButtonGroup
                 status={status}
                 isReaded={isReaded}
                 removeBook={removeBook}

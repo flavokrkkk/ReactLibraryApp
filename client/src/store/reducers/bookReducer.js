@@ -13,9 +13,6 @@ const initialState = {
   error: null,
 };
 
-let book = "";
-book = 5;
-
 export const bookReducer = (state = initialState, action) => {
   switch (action.type) {
     case FETCH_BOOKS_LOADING:
@@ -32,7 +29,7 @@ export const bookReducer = (state = initialState, action) => {
     case ADD_BOOK:
       return { state, books: [action.payload, ...state.books] };
     case SET_CURRENT_PAGE:
-      return { ...state, currentPage: action.payload };
+      return { ...state, currentPage: state.currentPage };
     default:
       return state;
   }

@@ -1,29 +1,28 @@
-import { Button } from "antd";
-import "./LibraryPageListTwo";
+import React from "react";
+import "./LibraryPageListTwo.scss";
+import Button from "../UI/Button/Button";
 
-const LibraryPageListTwo = ({ userTwo, removeUserinMyBook }) => {
+const LibraryPageListTwo = ({ userTwo, removeUserInMyBook }) => {
   return (
-    <>
+    <div>
       {userTwo.length > 0 ? (
         userTwo.map((user, index) => (
-          <div key={index}>
-            <div className="Library__Page-User">
-              {index + 1}. {user.name}
-              <p>{user.email}</p>
-              <Button
-                onClick={() => removeUserinMyBook(user.id)}
-                className="Library__Page-User-Button"
-              >
-                is Readed
+          <div key={user.id} className="User__Two-Wrapper">
+            <div className="User__Two-Wrapper-Title">
+              {index + 1} {user.name}
+            </div>
+            <p>{user.email}</p>
+            <div className="User__Two-Wrapper-Button">
+              <Button onClick={() => removeUserInMyBook(user.id)}>
+                Remove
               </Button>
             </div>
-            //
           </div>
         ))
       ) : (
         <h3>Пользователи еще не добавили книги!</h3>
       )}
-    </>
+    </div>
   );
 };
 

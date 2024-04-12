@@ -1,12 +1,14 @@
-import { Button } from "antd";
 import { useCallback } from "react";
-import "./LibraryPageList.scss";
+import "./LibraryPageListOne.scss";
+import Button from "../UI/Button/Button";
 
-const LibraryPageList = ({ users, onRead, pushUserInMyBook, oneBook }) => {
+const LibraryPageListOne = ({ users, onRead, pushUserInMyBook, oneBook }) => {
   const actionWithUser = useCallback((user) => {
     pushUserInMyBook(user);
     onRead(user.id);
   }, []);
+
+  const bool = oneBook.available === true ? false : true;
 
   return (
     <>
@@ -16,18 +18,11 @@ const LibraryPageList = ({ users, onRead, pushUserInMyBook, oneBook }) => {
             <div className="Library__Page-User">
               {index + 1}. {user.name}
               <p>{user.email}</p>
-              {oneBook.available === true ? (
-                <Button
-                  className="Library__Page-User-Button"
-                  onClick={() => actionWithUser(user)}
-                >
-                  push to myBook
+              <div className="Library__Page-User-Button">
+                <Button onClick={() => actionWithUser(user)} disabled={bool}>
+                  Push To MyBooks
                 </Button>
-              ) : (
-                <Button disabled className="Library__Page-User-Button">
-                  push to myBook
-                </Button>
-              )}
+              </div>
             </div>
           </div>
         ))
@@ -38,4 +33,4 @@ const LibraryPageList = ({ users, onRead, pushUserInMyBook, oneBook }) => {
   );
 };
 
-export default LibraryPageList;
+export default LibraryPageListOne;

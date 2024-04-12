@@ -1,11 +1,11 @@
 import { useSelector } from "react-redux";
 import "./MyBooks.scss";
-import { Button } from "antd";
 import { useNavigate } from "react-router-dom";
 import { STATIC } from "../../utils/const";
 import MyBooksList from "../../components/MyBooks/MyBooksList";
 import { useCallback } from "react";
 import { useAction } from "../../store";
+import Button from "../../components/UI/Button/Button";
 
 const MyBooks = () => {
   const myBook = useSelector((state) => state.myBook.myBook);

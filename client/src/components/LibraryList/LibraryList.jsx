@@ -1,6 +1,7 @@
 import { useCallback } from "react";
 import { useNavigate } from "react-router-dom";
 import "./LibraryList.scss";
+import Button from "../UI/Button/Button";
 
 const LibraryList = ({ book, index }) => {
   const navigate = useNavigate();
@@ -10,7 +11,7 @@ const LibraryList = ({ book, index }) => {
   }, []);
 
   return (
-    <div className="Library__Catalog-Item" onClick={navigateTo}>
+    <div className="Library__Catalog-Item">
       <div className="Library__Catalog-Item-Title">
         {index + 1}. {book.title}
       </div>
@@ -20,9 +21,9 @@ const LibraryList = ({ book, index }) => {
           Онлайн-библиотека Sbook
         </h1>
       </div>
-      <button onClick={navigateTo} className="Library__Button-Item">
-        Хочу прочитать
-      </button>
+      <div className="Library__Button-Item">
+        <Button onClick={navigateTo}>Хочу прочитать</Button>
+      </div>
     </div>
   );
 };

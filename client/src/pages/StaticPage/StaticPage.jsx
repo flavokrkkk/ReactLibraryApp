@@ -1,6 +1,6 @@
+import Button from "../../components/UI/Button/Button";
 import MyTable from "../../components/UI/Table/MyTable";
 import "./StaticPage.scss";
-import { Button } from "antd";
 
 const StaticPage = () => {
   const deletedStatic = () => {

@@ -1,10 +1,11 @@
 import { useEffect } from "react";
 import { useSelector } from "react-redux";
-import { Button } from "antd";
 import LibraryPageListTwo from "../LibraryPageListTwo/LibraryPageListTwo";
 import { useAction } from "../../store";
-import LibraryPageList from "../LibraryPageList/LibraryPageList";
+import LibraryPageListOne from "../LibraryPageListOne/LibraryPageListOne";
 import "./UserList.scss";
+import Button from "../UI/Button/Button";
+import LibraryPageList from "../LibraryPageStatic/LibraryPageList";
 
 const UserList = ({ status, oneBook }) => {
   //Получаем списки userов из store
@@ -15,7 +16,6 @@ const UserList = ({ status, oneBook }) => {
     addUserTwoAction,
     editStatusAction,
     removeMyBooksAction,
-    removeUserAction,
     removeUserTwoAction,
     setAvailableBookAction,
   } = useAction();
@@ -29,35 +29,34 @@ const UserList = ({ status, oneBook }) => {
     addUserOneAction(customer);
   };
 
-  //Функция удаления пользователя
-  const onRead = (id) => {
-    removeUserAction(id);
-  };
-
   //Функция добавления userов которые добавили в myBook
   const pushUserInMyBook = (users) => {
     addUserTwoAction(users);
   };
 
   //Функция удаления пользователей из myBook
-  const removeUserinMyBook = (user) => {
+  const removeUserInMyBook = (user) => {
     removeUserTwoAction(user);
     if (userTwo[0].id === 101) {
       removeMyBooksAction(user.id);
     }
   };
 
+  const addUserPrompt = () => {
+    addUser(prompt());
+  };
+
   useEffect(() => {
     if (oneBook.available !== userTwo.length < 3) {
       setAvailableBookAction(userTwo.length < 3);
     }
-  }, [userTwo.length, pushUserInMyBook, removeUserinMyBook]);
+  }, [userTwo.length, pushUserInMyBook, removeUserInMyBook]);
 
   useEffect(() => {
     if (status.onHands === userTwo.length < 1) {
       editStatusAction(!status.onHands);
     }
-  }, [userTwo.length, pushUserInMyBook, removeUserinMyBook]);
+  }, [userTwo.length, pushUserInMyBook, removeUserInMyBook]);
 
   return (
     <div className="Library__Page-Users">
@@ -66,28 +65,15 @@ const UserList = ({ status, oneBook }) => {
         Вы можете отслеживать очереди пользователей и читать любимые книжки!
       </h2>
       <div className="Library__Page-AddUser">
-        <Button onClick={() => addUser(prompt())}>Записаться в очередь</Button>
+        <Button onClick={addUserPrompt}>Записаться в очередь</Button>
       </div>
-
-      <div className="Library__Page-Static">
-        <div>
-          <h2>В избранном: </h2>
-          <LibraryPageList
-            users={users}
-            onRead={onRead}
-            oneBook={oneBook}
-            pushUserInMyBook={pushUserInMyBook}
-          />
-        </div>
-
-        <div>
-          <h2>В MyBooks: </h2>
-          <LibraryPageListTwo
-            userTwo={userTwo}
-            removeUserinMyBook={removeUserinMyBook}
-          />
-        </div>
-      </div>
+      <LibraryPageList
+        users={users}
+        oneBook={oneBook}
+        userTwo={userTwo}
+        pushUserInMyBook={pushUserInMyBook}
+        removeUserInMyBook={removeUserInMyBook}
+      />
     </div>
   );
 };

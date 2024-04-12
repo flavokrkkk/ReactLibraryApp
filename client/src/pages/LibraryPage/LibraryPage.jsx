@@ -5,7 +5,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { fetchUsers, getOneBook } from "../../store/asyncActions/asyncData";
 import UserList from "../../components/UserList/UserList";
 import { useAction } from "../../store";
-import ButtonAdd from "../../components/UI/Button/ButtonAdd/ButtonAdd.jsx";
+import Button from "../../components/UI/Button/Button";
 
 const LibraryPage = () => {
   //Целпяем id с поисковой строки
@@ -33,6 +33,11 @@ const LibraryPage = () => {
     });
     return bool;
   };
+
+  //Уменьшаем кол-во бизнес логики
+  const check = myBooksId(oneBook.id) === true || oneBook.available === false;
+  const availableCheck = oneBook.available ? "Доступна" : "Недоступна";
+  const onHandsCheck = status.onHands ? "На руках" : "Доступна";
 
   //Функция добавления книги в myBook
   const addMyBook = () => {
@@ -63,7 +68,7 @@ const LibraryPage = () => {
         <h1>Информация о книге</h1>
       </div>
 
-      {oneBook.lengh !== 0 ? (
+      {oneBook.length !== 0 ? (
         <div>
           <div className="Library__Page-Title">
             <h2>{oneBook.title}</h2>
@@ -73,27 +78,27 @@ const LibraryPage = () => {
 
           <div className="Library__Page-Descr-Bold">{oneBook.body}</div>
 
-          <div className="Library__Page-Button-Group">
-            {oneBook.available === true ? (
-              <button className="Library__Page-Button-Status">Доступна</button>
-            ) : (
-              <button className="Library__Page-Button-Status-Disabled" disabled>
-                Не доступна
-              </button>
-            )}
-            {status.onHands === true ? (
-              <button className="Library__Page-Button-Status-Disabled" disabled>
-                На руках
-              </button>
-            ) : (
-              <button className="Library__Page-Button-Status">На руках</button>
-            )}
+          <div
+            className={
+              check
+                ? "Library__Page-Button-Available-No"
+                : "Library__Page-Button-Group"
+            }
+          >
+            <div className="Library__Page-Button-Available">
+              <Button>{availableCheck}</Button>
+            </div>
+
+            <div className="Library__Page-Button-OnHands">
+              <Button>{onHandsCheck}</Button>
+            </div>
           </div>
-          <ButtonAdd
-            oneBook={oneBook}
-            addMyBook={addMyBook}
-            myBooksId={myBooksId}
-          />
+
+          {check ? (
+            <Button disabled>Добавлена в MyBooks</Button>
+          ) : (
+            <Button onClick={addMyBook}>Добавить в MyBooks</Button>
+          )}
         </div>
       ) : (
         <h2>Информация о книге отсутсвует</h2>

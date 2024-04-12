@@ -7,7 +7,7 @@ const LibaryCatalogList = ({ searchAndSortedBook }) => {
       {searchAndSortedBook.length > 0 ? (
         <div className="Library__Catalog-List">
           {searchAndSortedBook.map((book, index) => (
-            <div key={index}>
+            <div key={book.id}>
               <LibraryList book={book} index={index} />
             </div>
           ))}

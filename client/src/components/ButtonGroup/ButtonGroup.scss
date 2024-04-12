@@ -1,0 +1,36 @@
+.MyBook__List-Button {
+  text-align: center;
+  margin-top: 30px;
+}
+
+.MyBook__List-Button-Status {
+  button {
+    width: 170px;
+    height: 40px;
+    font-family: "Roboto", sans-serif;
+    font-weight: 300;
+    background-color: #d0d0e5;
+    border: 1px solid #d9d9d9;
+    border-radius: 3px;
+    transition: 0.5s linear;
+    &:hover {
+      background-color: #ababc9;
+    }
+  }
+}
+
+.MyBook__List-Button-Status-Disabled {
+  button {
+    width: 170px;
+    height: 40px;
+    font-family: "Roboto", sans-serif;
+    font-weight: 300;
+    background-color: #8282db;
+    border: 1px solid #d9d9d9;
+    border-radius: 3px;
+    transition: 0.5s linear;
+    &:hover {
+      background-color: #ababc9;
+    }
+  }
+}

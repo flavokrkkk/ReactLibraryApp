@@ -2,7 +2,6 @@ import { useCallback, useEffect, useMemo, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import "./LibraryCatalog.scss";
 import { fetchMovies } from "../../store/asyncActions/asyncData";
-import Pagination from "../../components/UI/Pagination/Pagination";
 import LibraryCatalogList from "../../components/LibraryCatalogList/LibraryCatalogList";
 import InputSearched from "../../components/UI/Input/InputSearched";
 
@@ -20,9 +19,6 @@ const LibraryCatalog = () => {
   //Получаем состояние для обработки ошибок
   const error = useSelector((state) => state.books.error);
 
-  //Пагинация при скролле
-  const currentPage = useSelector((state) => state.books.currentPage);
-
   // Реализация поиска книг c помощью useMemo
   const searchAndSortedBook = useMemo(() => {
     return books
@@ -35,8 +31,8 @@ const LibraryCatalog = () => {
   }, []);
 
   useEffect(() => {
-    dispatch(fetchMovies(currentPage));
-  }, [currentPage]);
+    dispatch(fetchMovies());
+  }, []);
 
   if (error) {
     return (
@@ -62,7 +58,6 @@ const LibraryCatalog = () => {
         <hr />
         <LibraryCatalogList searchAndSortedBook={searchAndSortedBook} />
       </div>
-      <Pagination currentPage={currentPage} />
     </div>
   );
 };
