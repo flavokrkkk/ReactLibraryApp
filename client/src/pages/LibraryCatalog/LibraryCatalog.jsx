@@ -4,6 +4,8 @@ import "./LibraryCatalog.scss";
 import { fetchMovies } from "../../store/asyncActions/asyncData";
 import LibraryCatalogList from "../../components/LibraryCatalogList/LibraryCatalogList";
 import InputSearched from "../../components/UI/Input/InputSearched";
+import Error from "../../components/Error/Error";
+import Loader from "../../components/UI/Loader/Loader";
 
 const LibraryCatalog = () => {
   const [value, setValue] = useState("");
@@ -35,19 +37,11 @@ const LibraryCatalog = () => {
   }, []);
 
   if (error) {
-    return (
-      <h1 className="Library__Catalog-Container Library__Catalog-Title Library__Catalog-Error">
-        {error}
-      </h1>
-    );
+    return <Error error={error} />;
   }
 
   if (loading) {
-    return (
-      <h1 className="Library__Catalog-Container Library__Catalog-Title Library__Catalog-Loading">
-        Loading...
-      </h1>
-    );
+    return <Loader />;
   }
 
   return (
