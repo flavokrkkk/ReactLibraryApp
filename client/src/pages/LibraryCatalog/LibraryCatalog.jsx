@@ -3,9 +3,9 @@ import { useDispatch, useSelector } from "react-redux";
 import "./LibraryCatalog.scss";
 import { fetchMovies } from "../../store/asyncActions/asyncData";
 import LibraryCatalogList from "../../components/LibraryCatalogList/LibraryCatalogList";
-import InputSearched from "../../components/UI/Input/InputSearched";
 import Error from "../../components/Error/Error";
 import Loader from "../../components/UI/Loader/Loader";
+import Input from "../../components/UI/Input/Input";
 
 const LibraryCatalog = () => {
   const [value, setValue] = useState("");
@@ -48,7 +48,7 @@ const LibraryCatalog = () => {
     <div className="Library__Catalog-Container">
       <div className="Library__Catalog-Wrapper">
         <h1 className="Library__Catalog-Title">Каталог</h1>
-        <InputSearched value={value} onChange={onChange} />
+        <Input value={value} onChange={onChange} />
         <hr />
         <LibraryCatalogList searchAndSortedBook={searchAndSortedBook} />
       </div>

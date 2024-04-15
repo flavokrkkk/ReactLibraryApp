@@ -2,6 +2,8 @@ import "./AuthPage.scss";
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { CATALOG } from "../../utils/const";
+import Button from "../../components/UI/Button/Button";
+import Input from "../../components/UI/Input/Input";
 
 const AuthPage = () => {
   const [isAuth, setIsAuth] = useState(false);
@@ -31,10 +33,10 @@ const AuthPage = () => {
               <h2 className="title">Registration</h2>
             )}
             <div className="inputbox">
-              <input type="email" required placeholder="E-mail" />
+              <Input type="email" required placeholder="E-mail" />
             </div>
             <div className="inputbox">
-              <input type="password" required placeholder="Password" />
+              <Input type="password" required placeholder="Password" />
             </div>
             <div className="forget">
               {isAuth == true ? (
@@ -54,13 +56,13 @@ const AuthPage = () => {
               )}
             </div>
             {isAuth == true ? (
-              <button className="btn-log" onClick={navigateTo}>
+              <Button className="btn-log" onClick={navigateTo}>
                 Sign in
-              </button>
+              </Button>
             ) : (
-              <button className="btn-log" onClick={navigateTo}>
+              <Button className="btn-log" onClick={navigateTo}>
                 Sign up
-              </button>
+              </Button>
             )}
 
             <Link to={CATALOG} style={{ textDecoration: "none" }}>

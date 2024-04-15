@@ -12,12 +12,7 @@
   z-index: 100;
   margin-bottom: 40px;
 }
-.NavBar-logo {
-  color: #fff;
-  height: fit-content;
-  font-size: 24px;
-  cursor: pointer;
-}
+
 .NavBar__content-center {
   display: flex;
   gap: 50px;
@@ -66,39 +61,8 @@ p {
   color: #fff;
 }
 
-.profilebut {
-  width: 32px;
-  height: 32px;
-  background-color: #aaaaaa;
-  border-radius: 100%;
-}
-
 .active-link {
   color: #fff;
-}
-.NavBar__content-leftSide {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  // gap: 30px;
-}
-.NavBar__menu-burger {
-  display: none;
-}
-
-.NavBar__content-center {
-  display: flex;
-  align-items: center;
-  // margin-right: 70px;
-}
-
-.active-link {
-  transition: 0.5s linear;
-  background-color: #d9d9d9;
-}
-
-.NavBar__Content-LeftSide-Title {
-  text-decoration: none;
 }
 
 .NavBar__Content-LeftSide-Title-Catalog {
