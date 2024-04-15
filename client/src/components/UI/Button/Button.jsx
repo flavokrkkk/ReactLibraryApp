@@ -2,8 +2,8 @@ import "./Button.scss";
 
 const Button = ({ children, ...props }) => {
   return (
-    <div className="List__Button-Wrapper">
-      <button {...props} className="List__Button">
+    <div className="Button-Wrapper">
+      <button {...props} className="Button">
         {children}
       </button>
     </div>
