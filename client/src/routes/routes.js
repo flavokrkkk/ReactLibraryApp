@@ -1,6 +1,6 @@
 import AuthPage from "../pages/AuthPage/AuthPage";
-import LibraryCatalog from "../pages/LibraryCatalog/LibraryCatalog";
-import LibraryPage from "../pages/LibraryPage/LibraryPage";
+import LibraryCatalogPage from "../pages/LibraryCatalogPage/LibraryCatalogPage";
+import LibraryInfoPage from "../pages/LibraryInfoPage/LibraryInfoPage";
 import MyBooks from "../pages/MyBooksPage/MyBooks";
 import StaticPage from "../pages/StaticPage/StaticPage";
 import { CATALOG, INFO, MYBOOKS, STATIC } from "../utils/const";
@@ -8,7 +8,7 @@ import { CATALOG, INFO, MYBOOKS, STATIC } from "../utils/const";
 export const routes = [
   {
     path: CATALOG,
-    Component: LibraryCatalog,
+    Component: LibraryCatalogPage,
   },
 
   {
@@ -18,7 +18,7 @@ export const routes = [
 
   {
     path: INFO,
-    Component: LibraryPage,
+    Component: LibraryInfoPage,
   },
 
   {

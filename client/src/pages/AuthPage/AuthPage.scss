@@ -8,9 +8,6 @@
   align-items: center;
   min-height: 90vh;
   width: 100%;
-  button {
-    border-radius: 25px;
-  }
 }
 
 .title {
@@ -37,20 +34,6 @@
   font-family: "Roboto", sans-serif;
 }
 
-.inputbox {
-  input {
-    border: 1px solid rgb(193, 176, 216);
-    width: 320px;
-    outline: none;
-  }
-}
-
-input:focus ~ label,
-input:focus ~ :valid {
-  top: 0px;
-  border: 1px solid white;
-}
-
 .label__href {
   margin-left: 10px;
 }
@@ -62,10 +45,6 @@ input:focus ~ :valid {
   display: flex;
   justify-content: center;
   font-family: "Roboto", sans-serif;
-}
-
-.forget label input {
-  margin-right: 3px;
 }
 
 .forget label a {
@@ -110,4 +89,8 @@ input:focus ~ :valid {
 
 .register p a:hover {
   text-decoration: underline;
+}
+
+.auth_link {
+  text-decoration: none;
 }

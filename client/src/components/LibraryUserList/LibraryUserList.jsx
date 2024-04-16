@@ -3,7 +3,7 @@ import { useSelector } from "react-redux";
 import { useAction } from "../../store";
 import "./LibraryUserList.scss";
 import Button from "../UI/Button/Button";
-import LibraryStatic from "../LibraryStatic/LibraryStatic";
+import LibraryInfoStatic from "../LibraryInfoStatic/LibraryInfoStatic";
 
 const LibraryUserList = ({ status, oneBook }) => {
   //Получаем списки userов из store
@@ -63,9 +63,9 @@ const LibraryUserList = ({ status, oneBook }) => {
         Вы можете отслеживать очереди пользователей и читать любимые книжки!
       </h2>
       <div className="Library__Page-AddUser">
-        <Button onClick={addUserPrompt}>Записаться в очередь</Button>
+        <Button variant='middle-radius' onClick={addUserPrompt}>Записаться в очередь</Button>
       </div>
-      <LibraryStatic
+      <LibraryInfoStatic
         users={users}
         oneBook={oneBook}
         userTwo={userTwo}

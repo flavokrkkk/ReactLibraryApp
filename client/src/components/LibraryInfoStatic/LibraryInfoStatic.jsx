@@ -1,8 +1,9 @@
 import { useAction } from "../../store";
-import LibraryUserListOne from "../LibraryListOne/LibraryUserListOne";
-import LibraryUserListTwo from "../LibraryListTwo/LibraryUserListTwo";
+import LibraryUserListOne from "../LibraryUserListOne/LibraryUserListOne";
+import LibraryUserListTwo from "../LibraryUserListTwo/LibraryUserListTwo";
+import "./LibraryInfoStatic.scss";
 
-const LibraryStatic = ({
+const LibraryInfoStatic = ({
   users,
   oneBook,
   pushUserInMyBook,
@@ -18,7 +19,7 @@ const LibraryStatic = ({
 
   return (
     <div className="Library__Page-Static">
-      <div className="Library__Page-Static-Wrapper">
+      <div>
         <h2>В избранном: </h2>
         <LibraryUserListOne
           users={users}
@@ -28,7 +29,7 @@ const LibraryStatic = ({
         />
       </div>
 
-      <div className="Library__Page-Static-Wrapper">
+      <div>
         <h2>В MyBooks: </h2>
         <LibraryUserListTwo
           userTwo={userTwo}
@@ -39,4 +40,4 @@ const LibraryStatic = ({
   );
 };
 
-export default LibraryStatic;
+export default LibraryInfoStatic;

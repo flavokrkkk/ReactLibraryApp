@@ -32,7 +32,9 @@ const StaticPage = () => {
       <hr />
       <MyTable rows={rows} columns={columns} />
       <div className="Removed__Static">
-        <Button onClick={deletedStatic}>Сброс статистики</Button>
+        <Button variant="middle" onClick={deletedStatic}>
+          Сброс статистики
+        </Button>
       </div>
     </div>
   );

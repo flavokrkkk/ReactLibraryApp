@@ -8,12 +8,15 @@ const LibraryUserListTwo = ({ userTwo, removeUserInMyBook }) => {
       {userTwo.length > 0 ? (
         userTwo.map((user, index) => (
           <div key={user.id} className="User__Two-Wrapper">
-            <div className="User__Two-Wrapper-Title">
+            <div>
               {index + 1} {user.name}
             </div>
             <p>{user.email}</p>
             <div className="User__Two-Wrapper-Button">
-              <Button onClick={() => removeUserInMyBook(user.id)}>
+              <Button
+                variant="middle"
+                onClick={() => removeUserInMyBook(user.id)}
+              >
                 Remove
               </Button>
             </div>

@@ -10,7 +10,7 @@ const MyBooksList = ({ myBook, status, isReaded, removeBook }) => {
         myBook.map((book) => (
           <div key={book.id}>
             <div className="MyBook__List">
-              <div className="MyBook__List-Wrapper">
+              <div>
                 <h2>
                   {book.id}. {book.title}
                 </h2>

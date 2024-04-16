@@ -1,13 +1,13 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import "./LibraryPage.scss";
+import "./LibraryInfoPage.scss";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchUsers, getOneBook } from "../../store/asyncActions/asyncData";
 import { useAction } from "../../store";
 import Button from "../../components/UI/Button/Button";
 import LibraryUserList from "../../components/LibraryUserList/LibraryUserList";
 
-const LibraryPage = () => {
+const LibraryInfoPage = () => {
   //Целпяем id с поисковой строки
   const params = useParams();
 
@@ -70,14 +70,11 @@ const LibraryPage = () => {
 
       {oneBook.length !== 0 ? (
         <div>
-          <div className="Library__Page-Title">
+          <div>
             <h2>{oneBook.title}</h2>
           </div>
           <hr />
-          <div className="Library__Page-Descr">{oneBook.body}</div>
-
           <div className="Library__Page-Descr-Bold">{oneBook.body}</div>
-
           <div
             className={
               check
@@ -85,12 +82,12 @@ const LibraryPage = () => {
                 : "Library__Page-Button-Group"
             }
           >
-            <div className="Library__Page-Button-Available">
-              <Button>{availableCheck}</Button>
+            <div>
+              <Button variant="smaller">{availableCheck}</Button>
             </div>
 
-            <div className="Library__Page-Button-OnHands">
-              <Button>{onHandsCheck}</Button>
+            <div>
+              <Button variant="smaller">{onHandsCheck}</Button>
             </div>
           </div>
 
@@ -108,4 +105,4 @@ const LibraryPage = () => {
   );
 };
 
-export default LibraryPage;
+export default LibraryInfoPage;

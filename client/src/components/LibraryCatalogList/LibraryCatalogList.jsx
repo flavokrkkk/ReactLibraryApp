@@ -21,7 +21,7 @@ const LibraryCatalogList = ({ book, index }) => {
           Онлайн-библиотека Sbook
         </h1>
       </div>
-      <div className="Library__Button-Item">
+      <div>
         <Button onClick={navigateTo}>Хочу прочитать</Button>
       </div>
     </div>

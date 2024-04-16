@@ -13,21 +13,4 @@
 .Library__Page-AddUser {
   margin-top: 20px;
   margin-bottom: 40px;
-  button {
-    width: 40%;
-    background-color: #babad3;
-    color: #fff;
-    &::before {
-      background-color: #babad3;
-    }
-  }
-}
-
-.Library__Page-Static {
-  display: flex;
-  justify-content: center;
-  gap: 80px;
-  h3 {
-    font-size: 21px;
-  }
 }

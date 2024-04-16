@@ -1,13 +1,13 @@
 import { useCallback, useEffect, useMemo, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import "./LibraryCatalog.scss";
+import "./LibraryCatalogPage.scss";
 import { fetchMovies } from "../../store/asyncActions/asyncData";
 import Error from "../../components/Error/Error";
 import Loader from "../../components/UI/Loader/Loader";
 import Input from "../../components/UI/Input/Input";
 import LibraryCatalogCard from "../../components/LibraryCatalogCard/LibraryCatalogCard";
 
-const LibraryCatalog = () => {
+const LibraryCatalogPage = () => {
   const [value, setValue] = useState("");
 
   const dispatch = useDispatch();
@@ -46,7 +46,7 @@ const LibraryCatalog = () => {
 
   return (
     <div className="Library__Catalog-Container">
-      <div className="Library__Catalog-Wrapper">
+      <div>
         <h1 className="Library__Catalog-Title">Каталог</h1>
         <Input value={value} onChange={onChange} placeholder={"Поиск..."} />
         <hr />
@@ -56,4 +56,4 @@ const LibraryCatalog = () => {
   );
 };
 
-export default LibraryCatalog;
+export default LibraryCatalogPage;

@@ -18,8 +18,12 @@ const LibraryUserListOne = ({ users, onRead, pushUserInMyBook, oneBook }) => {
             <div className="Library__Page-User">
               {index + 1}. {user.name}
               <p>{user.email}</p>
-              <div className="Library__Page-User-Button">
-                <Button onClick={() => actionWithUser(user)} disabled={bool}>
+              <div>
+                <Button
+                  variant="middle"
+                  onClick={() => actionWithUser(user)}
+                  disabled={bool}
+                >
                   Push To MyBooks
                 </Button>
               </div>

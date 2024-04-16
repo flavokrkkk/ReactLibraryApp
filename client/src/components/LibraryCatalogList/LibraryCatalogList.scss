@@ -24,17 +24,6 @@
   padding-top: 10px;
 }
 
-.Library__Button-Item {
-  button {
-    width: 50%;
-    background-color: #d0d0e5;
-    color: #fff;
-    &::before {
-      background-color: #babad3;
-    }
-  }
-}
-
 .Library__Catalog-Item-Author-Title {
   font-weight: 400;
   text-transform: uppercase;

@@ -25,18 +25,28 @@ const AuthPage = () => {
   return (
     <section className="main-block">
       <div className="form-box">
-        <div className="form-value">
+        <div>
           <form action="">
             {isAuth == true ? (
               <h2 className="title">Login</h2>
             ) : (
               <h2 className="title">Registration</h2>
             )}
-            <div className="inputbox">
-              <Input type="email" required placeholder="E-mail" />
+            <div>
+              <Input
+                outline="purple"
+                type="email"
+                required
+                placeholder="E-mail"
+              />
             </div>
-            <div className="inputbox">
-              <Input type="password" required placeholder="Password" />
+            <div>
+              <Input
+                outline="purple"
+                type="password"
+                required
+                placeholder="Password"
+              />
             </div>
             <div className="forget">
               {isAuth == true ? (
@@ -56,12 +66,16 @@ const AuthPage = () => {
               )}
             </div>
             {isAuth == true ? (
-              <Button onClick={navigateTo}>Sign in</Button>
+              <Button variant="middle-radius" onClick={navigateTo}>
+                Sign in
+              </Button>
             ) : (
-              <Button onClick={navigateTo}>Sign up</Button>
+              <Button variant="middle-radius" onClick={navigateTo}>
+                Sign up
+              </Button>
             )}
 
-            <Link to={CATALOG} style={{ textDecoration: "none" }}>
+            <Link to={CATALOG} className="auth_link">
               <div className="register">
                 <p>
                   <a href="#">Sbook</a>
