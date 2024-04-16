@@ -34,9 +34,7 @@ const MyBooks = () => {
     <div className="MyBooks__Container">
       <h1 className="MyBooks__Title">MyBooks</h1>
       <div className="MyBooks__Button-Static">
-        <Button onClick={navigateTo} className="MyBooks__Button">
-          Статистика
-        </Button>
+        <Button onClick={navigateTo}>Статистика</Button>
       </div>
       <hr />
       <MyBooksList

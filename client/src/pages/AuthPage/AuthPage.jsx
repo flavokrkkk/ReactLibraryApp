@@ -56,13 +56,9 @@ const AuthPage = () => {
               )}
             </div>
             {isAuth == true ? (
-              <Button className="btn-log" onClick={navigateTo}>
-                Sign in
-              </Button>
+              <Button onClick={navigateTo}>Sign in</Button>
             ) : (
-              <Button className="btn-log" onClick={navigateTo}>
-                Sign up
-              </Button>
+              <Button onClick={navigateTo}>Sign up</Button>
             )}
 
             <Link to={CATALOG} style={{ textDecoration: "none" }}>
