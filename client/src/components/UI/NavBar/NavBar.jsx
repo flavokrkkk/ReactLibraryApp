@@ -1,11 +1,17 @@
+import { NavLink } from "react-router-dom";
 import "./NavBar.scss";
-import NavBarList from "../../NavBarList/NavBarList";
 
-const NavBar = () => {
+const NavBar = ({ pages }) => {
   return (
     <div className="NavBar">
       <div className="NavBar__content">
-        <NavBarList />
+        {pages.map(({ pages, route, id }) => (
+          <div key={id} className=".NavBar__content-center">
+            <NavLink className="NavBar__links" to={route}>
+              {pages}
+            </NavLink>
+          </div>
+        ))}
       </div>
     </div>
   );
