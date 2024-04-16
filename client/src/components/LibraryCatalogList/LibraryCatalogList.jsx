@@ -1,24 +1,31 @@
-import LibraryList from "../LibraryList/LibraryList";
+import { useCallback } from "react";
+import { useNavigate } from "react-router-dom";
 import "./LibraryCatalogList.scss";
+import Button from "../UI/Button/Button";
 
-const LibaryCatalogList = ({ searchAndSortedBook }) => {
+const LibraryCatalogList = ({ book, index }) => {
+  const navigate = useNavigate();
+
+  const navigateTo = useCallback(() => {
+    navigate(`/info/${book.id}`);
+  }, []);
+
   return (
-    <div>
-      {searchAndSortedBook.length > 0 ? (
-        <div className="Library__Catalog-List">
-          {searchAndSortedBook.map((book, index) => (
-            <div key={book.id}>
-              <LibraryList book={book} index={index} />
-            </div>
-          ))}
-        </div>
-      ) : (
-        <div className="Library__Catalog-List-Zero">
-          <h1>К сожалению каталог пуст!</h1>
-        </div>
-      )}
+    <div className="Library__Catalog-Item">
+      <div className="Library__Catalog-Item-Title">
+        {index + 1}. {book.title}
+      </div>
+      <div className="Library__Catalog-Item-Descr">{book.body}</div>
+      <div className="Library__Catalog-Item-Author">
+        <h1 className="Library__Catalog-Item-Author-Title">
+          Онлайн-библиотека Sbook
+        </h1>
+      </div>
+      <div className="Library__Button-Item">
+        <Button onClick={navigateTo}>Хочу прочитать</Button>
+      </div>
     </div>
   );
 };
 
-export default LibaryCatalogList;
+export default LibraryCatalogList;

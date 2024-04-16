@@ -1,13 +1,11 @@
 import { useEffect } from "react";
 import { useSelector } from "react-redux";
-import LibraryPageListTwo from "../LibraryPageListTwo/LibraryPageListTwo";
 import { useAction } from "../../store";
-import LibraryPageListOne from "../LibraryPageListOne/LibraryPageListOne";
-import "./UserList.scss";
+import "./LibraryUserList.scss";
 import Button from "../UI/Button/Button";
-import LibraryPageList from "../LibraryPageStatic/LibraryPageList";
+import LibraryStatic from "../LibraryStatic/LibraryStatic";
 
-const UserList = ({ status, oneBook }) => {
+const LibraryUserList = ({ status, oneBook }) => {
   //Получаем списки userов из store
   const users = useSelector((state) => state.users.users);
   const userTwo = useSelector((state) => state.usersTwo.usersTwo);
@@ -67,7 +65,7 @@ const UserList = ({ status, oneBook }) => {
       <div className="Library__Page-AddUser">
         <Button onClick={addUserPrompt}>Записаться в очередь</Button>
       </div>
-      <LibraryPageList
+      <LibraryStatic
         users={users}
         oneBook={oneBook}
         userTwo={userTwo}
@@ -78,4 +76,4 @@ const UserList = ({ status, oneBook }) => {
   );
 };
 
-export default UserList;
+export default LibraryUserList;

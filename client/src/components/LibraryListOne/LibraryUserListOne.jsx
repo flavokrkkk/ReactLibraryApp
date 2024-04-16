@@ -1,8 +1,8 @@
 import { useCallback } from "react";
-import "./LibraryPageListOne.scss";
+import "./LibraryUserListOne.scss";
 import Button from "../UI/Button/Button";
 
-const LibraryPageListOne = ({ users, onRead, pushUserInMyBook, oneBook }) => {
+const LibraryUserListOne = ({ users, onRead, pushUserInMyBook, oneBook }) => {
   const actionWithUser = useCallback((user) => {
     pushUserInMyBook(user);
     onRead(user.id);
@@ -33,4 +33,4 @@ const LibraryPageListOne = ({ users, onRead, pushUserInMyBook, oneBook }) => {
   );
 };
 
-export default LibraryPageListOne;
+export default LibraryUserListOne;

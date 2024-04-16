@@ -2,10 +2,10 @@ import { useCallback, useEffect, useMemo, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import "./LibraryCatalog.scss";
 import { fetchMovies } from "../../store/asyncActions/asyncData";
-import LibraryCatalogList from "../../components/LibraryCatalogList/LibraryCatalogList";
 import Error from "../../components/Error/Error";
 import Loader from "../../components/UI/Loader/Loader";
 import Input from "../../components/UI/Input/Input";
+import LibraryCatalogCard from "../../components/LibraryCatalogCard/LibraryCatalogCard";
 
 const LibraryCatalog = () => {
   const [value, setValue] = useState("");
@@ -50,7 +50,7 @@ const LibraryCatalog = () => {
         <h1 className="Library__Catalog-Title">Каталог</h1>
         <Input value={value} onChange={onChange} placeholder={"Поиск..."} />
         <hr />
-        <LibraryCatalogList searchAndSortedBook={searchAndSortedBook} />
+        <LibraryCatalogCard searchAndSortedBook={searchAndSortedBook} />
       </div>
     </div>
   );

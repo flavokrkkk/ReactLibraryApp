@@ -3,9 +3,9 @@ import { useParams } from "react-router-dom";
 import "./LibraryPage.scss";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchUsers, getOneBook } from "../../store/asyncActions/asyncData";
-import UserList from "../../components/UserList/UserList";
 import { useAction } from "../../store";
 import Button from "../../components/UI/Button/Button";
+import LibraryUserList from "../../components/LibraryUserList/LibraryUserList";
 
 const LibraryPage = () => {
   //Целпяем id с поисковой строки
@@ -103,7 +103,7 @@ const LibraryPage = () => {
       ) : (
         <h2>Информация о книге отсутсвует</h2>
       )}
-      <UserList status={status} oneBook={oneBook} />
+      <LibraryUserList status={status} oneBook={oneBook} />
     </div>
   );
 };

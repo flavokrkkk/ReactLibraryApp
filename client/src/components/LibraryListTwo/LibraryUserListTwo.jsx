@@ -1,8 +1,8 @@
 import React from "react";
-import "./LibraryPageListTwo.scss";
+import "./LibraryUserListTwo.scss";
 import Button from "../UI/Button/Button";
 
-const LibraryPageListTwo = ({ userTwo, removeUserInMyBook }) => {
+const LibraryUserListTwo = ({ userTwo, removeUserInMyBook }) => {
   return (
     <div>
       {userTwo.length > 0 ? (
@@ -26,4 +26,4 @@ const LibraryPageListTwo = ({ userTwo, removeUserInMyBook }) => {
   );
 };
 
-export default LibraryPageListTwo;
+export default LibraryUserListTwo;
