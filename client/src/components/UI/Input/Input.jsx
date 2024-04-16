@@ -25,5 +25,5 @@ Input.propTypes = {
 };
 
 Input.defaultProps = {
-  placeholder: "Поиск...",
+  placeholder: "",
 };
