@@ -4,9 +4,9 @@ import { AUTH, CATALOG, MYBOOKS } from "./utils/const";
 
 function App() {
   const pages = [
-    { id: 1, pages: "Sbook", route: AUTH },
-    { id: 2, pages: "Каталог", route: CATALOG },
-    { id: 3, pages: "MyBooks", route: MYBOOKS },
+    { id: 1, page: "Sbook", route: AUTH },
+    { id: 2, page: "Каталог", route: CATALOG },
+    { id: 3, page: "MyBooks", route: MYBOOKS },
   ];
 
   return (

@@ -1,4 +1,6 @@
 import "./MyTable.scss";
+import PropTypes from "prop-types";
+
 const MyTable = ({ rows, columns }) => {
   return (
     <div className="table">
@@ -13,9 +15,7 @@ const MyTable = ({ rows, columns }) => {
         <tbody>
           <tr>
             {rows.map(({ info, body, id }) => (
-              <td key={id}>
-                {info} - {body}
-              </td>
+              <td key={id}>{`${body} - ${info}`}</td>
             ))}
           </tr>
         </tbody>
@@ -25,3 +25,8 @@ const MyTable = ({ rows, columns }) => {
 };
 
 export default MyTable;
+
+MyTable.propTypes = {
+  rows: PropTypes.array.isRequired,
+  columns: PropTypes.array.isRequired,
+};

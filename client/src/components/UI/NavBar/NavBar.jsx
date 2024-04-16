@@ -1,14 +1,15 @@
 import { NavLink } from "react-router-dom";
 import "./NavBar.scss";
+import PropTypes from "prop-types";
 
 const NavBar = ({ pages }) => {
   return (
     <div className="NavBar">
       <div className="NavBar__content">
-        {pages.map(({ pages, route, id }) => (
+        {pages.map(({ page, route, id }) => (
           <div key={id} className=".NavBar__content-center">
             <NavLink className="NavBar__links" to={route}>
-              {pages}
+              {page}
             </NavLink>
           </div>
         ))}
@@ -18,3 +19,7 @@ const NavBar = ({ pages }) => {
 };
 
 export default NavBar;
+
+NavBar.propTypes = {
+  pages: PropTypes.array.isRequired,
+};
