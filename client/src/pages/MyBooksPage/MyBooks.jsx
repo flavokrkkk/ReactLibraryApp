@@ -34,7 +34,14 @@ const MyBooks = () => {
     <div className="MyBooks__Container">
       <h1 className="MyBooks__Title">MyBooks</h1>
       <div className="MyBooks__Button-Static">
-        <Button onClick={navigateTo}>Статистика</Button>
+        <Button
+          variant="middle-purple"
+          width="w-500"
+          height="h-30"
+          onClick={navigateTo}
+        >
+          Статистика
+        </Button>
       </div>
       <hr />
       <MyBooksList

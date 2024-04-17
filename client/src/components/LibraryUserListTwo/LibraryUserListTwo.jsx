@@ -14,7 +14,8 @@ const LibraryUserListTwo = ({ userTwo, removeUserInMyBook }) => {
             <p>{user.email}</p>
             <div className="User__Two-Wrapper-Button">
               <Button
-                variant="middle"
+                width="w-300"
+                variant="purple"
                 onClick={() => removeUserInMyBook(user.id)}
               >
                 Remove

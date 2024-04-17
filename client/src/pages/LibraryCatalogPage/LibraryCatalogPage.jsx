@@ -48,7 +48,13 @@ const LibraryCatalogPage = () => {
     <div className="Library__Catalog-Container">
       <div>
         <h1 className="Library__Catalog-Title">Каталог</h1>
-        <Input value={value} onChange={onChange} placeholder={"Поиск..."} />
+        <Input
+          value={value}
+          onChange={onChange}
+          outline="none"
+          border="b-purple-2"
+          placeholder={"Поиск..."}
+        />
         <hr />
         <LibraryCatalogCard searchAndSortedBook={searchAndSortedBook} />
       </div>

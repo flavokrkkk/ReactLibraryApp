@@ -16,13 +16,13 @@ const ButtonGroup = ({ status, isReaded, removeBook, book }) => {
     <div className="MyBook__List-Button">
       {status.readed.id === book.id ? (
         <div>
-          <Button variant="smaller-negative" onClick={isReading}>
+          <Button variant="dark-purple" onClick={isReading}>
             Прочитана
           </Button>
         </div>
       ) : (
         <div>
-          <Button variant="smaller" onClick={cachingMyBook}>
+          <Button variant="light-purple" onClick={cachingMyBook}>
             Не Прочитана
           </Button>
         </div>

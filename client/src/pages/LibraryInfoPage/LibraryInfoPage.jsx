@@ -82,19 +82,39 @@ const LibraryInfoPage = () => {
                 : "Library__Page-Button-Group"
             }
           >
-            <div>
-              <Button variant="smaller">{availableCheck}</Button>
-            </div>
+            <Button
+              fontSize="fs-10"
+              variant={check ? "dark-purple" : "middle-purple"}
+            >
+              {availableCheck}
+            </Button>
 
-            <div>
-              <Button variant="smaller">{onHandsCheck}</Button>
-            </div>
+            <Button
+              fontSize="fs-10"
+              variant={check ? "dark-purple" : "middle-purple"}
+            >
+              {onHandsCheck}
+            </Button>
           </div>
 
           {check ? (
-            <Button disabled>Добавлена в MyBooks</Button>
+            <Button
+              width="w-500"
+              height="h-40"
+              variant={"light-purple"}
+              disabled
+            >
+              Добавлена в MyBooks
+            </Button>
           ) : (
-            <Button onClick={addMyBook}>Добавить в MyBooks</Button>
+            <Button
+              width="w-500"
+              height="h-40"
+              variant={"light-purple"}
+              onClick={addMyBook}
+            >
+              Добавить в MyBooks
+            </Button>
           )}
         </div>
       ) : (

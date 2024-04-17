@@ -20,7 +20,8 @@ const LibraryUserListOne = ({ users, onRead, pushUserInMyBook, oneBook }) => {
               <p>{user.email}</p>
               <div>
                 <Button
-                  variant="middle"
+                  variant="purple"
+                  width="w-300"
                   onClick={() => actionWithUser(user)}
                   disabled={bool}
                 >

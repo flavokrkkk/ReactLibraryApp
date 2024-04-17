@@ -4,16 +4,97 @@
 }
 
 .Input {
-  width: 78%;
+  width: 50%;
   height: 40px;
+  border-radius: 10px;
+  padding: 20px;
+}
+//Border-radius
+.r-1 {
   border-radius: 10px;
 }
-.Inputbox {
-  width: 78%;
+
+.r-2 {
+  border-radius: 15px;
+}
+
+.r-3 {
+  border-radius: 20px;
+}
+
+.r-4 {
+  border-radius: 25px;
+}
+
+.r-5 {
+  border-radius: 30px;
+}
+
+//Width
+.w-100 {
+  width: 100px;
+}
+
+.w-200 {
+  width: 200px;
+}
+
+.w-300 {
+  width: 300px;
+}
+
+.w-400 {
+  width: 400px;
+}
+
+.w-500 {
+  width: 500px;
+}
+
+//Height
+.h-10 {
+  height: 20px;
+}
+
+.h-20 {
+  height: 30px;
+}
+
+.h-30 {
   height: 40px;
-  border-radius: 10px;
+}
+
+.h-40 {
+  height: 50px;
+}
+
+.h-50 {
+  height: 60px;
+}
+
+//Outline
+.none {
   outline: none;
-  padding: 20px;
-  width: 320px;
-  border: 2px solid #ddd6ec;
+}
+
+.invert {
+  outline: invert;
+}
+
+//Border
+
+.b-purple-1 {
+  border: 1px solid #babad3;
+}
+
+.b-purple-2 {
+  border: 2px solid #babad3;
+}
+
+.b-red-1 {
+  border: 1px solid #d196a1;
+}
+
+.b-red-2 {
+  border: 2px solid #d196a1;
 }

@@ -34,7 +34,9 @@ const AuthPage = () => {
             )}
             <div>
               <Input
-                outline="purple"
+                width="w-300"
+                border="b-purple-2"
+                outline="none"
                 type="email"
                 required
                 placeholder="E-mail"
@@ -42,7 +44,9 @@ const AuthPage = () => {
             </div>
             <div>
               <Input
-                outline="purple"
+                width="w-300"
+                border="b-purple-2"
+                outline="none"
                 type="password"
                 required
                 placeholder="Password"
@@ -66,11 +70,21 @@ const AuthPage = () => {
               )}
             </div>
             {isAuth == true ? (
-              <Button variant="middle-radius" onClick={navigateTo}>
+              <Button
+                borderRadius="r-4"
+                width="w-200"
+                variant="light-purple"
+                onClick={navigateTo}
+              >
                 Sign in
               </Button>
             ) : (
-              <Button variant="middle-radius" onClick={navigateTo}>
+              <Button
+                borderRadius="r-4"
+                width="w-200"
+                variant="light-purple"
+                onClick={navigateTo}
+              >
                 Sign up
               </Button>
             )}

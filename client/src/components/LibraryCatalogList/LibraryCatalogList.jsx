@@ -22,7 +22,9 @@ const LibraryCatalogList = ({ book, index }) => {
         </h1>
       </div>
       <div>
-        <Button onClick={navigateTo}>Хочу прочитать</Button>
+        <Button width="w-400" variant="light-purple" onClick={navigateTo}>
+          Хочу прочитать
+        </Button>
       </div>
     </div>
   );
