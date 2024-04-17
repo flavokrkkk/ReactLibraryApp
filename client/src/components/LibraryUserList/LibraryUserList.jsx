@@ -63,7 +63,12 @@ const LibraryUserList = ({ status, oneBook }) => {
         Вы можете отслеживать очереди пользователей и читать любимые книжки!
       </h2>
       <div className="Library__Page-AddUser">
-        <Button width="w-300" variant="light-purple" onClick={addUserPrompt}>
+        <Button
+          variant="light-purple"
+          height={"h-1"}
+          fontSize={"fs-1"}
+          onClick={addUserPrompt}
+        >
           Записаться в очередь
         </Button>
       </div>

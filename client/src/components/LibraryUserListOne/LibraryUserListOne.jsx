@@ -11,7 +11,7 @@ const LibraryUserListOne = ({ users, onRead, pushUserInMyBook, oneBook }) => {
   const bool = oneBook.available === true ? false : true;
 
   return (
-    <>
+    <div className="User__List-Wrapper-One">
       {users.length > 0 ? (
         users.map((user, index) => (
           <div key={index}>
@@ -20,8 +20,8 @@ const LibraryUserListOne = ({ users, onRead, pushUserInMyBook, oneBook }) => {
               <p>{user.email}</p>
               <div>
                 <Button
+                  isWidth={true}
                   variant="purple"
-                  width="w-300"
                   onClick={() => actionWithUser(user)}
                   disabled={bool}
                 >
@@ -34,7 +34,7 @@ const LibraryUserListOne = ({ users, onRead, pushUserInMyBook, oneBook }) => {
       ) : (
         <h3>Пользователи еще не добавили книги!</h3>
       )}
-    </>
+    </div>
   );
 };
 

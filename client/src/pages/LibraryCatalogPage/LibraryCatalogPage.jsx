@@ -46,18 +46,19 @@ const LibraryCatalogPage = () => {
 
   return (
     <div className="Library__Catalog-Container">
-      <div>
-        <h1 className="Library__Catalog-Title">Каталог</h1>
+      <h1 className="Library__Catalog-Title">Каталог</h1>
+      <div className="Library__Catalog-Wrapper">
         <Input
           value={value}
+          isWidth={true}
           onChange={onChange}
           outline="none"
           border="b-purple-2"
           placeholder={"Поиск..."}
         />
-        <hr />
-        <LibraryCatalogCard searchAndSortedBook={searchAndSortedBook} />
       </div>
+      <hr />
+      <LibraryCatalogCard searchAndSortedBook={searchAndSortedBook} />
     </div>
   );
 };

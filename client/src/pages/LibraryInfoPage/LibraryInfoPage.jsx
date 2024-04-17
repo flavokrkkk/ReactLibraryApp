@@ -70,9 +70,7 @@ const LibraryInfoPage = () => {
 
       {oneBook.length !== 0 ? (
         <div>
-          <div>
-            <h2>{oneBook.title}</h2>
-          </div>
+          <h2>{oneBook.title}</h2>
           <hr />
           <div className="Library__Page-Descr-Bold">{oneBook.body}</div>
           <div
@@ -82,40 +80,46 @@ const LibraryInfoPage = () => {
                 : "Library__Page-Button-Group"
             }
           >
-            <Button
-              fontSize="fs-10"
-              variant={check ? "dark-purple" : "middle-purple"}
-            >
-              {availableCheck}
-            </Button>
+            <div className="Library__Page-Button-Wrapper">
+              <Button
+                isWidth={true}
+                variant={check ? "dark-purple" : "middle-purple"}
+              >
+                {availableCheck}
+              </Button>
+            </div>
 
-            <Button
-              fontSize="fs-10"
-              variant={check ? "dark-purple" : "middle-purple"}
-            >
-              {onHandsCheck}
-            </Button>
+            <div className="Library__Page-Button-Wrapper">
+              <Button
+                isWidth={true}
+                variant={check ? "dark-purple" : "middle-purple"}
+              >
+                {onHandsCheck}
+              </Button>
+            </div>
           </div>
 
-          {check ? (
-            <Button
-              width="w-500"
-              height="h-40"
-              variant={"light-purple"}
-              disabled
-            >
-              Добавлена в MyBooks
-            </Button>
-          ) : (
-            <Button
-              width="w-500"
-              height="h-40"
-              variant={"light-purple"}
-              onClick={addMyBook}
-            >
-              Добавить в MyBooks
-            </Button>
-          )}
+          <div className="Library__Page-Button-Checked">
+            {check ? (
+              <Button
+                height={"h-2"}
+                isWidth={true}
+                variant={"light-purple"}
+                disabled
+              >
+                Добавлена в MyBooks
+              </Button>
+            ) : (
+              <Button
+                height={"h-2"}
+                isWidth={true}
+                variant={"light-purple"}
+                onClick={addMyBook}
+              >
+                Добавить в MyBooks
+              </Button>
+            )}
+          </div>
         </div>
       ) : (
         <h2>Информация о книге отсутсвует</h2>

@@ -7,11 +7,17 @@ const Button = ({
   disabled,
   variant,
   borderRadius,
-  width,
+  isWidth,
   height,
   fontSize,
 }) => {
-  const classes = [variant, borderRadius, width, height, fontSize];
+  const classes = [
+    variant,
+    borderRadius,
+    isWidth && "isWidth",
+    height,
+    fontSize,
+  ];
 
   return (
     <div className="Button-Wrapper">
@@ -30,6 +36,7 @@ export default Button;
 
 Button.propTypes = {
   children: PropTypes.string,
+  disabled: PropTypes.bool,
   onClick: PropTypes.func,
   variant: PropTypes.oneOf([
     "purple",
@@ -37,13 +44,14 @@ Button.propTypes = {
     "middle-purple",
     "dark-purple",
   ]),
-  borderRadius: PropTypes.oneOf(["r-1", "r-2", "r-3", "r-4", "r-5"]),
-  width: PropTypes.oneOf(["w-100", "w-200", "w-300", "w-400", "w-500"]),
-  height: PropTypes.oneOf(["h-10", "h-20", "h-30", "h-40", "h-50"]),
-  fontSize: PropTypes.oneOf(["fs-10", "fs-20", "fs-30", "fs-40", "fs-50"]),
+  borderRadius: PropTypes.oneOf(["r-20"]),
+  isWidth: PropTypes.bool,
+  height: PropTypes.oneOf(["h-1", "h-2"]),
+  fontSize: PropTypes.oneOf(["fs-1"]),
 };
 
 Button.defaultProps = {
   disabled: false,
   variant: "default",
+  isWidth: false,
 };

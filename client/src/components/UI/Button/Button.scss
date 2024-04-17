@@ -4,12 +4,12 @@
 }
 
 .Button {
-  width: 150px;
   height: 40px;
   border: 1px solid white;
   margin-top: 22px;
   display: inline-block;
   cursor: pointer;
+  display: inline-block;
   color: #000000;
   text-transform: uppercase;
   font-size: 12px;
@@ -18,6 +18,7 @@
   position: relative;
   overflow: hidden;
   z-index: 1;
+  padding: 15px;
   &:after {
     content: "";
     position: absolute;
@@ -45,6 +46,9 @@
   }
 }
 
+.isWidth {
+  width: 100%;
+}
 //Variant
 .purple {
   background-color: #babad3;
@@ -78,85 +82,23 @@
 }
 
 //Border-radius
-.r-1 {
-  border-radius: 10px;
-}
 
-.r-2 {
-  border-radius: 15px;
-}
-
-.r-3 {
+.r-20 {
   border-radius: 20px;
 }
 
-.r-4 {
-  border-radius: 25px;
-}
-
-.r-5 {
-  border-radius: 30px;
-}
-
-//Width
-.w-100 {
-  width: 100px;
-}
-
-.w-200 {
-  width: 200px;
-}
-
-.w-300 {
-  width: 300px;
-}
-
-.w-400 {
-  width: 400px;
-}
-
-.w-500 {
-  width: 500px;
-}
-
 //Height
-.h-10 {
-  height: 20px;
-}
 
-.h-20 {
-  height: 30px;
-}
-
-.h-30 {
+.h-1 {
   height: 40px;
 }
 
-.h-40 {
+.h-2 {
   height: 50px;
 }
 
-.h-50 {
-  height: 60px;
-}
-
 //Font-size
-.fs-10 {
-  font-size: 10px;
-}
 
-.fs-20 {
-  font-size: 15px;
-}
-
-.fs-30 {
-  font-size: 20px;
-}
-
-.fs-40 {
-  font-size: 25px;
-}
-
-.fs-50 {
-  font-size: 30px;
+.fs-1 {
+  font-size: 8px;
 }

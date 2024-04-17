@@ -35,9 +35,9 @@ const MyBooks = () => {
       <h1 className="MyBooks__Title">MyBooks</h1>
       <div className="MyBooks__Button-Static">
         <Button
+          isWidth={true}
           variant="middle-purple"
-          width="w-500"
-          height="h-30"
+          height="h-2"
           onClick={navigateTo}
         >
           Статистика

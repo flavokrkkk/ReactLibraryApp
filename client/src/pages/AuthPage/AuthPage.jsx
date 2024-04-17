@@ -34,7 +34,6 @@ const AuthPage = () => {
             )}
             <div>
               <Input
-                width="w-300"
                 border="b-purple-2"
                 outline="none"
                 type="email"
@@ -44,7 +43,6 @@ const AuthPage = () => {
             </div>
             <div>
               <Input
-                width="w-300"
                 border="b-purple-2"
                 outline="none"
                 type="password"
@@ -71,8 +69,8 @@ const AuthPage = () => {
             </div>
             {isAuth == true ? (
               <Button
-                borderRadius="r-4"
-                width="w-200"
+                borderRadius="r-20"
+                isWidth={true}
                 variant="light-purple"
                 onClick={navigateTo}
               >
@@ -80,8 +78,8 @@ const AuthPage = () => {
               </Button>
             ) : (
               <Button
-                borderRadius="r-4"
-                width="w-200"
+                borderRadius="r-20"
+                isWidth={true}
                 variant="light-purple"
                 onClick={navigateTo}
               >
