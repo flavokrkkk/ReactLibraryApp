@@ -51,9 +51,9 @@ const LibraryCatalogPage = () => {
         <Input
           value={value}
           isFullWidth={true}
-          border={"b-red-2 "}
+          border={"b-red-2"}
           onChange={onChange}
-          outline={true}
+          isOutline={true}
           placeholder={"Поиск..."}
         />
       </div>

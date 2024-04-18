@@ -25,19 +25,19 @@ const LibraryInfoPage = () => {
 
   //Логика по disabled кнопки
   const myBooksId = (id) => {
-    let bool = false;
+    let isBool = false;
     myBook.forEach((el) => {
       if (el.id === id) {
-        bool = true;
+        isBool = true;
       }
     });
-    return bool;
+    return isBool;
   };
 
   //Уменьшаем кол-во бизнес логики
-  const check = myBooksId(oneBook.id) === true || oneBook.available === false;
-  const availableCheck = oneBook.available ? "Доступна" : "Недоступна";
-  const onHandsCheck = status.onHands ? "На руках" : "Доступна";
+  const isCheck = myBooksId(oneBook.id) === true || oneBook.available === false;
+  const isAvailableCheck = oneBook.available ? "Доступна" : "Недоступна";
+  const isOnHandsCheck = status.onHands ? "На руках" : "Доступна";
 
   //Функция добавления книги в myBook
   const addMyBook = () => {
@@ -69,29 +69,29 @@ const LibraryInfoPage = () => {
         <div>
           <h2>{oneBook.title}</h2>
           <hr />
-          <div className="library__page-descr-bold">{oneBook.body}</div>
+          <div className="library__page-description-bold">{oneBook.body}</div>
           <div className="library__page-button-group">
             <div className="library__page-button-wrapper">
               <Button
                 isFullWidth={true}
-                variant={check ? "dark-purple" : "middle-purple"}
+                variant={isCheck ? "dark-purple" : "middle-purple"}
               >
-                {availableCheck}
+                {isAvailableCheck}
               </Button>
             </div>
 
             <div className="library__page-button-wrapper">
               <Button
                 isFullWidth={true}
-                variant={check ? "dark-purple" : "middle-purple"}
+                variant={isCheck ? "dark-purple" : "middle-purple"}
               >
-                {onHandsCheck}
+                {isOnHandsCheck}
               </Button>
             </div>
           </div>
 
           <div className="library__page-button-checked">
-            {check ? (
+            {isCheck ? (
               <Button
                 height={"h-2"}
                 isFullWidth={true}

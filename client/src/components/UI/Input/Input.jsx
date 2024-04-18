@@ -9,13 +9,13 @@ const Input = ({
   placeholder,
   border,
   isFullWidth,
-  outline,
+  isOutline,
 }) => {
   const inputClass = classNames(
     "input",
     border,
     { isFullWidth },
-    { none: outline },
+    { none: isOutline },
   );
 
   return (
@@ -38,7 +38,7 @@ Input.propTypes = {
   onChange: PropTypes.func,
   placeholder: PropTypes.string,
   value: PropTypes.string,
-  outline: PropTypes.bool,
+  isOutline: PropTypes.bool,
   isFullWidth: PropTypes.bool,
   border: PropTypes.oneOf(["b-purple-2", "b-red-2"]),
 };

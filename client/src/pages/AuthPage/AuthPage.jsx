@@ -35,7 +35,7 @@ const AuthPage = () => {
             <div>
               <Input
                 border={"b-purple-2"}
-                outline={true}
+                isOutline={true}
                 type="email"
                 isFullWidth={true}
                 required
@@ -45,7 +45,7 @@ const AuthPage = () => {
             <div>
               <Input
                 border={"b-purple-2"}
-                outline={true}
+                isOutline={true}
                 type="password"
                 isFullWidth={true}
                 required
