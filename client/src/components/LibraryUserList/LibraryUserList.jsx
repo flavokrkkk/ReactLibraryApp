@@ -65,7 +65,6 @@ const LibraryUserList = ({ status, oneBook }) => {
       <div className="Library__Page-AddUser">
         <Button
           variant="light-purple"
-          height={"h-1"}
           fontSize={"fs-1"}
           onClick={addUserPrompt}
         >
