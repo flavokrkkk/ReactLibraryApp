@@ -1,15 +1,13 @@
-.Button-Wrapper {
+.button__wrapper {
   text-align: center;
   margin-top: 30px;
 }
 
-.Button {
+.button {
   height: 40px;
   border: 1px solid white;
-  margin-top: 22px;
   display: inline-block;
   cursor: pointer;
-  display: inline-block;
   color: #000000;
   text-transform: uppercase;
   font-size: 12px;
@@ -46,8 +44,8 @@
   }
 }
 
-.isWidth {
-  width: 100%;
+.isFullWidth {
+  min-width: 100%;
 }
 //Variant
 .purple {
@@ -74,7 +72,6 @@
 
 .dark-purple {
   background-color: #8888c9;
-  border: 1px solid #d9d9d9;
   transition: 0.5s linear;
   &::before {
     background-color: #9797c4;
@@ -82,8 +79,7 @@
 }
 
 //Border-radius
-
-.r-20 {
+.isBorderRadius {
   border-radius: 20px;
 }
 
@@ -99,6 +95,6 @@
 
 //Font-size
 
-.fs-1 {
+.isSmallFontSize {
   font-size: 8px;
 }

@@ -26,7 +26,7 @@ const AuthPage = () => {
     <section className="main-block">
       <div className="form-box">
         <div>
-          <form action="">
+          <form>
             {isAuth == true ? (
               <h2 className="title">Login</h2>
             ) : (
@@ -34,18 +34,20 @@ const AuthPage = () => {
             )}
             <div>
               <Input
-                border="b-purple-2"
-                outline="none"
+                border={"b-purple-2"}
+                outline={true}
                 type="email"
+                isFullWidth={true}
                 required
                 placeholder="E-mail"
               />
             </div>
             <div>
               <Input
-                border="b-purple-2"
-                outline="none"
+                border={"b-purple-2"}
+                outline={true}
                 type="password"
+                isFullWidth={true}
                 required
                 placeholder="Password"
               />
@@ -69,17 +71,16 @@ const AuthPage = () => {
             </div>
             {isAuth == true ? (
               <Button
-                borderRadius="r-20"
-                isWidth={true}
-                variant="light-purple"
+                isBorderRadius={true}
+                variant={"light-purple"}
                 onClick={navigateTo}
               >
                 Sign in
               </Button>
             ) : (
               <Button
-                borderRadius="r-20"
-                isWidth={true}
+                isBorderRadius={true}
+                isFullWidth={true}
                 variant="light-purple"
                 onClick={navigateTo}
               >

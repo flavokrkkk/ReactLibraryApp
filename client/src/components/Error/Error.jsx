@@ -3,7 +3,7 @@ import "./Error.scss";
 const Error = ({ error }) => {
   return (
     <div>
-      <h1 className="Error__Wrapper Error">{error}</h1>
+      <h1 className="error__wrapper error">{error}</h1>
     </div>
   );
 };

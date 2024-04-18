@@ -1,6 +1,6 @@
 .table_col {
   font-size: 14px;
-  width: 1000px;
+  min-width: 1000px;
   background: white;
   text-align: left;
   border-collapse: collapse;
@@ -9,16 +9,21 @@
 .table_col th:first-child,
 .table_col td:first-child {
   color: #ab96e6;
-  border-left: none;
 }
 .table_col th {
   font-weight: normal;
   width: 200px;
-  border-bottom: 2px solid #ab96e6;
   border-right: 20px solid white;
   border-left: 20px solid white;
   padding: 8px 10px;
 }
+
+.isBorder {
+  tr {
+    border: 2px solid #ab96e6;
+  }
+}
+
 .table_col td {
   border-right: 20px solid white;
   border-left: 20px solid white;

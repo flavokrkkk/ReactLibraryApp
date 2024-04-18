@@ -57,15 +57,15 @@ const LibraryUserList = ({ status, oneBook }) => {
   }, [userTwo.length, pushUserInMyBook, removeUserInMyBook]);
 
   return (
-    <div className="Library__Page-Users">
+    <div className="library__user-list">
       <hr />
       <h2>
         Вы можете отслеживать очереди пользователей и читать любимые книжки!
       </h2>
-      <div className="Library__Page-AddUser">
+      <div className="library__page-addUser">
         <Button
-          variant="light-purple"
-          fontSize={"fs-1"}
+          variant={"light-purple"}
+          isSmallFontSize={true}
           onClick={addUserPrompt}
         >
           Записаться в очередь

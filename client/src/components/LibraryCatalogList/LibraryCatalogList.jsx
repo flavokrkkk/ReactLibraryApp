@@ -11,18 +11,18 @@ const LibraryCatalogList = ({ book, index }) => {
   }, []);
 
   return (
-    <div className="Library__Catalog-Item">
-      <div className="Library__Catalog-Item-Title">
+    <div className="library__catalog-list">
+      <div className="library__catalog-list-title">
         {index + 1}. {book.title}
       </div>
-      <div className="Library__Catalog-Item-Descr">{book.body}</div>
-      <div className="Library__Catalog-Item-Author">
-        <h1 className="Library__Catalog-Item-Author-Title">
+      <div className="library_catalog-list-description">{book.body}</div>
+      <div className="library__catalog-list-author">
+        <h1 className="library__catalog-list-author-title">
           Онлайн-библиотека Sbook
         </h1>
       </div>
       <div>
-        <Button variant="light-purple" onClick={navigateTo}>
+        <Button height={"h-2"} variant={"light-purple"} onClick={navigateTo}>
           Хочу прочитать
         </Button>
       </div>

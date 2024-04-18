@@ -1,40 +1,23 @@
-.NavBar {
-  position: sticky;
-  display: flex;
-  align-items: center;
-  top: 0;
-  min-width: 100%;
-  background-color: white;
-  height: 60px;
-  font-weight: 400;
-  font-size: 16px;
-  z-index: 100;
-  margin-bottom: 40px;
-}
-.NavBar__content-center {
-  display: flex;
-  gap: 50px;
-  color: #fff;
-  cursor: pointer;
-  align-items: center;
-}
-
-.NavBar__content {
-  display: flex;
-  justify-content: space-between;
-  margin: auto;
-  width: 90%;
-  height: 60px;
-  padding: 0px 20px 0px 20px;
+.navbar {
   background-color: #d0d0e5;
-  border-bottom: 1px solid lightgray;
+  display: flex;
+  height: 70px;
   align-items: center;
+  justify-content: space-around;
+  margin-bottom: 60px;
 }
 
-.NavBar__links {
-  display: flex;
-  flex-direction: column;
-  text-decoration: none;
+.navbar__links {
   color: #fff;
-  align-items: center;
+  text-decoration: none;
+  font-size: 20px;
+}
+
+//bg
+.purple {
+  background-color: #babad3;
+}
+
+.light-purple {
+  background-color: #d0d0e5;
 }

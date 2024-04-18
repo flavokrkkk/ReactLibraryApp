@@ -18,7 +18,7 @@ const LibraryInfoStatic = ({
   };
 
   return (
-    <div className="Library__Page-Static">
+    <div className="library__info-static">
       <div>
         <h2>В избранном: </h2>
         <LibraryUserListOne

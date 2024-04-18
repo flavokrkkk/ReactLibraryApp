@@ -24,20 +24,17 @@ const MyBooks = () => {
   }, []);
 
   const removeBook = (id) => {
-    setTimeout(() => {
-      removeMyBooksAction(id);
-    }, 500);
-    console.log("remove");
+    removeMyBooksAction(id);
   };
 
   return (
-    <div className="MyBooks__Container">
-      <h1 className="MyBooks__Title">MyBooks</h1>
-      <div className="MyBooks__Button-Static">
+    <div className="myBooks__container">
+      <h1 className="myBooks__title">MyBooks</h1>
+      <div className="myBooks__button-static">
         <Button
-          isWidth={true}
-          variant="middle-purple"
-          height="h-2"
+          isFullWidth={true}
+          variant={"middle-purple"}
+          height={"h-2"}
           onClick={navigateTo}
         >
           Статистика

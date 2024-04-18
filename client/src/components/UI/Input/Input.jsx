@@ -1,23 +1,28 @@
 import React from "react";
 import "./Input.scss";
 import PropTypes, { string } from "prop-types";
+import classNames from "classnames";
 
 const Input = ({
   onChange,
   value,
   placeholder,
   border,
-  isWidth,
+  isFullWidth,
   outline,
-  borderRadius,
 }) => {
-  const classes = [isWidth && "isWidth", border, outline, borderRadius];
+  const inputClass = classNames(
+    "input",
+    border,
+    { isFullWidth },
+    { none: outline },
+  );
 
   return (
-    <div className="Input__Container">
-      <div className="Input__Wrapper">
+    <div className="input__container">
+      <div>
         <input
-          className={`Input ${classes.join(" ").replace(/,/gim, "").trim()}`}
+          className={inputClass}
           placeholder={placeholder}
           value={value}
           onChange={onChange}
@@ -31,13 +36,14 @@ export default Input;
 
 Input.propTypes = {
   onChange: PropTypes.func,
+  placeholder: PropTypes.string,
   value: PropTypes.string,
-  borderRadius: PropTypes.oneOf(["r-1", "r-2"]),
-  outline: PropTypes.oneOf(["none", "invert"]),
-  isWidth: PropTypes.bool,
-  border: PropTypes.oneOf(["b-purple-1", "b-red-1", "b-purple-2", "b-red-2"]),
+  outline: PropTypes.bool,
+  isFullWidth: PropTypes.bool,
+  border: PropTypes.oneOf(["b-purple-2", "b-red-2"]),
 };
 
 Input.defaultProps = {
   placeholder: "",
+  isFullWidth: false,
 };

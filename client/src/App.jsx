@@ -12,7 +12,7 @@ function App() {
 
   return (
     <>
-      <NavBar pages={pages} />
+      <NavBar pages={pages} bg={"light-purple"} />
       <AppRouter />
     </>
   );

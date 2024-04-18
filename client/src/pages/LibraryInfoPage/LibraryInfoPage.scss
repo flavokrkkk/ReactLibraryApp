@@ -1,4 +1,4 @@
-.Library__Page-Container {
+.library__page-container {
   max-width: 75%;
   margin: 0 auto;
   text-align: center;
@@ -18,34 +18,28 @@
   }
 }
 
-.Library__Page-Descr-Bold {
+.library__page-descr-bold {
   margin-top: 30px;
   margin-bottom: 30px;
   font-weight: 300;
 }
 
-.Library__Page-Button-Group {
+.library__page-button-group {
   display: flex;
   justify-content: center;
   gap: 20px;
   flex-flow: wrap;
 }
 
-.Library__Page-Button-Available-No {
-  display: flex;
-  justify-content: center;
-  gap: 20px;
-}
-
-.Library__Page-Main-Title {
+.library__page-main-title {
   margin-bottom: 30px;
 }
 
-.Library__Page-Button-Wrapper {
+.library__page-button-wrapper {
   min-width: 150px;
 }
 
-.Library__Page-Button-Checked {
+.library__page-button-checked {
   max-width: 500px;
   margin: 0 auto;
 }

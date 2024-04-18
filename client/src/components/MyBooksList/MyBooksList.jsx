@@ -5,18 +5,18 @@ const MyBooksList = ({ myBook, status, isReaded, removeBook }) => {
   return (
     <div>
       {myBook.length === 0 ? (
-        <h1 className="MyBooks__SubTitle">MyBooks пуст!</h1>
+        <h1 className="myBooks__sub-title">MyBooks пуст!</h1>
       ) : (
         myBook.map((book) => (
           <div key={book.id}>
-            <div className="MyBook__List">
+            <div className="myBook__list">
               <div>
                 <h2>
                   {book.id}. {book.title}
                 </h2>
                 <hr />
                 <h2>Описание:</h2>
-                <div className="MyBook__List-Descr">
+                <div className="myBook__list-description">
                   <h3>{book.body}</h3>
                 </div>
               </div>

@@ -27,12 +27,12 @@ const StaticPage = () => {
   ];
 
   return (
-    <div className="Static__Container">
+    <div className="static__container">
       <h1>Статистика</h1>
       <hr />
-      <MyTable rows={rows} columns={columns} />
-      <div className="Removed__Static">
-        <Button isWidth={true} variant="purple" onClick={deletedStatic}>
+      <MyTable rows={rows} isBorder={true} columns={columns} />
+      <div className="removed__static">
+        <Button isFullWidth={true} variant={"purple"} onClick={deletedStatic}>
           Сброс статистики
         </Button>
       </div>

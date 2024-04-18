@@ -11,19 +11,19 @@ const LibraryUserListOne = ({ users, onRead, pushUserInMyBook, oneBook }) => {
   const bool = oneBook.available === true ? false : true;
 
   return (
-    <div className="User__List-Wrapper-One">
+    <div className="user__list-wrapper-one">
       {users.length > 0 ? (
         users.map((user, index) => (
-          <div key={index}>
-            <div className="Library__Page-User">
+          <div key={user.id}>
+            <div className="user__list-one">
               {index + 1}. {user.name}
               <p>{user.email}</p>
               <div>
                 <Button
-                  isWidth={true}
+                  isFullWidth={true}
                   variant="purple"
                   onClick={() => actionWithUser(user)}
-                  disabled={bool}
+                  isDisabled={bool}
                 >
                   Push To MyBooks
                 </Button>

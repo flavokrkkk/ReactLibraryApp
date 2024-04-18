@@ -4,18 +4,18 @@ import Button from "../UI/Button/Button";
 
 const LibraryUserListTwo = ({ userTwo, removeUserInMyBook }) => {
   return (
-    <div className="User__List-Wrapper-Two">
+    <div className="user__list-wrapper-two">
       {userTwo.length > 0 ? (
         userTwo.map((user, index) => (
-          <div key={user.id} className="User__Two-Wrapper">
+          <div key={user.id} className="user__list-two">
             <div>
               {index + 1} {user.name}
             </div>
             <p>{user.email}</p>
             <div>
               <Button
-                isWidth={true}
-                variant="purple"
+                isFullWidth={true}
+                variant={"purple"}
                 onClick={() => removeUserInMyBook(user.id)}
               >
                 Remove

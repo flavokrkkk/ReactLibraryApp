@@ -45,15 +45,15 @@ const LibraryCatalogPage = () => {
   }
 
   return (
-    <div className="Library__Catalog-Container">
-      <h1 className="Library__Catalog-Title">Каталог</h1>
-      <div className="Library__Catalog-Wrapper">
+    <div className="library__catalog-container">
+      <h1 className="library__catalog-title">Каталог</h1>
+      <div className="library__catalog-wrapper">
         <Input
           value={value}
-          isWidth={true}
+          isFullWidth={true}
+          border={"b-red-2 "}
           onChange={onChange}
-          outline="none"
-          border="b-purple-2"
+          outline={true}
           placeholder={"Поиск..."}
         />
       </div>

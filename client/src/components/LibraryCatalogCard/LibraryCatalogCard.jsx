@@ -5,7 +5,7 @@ const LibraryCatalogCard = ({ searchAndSortedBook }) => {
   return (
     <div>
       {searchAndSortedBook.length > 0 ? (
-        <div className="Library__Catalog-List">
+        <div className="library__catalog-card">
           {searchAndSortedBook.map((book, index) => (
             <div key={book.id}>
               <LibraryCatalogList book={book} index={index} />
@@ -13,7 +13,7 @@ const LibraryCatalogCard = ({ searchAndSortedBook }) => {
           ))}
         </div>
       ) : (
-        <div className="Library__Catalog-List-Zero">
+        <div className="library__catalog-card-zero">
           <h1>К сожалению каталог пуст!</h1>
         </div>
       )}

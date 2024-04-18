@@ -41,9 +41,6 @@ const LibraryInfoPage = () => {
 
   //Функция добавления книги в myBook
   const addMyBook = () => {
-    if (inMyBooks) {
-      alert("Книга уже добавлена!");
-    }
     addMyBooksAction(oneBook);
     addUserTwoAction({
       id: 101,
@@ -63,8 +60,8 @@ const LibraryInfoPage = () => {
   }, [inMyBooks]);
 
   return (
-    <div className="Library__Page-Container">
-      <div className="Library__Page-Main-Title">
+    <div className="library__page-container">
+      <div className="library__page-main-title">
         <h1>Информация о книге</h1>
       </div>
 
@@ -72,26 +69,20 @@ const LibraryInfoPage = () => {
         <div>
           <h2>{oneBook.title}</h2>
           <hr />
-          <div className="Library__Page-Descr-Bold">{oneBook.body}</div>
-          <div
-            className={
-              check
-                ? "Library__Page-Button-Available-No"
-                : "Library__Page-Button-Group"
-            }
-          >
-            <div className="Library__Page-Button-Wrapper">
+          <div className="library__page-descr-bold">{oneBook.body}</div>
+          <div className="library__page-button-group">
+            <div className="library__page-button-wrapper">
               <Button
-                isWidth={true}
+                isFullWidth={true}
                 variant={check ? "dark-purple" : "middle-purple"}
               >
                 {availableCheck}
               </Button>
             </div>
 
-            <div className="Library__Page-Button-Wrapper">
+            <div className="library__page-button-wrapper">
               <Button
-                isWidth={true}
+                isFullWidth={true}
                 variant={check ? "dark-purple" : "middle-purple"}
               >
                 {onHandsCheck}
@@ -99,20 +90,20 @@ const LibraryInfoPage = () => {
             </div>
           </div>
 
-          <div className="Library__Page-Button-Checked">
+          <div className="library__page-button-checked">
             {check ? (
               <Button
                 height={"h-2"}
-                isWidth={true}
+                isFullWidth={true}
                 variant={"light-purple"}
-                disabled
+                isDisabled={true}
               >
                 Добавлена в MyBooks
               </Button>
             ) : (
               <Button
                 height={"h-2"}
-                isWidth={true}
+                isFullWidth={true}
                 variant={"light-purple"}
                 onClick={addMyBook}
               >
