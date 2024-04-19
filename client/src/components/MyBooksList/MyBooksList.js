@@ -1,10 +1,6 @@
-.myBooks__sub-title {
-  text-align: center;
-  margin-top: 30px;
-  font-size: 28px;
-}
+import styled from "styled-components";
 
-.myBook__list {
+export const MyBookListCard = styled.div`
   max-width: 70%;
   margin: 0 auto;
   border: 1px solid black;
@@ -16,8 +12,8 @@
     text-align: center;
     margin-bottom: 10px;
   }
-}
+`;
 
-.myBook__list-description {
+export const MyBookListDescription = styled.div`
   text-align: center;
-}
+`;

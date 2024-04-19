@@ -1,6 +1,6 @@
 import { useCallback } from "react";
-import "./LibraryUserListOne.scss";
-import Button from "../UI/Button/Button";
+import { UserListOneContainer, UserListOneCard } from "./LibraryUserListOne.js";
+import Button from "../UI/Button/Button.jsx";
 
 const LibraryUserListOne = ({ users, onRead, pushUserInMyBook, oneBook }) => {
   const actionWithUser = useCallback((user) => {
@@ -11,11 +11,11 @@ const LibraryUserListOne = ({ users, onRead, pushUserInMyBook, oneBook }) => {
   const bool = oneBook.available === true ? false : true;
 
   return (
-    <div className="user__list-wrapper-one">
+    <>
       {users.length > 0 ? (
         users.map((user, index) => (
-          <div key={user.id}>
-            <div className="user__list-one">
+          <UserListOneContainer key={user.id}>
+            <UserListOneCard>
               {index + 1}. {user.name}
               <p>{user.email}</p>
               <div>
@@ -28,13 +28,13 @@ const LibraryUserListOne = ({ users, onRead, pushUserInMyBook, oneBook }) => {
                   Push To MyBooks
                 </Button>
               </div>
-            </div>
-          </div>
+            </UserListOneCard>
+          </UserListOneContainer>
         ))
       ) : (
         <h3>Пользователи еще не добавили книги!</h3>
       )}
-    </div>
+    </>
   );
 };
 

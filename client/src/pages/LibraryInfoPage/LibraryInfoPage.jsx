@@ -6,8 +6,8 @@ import { fetchUsers, getOneBook } from "../../store/asyncActions/asyncData";
 import { useAction } from "../../store";
 import Button from "../../components/UI/Button/Button";
 import LibraryUserList from "../../components/LibraryUserList/LibraryUserList";
-import Container from "../../components/Container/Container";
 import Title from "../../components/Title/Title";
+import Container from "../../components/Container/Container";
 
 const LibraryInfoPage = () => {
   //Целпяем id с поисковой строки

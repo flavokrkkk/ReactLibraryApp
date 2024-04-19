@@ -2,12 +2,12 @@ import { useSelector } from "react-redux";
 import "./MyBooks.scss";
 import { useNavigate } from "react-router-dom";
 import { STATIC } from "../../utils/const";
-import MyBooksList from "../../components/MyBooksList/MyBooksList";
+import MyBooksList from "../../components/MyBooksList/MyBooksList.jsx";
 import { useCallback } from "react";
 import { useAction } from "../../store";
-import Button from "../../components/UI/Button/Button";
-import Container from "../../components/Container/Container";
-import Title from "../../components/Title/Title";
+import Button from "../../components/UI/Button/Button.jsx";
+import Container from "../../components/Container/Container.jsx";
+import Title from "../../components/Title/Title.jsx";
 
 const MyBooks = () => {
   const myBook = useSelector((state) => state.myBook.myBook);

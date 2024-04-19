@@ -1,7 +1,8 @@
 import { useAction } from "../../store";
-import LibraryUserListOne from "../LibraryUserListOne/LibraryUserListOne";
-import LibraryUserListTwo from "../LibraryUserListTwo/LibraryUserListTwo";
-import "./LibraryInfoStatic.scss";
+import LibraryUserListOne from "../LibraryUserListOne/LibraryUserListOne.jsx";
+import LibraryUserListTwo from "../LibraryUserListTwo/LibraryUserListTwo.jsx";
+import "./LibraryInfoStatic.js";
+import { StaticContainer } from "./LibraryInfoStatic.js";
 
 const LibraryInfoStatic = ({
   users,
@@ -18,7 +19,7 @@ const LibraryInfoStatic = ({
   };
 
   return (
-    <div className="library__info-static">
+    <StaticContainer>
       <div>
         <h2>В избранном: </h2>
         <LibraryUserListOne
@@ -36,7 +37,7 @@ const LibraryInfoStatic = ({
           removeUserInMyBook={removeUserInMyBook}
         />
       </div>
-    </div>
+    </StaticContainer>
   );
 };
 

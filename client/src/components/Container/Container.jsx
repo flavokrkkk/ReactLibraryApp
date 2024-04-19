@@ -1,7 +1,7 @@
-import "./Container.scss";
+import { PageContainer } from "./Container.js";
 
 const Container = ({ children }) => {
-  return <div className="page__container">{children}</div>;
+  return <PageContainer>{children}</PageContainer>;
 };
 
 export default Container;

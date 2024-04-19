@@ -1,7 +1,6 @@
 import NavBar from "./components/UI/NavBar/NavBar";
 import AppRouter from "./routes/AppRouter";
 import { AUTH, CATALOG, MYBOOKS } from "./utils/const";
-import "./App.scss";
 
 function App() {
   const pages = [

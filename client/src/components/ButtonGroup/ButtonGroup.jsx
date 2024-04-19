@@ -1,6 +1,6 @@
 import { useCallback } from "react";
-import "./ButtonGroup.scss";
-import Button from "../UI/Button/Button";
+import Button from "../UI/Button/Button.jsx";
+import { ButtonGroupContainer } from "./ButtonGroup";
 
 const ButtonGroup = ({ status, isReaded, removeBook, book }) => {
   const cachingMyBook = useCallback(() => {
@@ -13,21 +13,17 @@ const ButtonGroup = ({ status, isReaded, removeBook, book }) => {
   };
 
   return (
-    <div className="myBook__list-button">
+    <ButtonGroupContainer>
       {status.readed.id === book.id ? (
-        <div>
-          <Button variant={"dark-purple"} onClick={isReading}>
-            Прочитана
-          </Button>
-        </div>
+        <Button variant={"dark-purple"} onClick={isReading}>
+          Прочитана
+        </Button>
       ) : (
-        <div>
-          <Button variant={"light-purple"} onClick={cachingMyBook}>
-            Не Прочитана
-          </Button>
-        </div>
+        <Button variant={"light-purple"} onClick={cachingMyBook}>
+          Не Прочитана
+        </Button>
       )}
-    </div>
+    </ButtonGroupContainer>
   );
 };
 

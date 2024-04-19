@@ -1,13 +1,17 @@
-.user__list-one {
+import styled from "styled-components";
+
+export const UserListTwoContainer = styled.div`
   border: 1px solid black;
   padding: 20px;
   margin: 10px;
+  margin-bottom: 10px;
   background-color: #f6f6f6;
   transition: 0.3s all;
   &:hover {
     background-color: #d0d0e5;
   }
-}
-.user__list-wrapper-one {
+`;
+
+export const UserListTwoCard = styled.div`
   min-width: 350px;
-}
+`;

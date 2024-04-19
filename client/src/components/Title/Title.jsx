@@ -1,7 +1,8 @@
-import "./Title.scss";
+import "./Title.js";
+import { TitleContainer } from "./Title.js";
 
 const Title = ({ children }) => {
-  return <div className="page__title">{children}</div>;
+  return <TitleContainer>{children}</TitleContainer>;
 };
 
 export default Title;

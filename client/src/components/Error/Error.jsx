@@ -1,10 +1,10 @@
-import "./Error.scss";
-
+import Title from "../Title/Title.jsx";
+import { ErrorContainer } from "./Error.js";
 const Error = ({ error }) => {
   return (
-    <div>
-      <h1 className="error__wrapper error">{error}</h1>
-    </div>
+    <ErrorContainer>
+      <Title>{error}</Title>
+    </ErrorContainer>
   );
 };
 

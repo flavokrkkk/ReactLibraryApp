@@ -1,32 +1,32 @@
 import React from "react";
-import "./LibraryUserListTwo.scss";
-import Button from "../UI/Button/Button";
+import { UserListTwoCard, UserListTwoContainer } from "./LibraryUserListTwo.js";
+import Button from "../UI/Button/Button.jsx";
 
 const LibraryUserListTwo = ({ userTwo, removeUserInMyBook }) => {
   return (
-    <div className="user__list-wrapper-two">
+    <>
       {userTwo.length > 0 ? (
         userTwo.map((user, index) => (
-          <div key={user.id} className="user__list-two">
-            <div>
+          <UserListTwoContainer>
+            <UserListTwoCard>
               {index + 1} {user.name}
-            </div>
-            <p>{user.email}</p>
-            <div>
-              <Button
-                isFullWidth={true}
-                variant={"purple"}
-                onClick={() => removeUserInMyBook(user.id)}
-              >
-                Remove
-              </Button>
-            </div>
-          </div>
+              <p>{user.email}</p>
+              <div>
+                <Button
+                  isFullWidth={true}
+                  variant={"purple"}
+                  onClick={() => removeUserInMyBook(user.id)}
+                >
+                  Remove
+                </Button>
+              </div>
+            </UserListTwoCard>
+          </UserListTwoContainer>
         ))
       ) : (
         <h3>Пользователи еще не добавили книги!</h3>
       )}
-    </div>
+    </>
   );
 };
 

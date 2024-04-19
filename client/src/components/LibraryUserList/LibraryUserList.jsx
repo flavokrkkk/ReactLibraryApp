@@ -1,9 +1,9 @@
 import { useEffect } from "react";
 import { useSelector } from "react-redux";
 import { useAction } from "../../store";
-import "./LibraryUserList.scss";
+import { UserContainer, UserListAdd } from "./LibraryUserList.js";
 import Button from "../UI/Button/Button";
-import LibraryInfoStatic from "../LibraryInfoStatic/LibraryInfoStatic";
+import LibraryInfoStatic from "../LibraryInfoStatic/LibraryInfoStatic.jsx";
 
 const LibraryUserList = ({ status, oneBook }) => {
   //Получаем списки userов из store
@@ -57,12 +57,12 @@ const LibraryUserList = ({ status, oneBook }) => {
   }, [userTwo.length, pushUserInMyBook, removeUserInMyBook]);
 
   return (
-    <div className="library__user-list">
+    <UserContainer>
       <hr />
       <h2>
         Вы можете отслеживать очереди пользователей и читать любимые книжки!
       </h2>
-      <div className="library__page-addUser">
+      <UserListAdd>
         <Button
           variant={"light-purple"}
           isSmallFontSize={true}
@@ -70,7 +70,8 @@ const LibraryUserList = ({ status, oneBook }) => {
         >
           Записаться в очередь
         </Button>
-      </div>
+      </UserListAdd>
+      <hr />
       <LibraryInfoStatic
         users={users}
         oneBook={oneBook}
@@ -78,7 +79,7 @@ const LibraryUserList = ({ status, oneBook }) => {
         pushUserInMyBook={pushUserInMyBook}
         removeUserInMyBook={removeUserInMyBook}
       />
-    </div>
+    </UserContainer>
   );
 };
 
