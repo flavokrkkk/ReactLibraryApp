@@ -43,7 +43,7 @@ Button.propTypes = {
   isBorderRadius: PropTypes.bool,
   isFullWidth: PropTypes.bool,
   height: PropTypes.oneOf(["h-1", "h-2"]),
-  fontSize: PropTypes.bool,
+  isSmallFontSize: PropTypes.bool,
 };
 
 Button.defaultProps = {

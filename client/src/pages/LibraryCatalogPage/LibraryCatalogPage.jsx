@@ -6,6 +6,8 @@ import Error from "../../components/Error/Error";
 import Loader from "../../components/UI/Loader/Loader";
 import Input from "../../components/UI/Input/Input";
 import LibraryCatalogCard from "../../components/LibraryCatalogCard/LibraryCatalogCard";
+import Container from "../../components/Container/Container";
+import Title from "../../components/Title/Title";
 
 const LibraryCatalogPage = () => {
   const [value, setValue] = useState("");
@@ -45,8 +47,8 @@ const LibraryCatalogPage = () => {
   }
 
   return (
-    <div className="library__catalog-container">
-      <h1 className="library__catalog-title">Каталог</h1>
+    <Container>
+      <Title>Каталог</Title>
       <div className="library__catalog-wrapper">
         <Input
           value={value}
@@ -59,7 +61,7 @@ const LibraryCatalogPage = () => {
       </div>
       <hr />
       <LibraryCatalogCard searchAndSortedBook={searchAndSortedBook} />
-    </div>
+    </Container>
   );
 };
 

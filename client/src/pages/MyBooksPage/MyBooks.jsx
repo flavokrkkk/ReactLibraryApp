@@ -6,6 +6,8 @@ import MyBooksList from "../../components/MyBooksList/MyBooksList";
 import { useCallback } from "react";
 import { useAction } from "../../store";
 import Button from "../../components/UI/Button/Button";
+import Container from "../../components/Container/Container";
+import Title from "../../components/Title/Title";
 
 const MyBooks = () => {
   const myBook = useSelector((state) => state.myBook.myBook);
@@ -28,8 +30,8 @@ const MyBooks = () => {
   };
 
   return (
-    <div className="myBooks__container">
-      <h1 className="myBooks__title">MyBooks</h1>
+    <Container>
+      <Title>MyBooks</Title>
       <div className="myBooks__button-static">
         <Button
           isFullWidth={true}
@@ -47,7 +49,7 @@ const MyBooks = () => {
         removeBook={removeBook}
         isReaded={isReaded}
       />
-    </div>
+    </Container>
   );
 };
 

@@ -6,6 +6,8 @@ import { fetchUsers, getOneBook } from "../../store/asyncActions/asyncData";
 import { useAction } from "../../store";
 import Button from "../../components/UI/Button/Button";
 import LibraryUserList from "../../components/LibraryUserList/LibraryUserList";
+import Container from "../../components/Container/Container";
+import Title from "../../components/Title/Title";
 
 const LibraryInfoPage = () => {
   //Целпяем id с поисковой строки
@@ -41,6 +43,9 @@ const LibraryInfoPage = () => {
 
   //Функция добавления книги в myBook
   const addMyBook = () => {
+    if (inMyBooks) {
+      alert("Книга уже добавлена!");
+    }
     addMyBooksAction(oneBook);
     addUserTwoAction({
       id: 101,
@@ -60,14 +65,11 @@ const LibraryInfoPage = () => {
   }, [inMyBooks]);
 
   return (
-    <div className="library__page-container">
-      <div className="library__page-main-title">
-        <h1>Информация о книге</h1>
-      </div>
-
+    <Container>
+      <Title>Информация о книге</Title>
       {oneBook.length !== 0 ? (
         <div>
-          <h2>{oneBook.title}</h2>
+          <h2 className="library__book-title">{oneBook.title}</h2>
           <hr />
           <div className="library__page-description-bold">{oneBook.body}</div>
           <div className="library__page-button-group">
@@ -116,7 +118,7 @@ const LibraryInfoPage = () => {
         <h2>Информация о книге отсутсвует</h2>
       )}
       <LibraryUserList status={status} oneBook={oneBook} />
-    </div>
+    </Container>
   );
 };
 

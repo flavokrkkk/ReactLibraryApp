@@ -73,6 +73,7 @@ const AuthPage = () => {
               <Button
                 isBorderRadius={true}
                 variant={"light-purple"}
+                isFullWidth={true}
                 onClick={navigateTo}
               >
                 Sign in

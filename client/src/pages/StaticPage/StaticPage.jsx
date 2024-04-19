@@ -1,3 +1,5 @@
+import Container from "../../components/Container/Container";
+import Title from "../../components/Title/Title";
 import Button from "../../components/UI/Button/Button";
 import MyTable from "../../components/UI/Table/MyTable";
 import "./StaticPage.scss";
@@ -27,8 +29,8 @@ const StaticPage = () => {
   ];
 
   return (
-    <div className="static__container">
-      <h1>Статистика</h1>
+    <Container>
+      <Title>Статистика</Title>
       <hr />
       <MyTable rows={rows} isBorder={true} columns={columns} />
       <div className="removed__static">
@@ -36,7 +38,7 @@ const StaticPage = () => {
           Сброс статистики
         </Button>
       </div>
-    </div>
+    </Container>
   );
 };
 
