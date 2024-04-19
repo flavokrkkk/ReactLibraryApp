@@ -2,7 +2,6 @@ import { useCallback, useEffect, useMemo, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import "./LibraryCatalog.scss";
 import { fetchMovies } from "../../store/asyncActions/asyncData";
-import { Button, Input, Space } from "antd";
 import LibaryCatalogList from "./LibaryCatalogList";
 import Pagination from "../Pagination/Pagination";
 
@@ -65,7 +64,7 @@ const LibraryCatalog = () => {
       <div className="Library__Catalog-Wrapper">
         <h1 className="Library__Catalog-Title">Каталог</h1>
         <div className="Library__Catalog-Input">
-          <Space.Compact style={{ width: "70%" }}>
+          {/* <Space.Compact style={{ width: "70%" }}>
             <Input
               value={value}
               onChange={onChange}
@@ -75,7 +74,7 @@ const LibraryCatalog = () => {
             <Button style={{ height: 40 }} type="default">
               Submit
             </Button>
-          </Space.Compact>
+          </Space.Compact> */}
         </div>
         <hr />
         <LibaryCatalogList searchAndSortedBook={searchAndSortedBook} />

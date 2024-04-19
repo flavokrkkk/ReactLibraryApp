@@ -1,6 +1,5 @@
 import { useEffect } from "react";
 import { useSelector } from "react-redux";
-import { Button } from "antd";
 import LibraryPageList from "./LibraryPageList";
 import LibraryPageListTwo from "./LibraryPageListTwo";
 import { useAction } from "../../store";
@@ -65,7 +64,7 @@ const UserList = ({ status, oneBook }) => {
         Вы можете отслеживать очереди пользователей и читать любимые книжки!
       </h2>
       <div className="Library__Page-AddUser">
-        <Button onClick={() => addUser(prompt())}>Записаться в очередь</Button>
+        <button onClick={() => addUser(prompt())}>Записаться в очередь</button>
       </div>
 
       <div className="Library__Page-Static">

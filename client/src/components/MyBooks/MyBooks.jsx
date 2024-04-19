@@ -1,6 +1,5 @@
 import { useSelector } from "react-redux";
 import "./MyBooks.scss";
-import { Button } from "antd";
 import { useNavigate } from "react-router-dom";
 import { STATIC } from "../../utils/const";
 import MyBooksList from "./MyBooksList";
@@ -34,9 +33,9 @@ const MyBooks = () => {
     <div className="MyBooks__Container">
       <h1 className="MyBooks__Title">MyBooks</h1>
       <div className="MyBooks__Button-Static">
-        <Button onClick={navigateTo} style={{ width: "80%" }}>
+        <button onClick={navigateTo} style={{ width: "80%" }}>
           Статистика
-        </Button>
+        </button>
       </div>
       <hr />
       <MyBooksList

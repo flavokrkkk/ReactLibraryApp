@@ -1,6 +1,5 @@
 import "./StaticPage.scss";
-import Table from "./MyTable";
-import { Button } from "antd";
+// import Table from "./MyTable";
 
 const StaticPage = () => {
   const deletedStatic = () => {
@@ -11,9 +10,9 @@ const StaticPage = () => {
     <div className="Static__Container">
       <h1>Статистика</h1>
       <hr />
-      <Table />
+      {/* <Table /> */}
       <div style={{ textAlign: "center" }}>
-        <Button onClick={deletedStatic}>Сброс статистики</Button>
+        <button onClick={deletedStatic}>Сброс статистики</button>
       </div>
     </div>
   );

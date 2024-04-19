@@ -1,4 +1,3 @@
-import { Button } from "antd";
 import { useCallback } from "react";
 
 const LibraryPageList = ({ users, onRead, pushUserInMyBook, oneBook }) => {
@@ -16,16 +15,16 @@ const LibraryPageList = ({ users, onRead, pushUserInMyBook, oneBook }) => {
               {index + 1}. {user.name}
               <p>{user.email}</p>
               {oneBook.available === true ? (
-                <Button
+                <button
                   className="Libray__Page-User-Button"
                   onClick={() => actionWithUser(user)}
                 >
                   push to myBook
-                </Button>
+                </button>
               ) : (
-                <Button disabled className="Libray__Page-User-Button">
+                <button disabled className="Libray__Page-User-Button">
                   push to myBook
-                </Button>
+                </button>
               )}
             </div>
           </div>

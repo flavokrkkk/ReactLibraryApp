@@ -1,5 +1,3 @@
-import { Button } from "antd";
-
 const LibraryPageListTwo = ({ userTwo, removeUserinMyBook }) => {
   return (
     <>
@@ -9,12 +7,12 @@ const LibraryPageListTwo = ({ userTwo, removeUserinMyBook }) => {
             <div className="Libray__Page-User">
               {index + 1}. {user.name}
               <p>{user.email}</p>
-              <Button
+              <button
                 onClick={() => removeUserinMyBook(user.id)}
                 className="Libray__Page-User-Button"
               >
                 is Readed
-              </Button>
+              </button>
             </div>
           </div>
         ))
