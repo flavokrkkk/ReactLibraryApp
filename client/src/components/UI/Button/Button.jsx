@@ -1,5 +1,9 @@
 import PropTypes from "prop-types";
-import * as S from "./styles.js";
+import {
+  ButtonComponent,
+  ButtonComponentStyles,
+  ButtonContainer,
+} from "./styles.js";
 
 const Button = ({
   children,
@@ -12,8 +16,8 @@ const Button = ({
   isSmallFontSize,
 }) => {
   return (
-    <S.ButtonContainer>
-      <S.ButtonComponentStyles
+    <ButtonContainer>
+      <ButtonComponentStyles
         onClick={onClick}
         disabled={isDisabled}
         height={height}
@@ -23,8 +27,8 @@ const Button = ({
         isSmallFontSize={isSmallFontSize}
       >
         {children}
-      </S.ButtonComponentStyles>
-    </S.ButtonContainer>
+      </ButtonComponentStyles>
+    </ButtonContainer>
   );
 };
 

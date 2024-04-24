@@ -1,6 +1,6 @@
 import React from "react";
 import PropTypes, { string } from "prop-types";
-import * as S from "./styles.js";
+import { InputContainer, InputComponentStyles } from "./styles.js";
 
 const Input = ({
   onChange,
@@ -11,8 +11,8 @@ const Input = ({
   isOutline,
 }) => {
   return (
-    <S.InputContainer>
-      <S.InputComponentStyles
+    <InputContainer>
+      <InputComponentStyles
         placeholder={placeholder}
         value={value}
         onChange={onChange}
@@ -20,7 +20,7 @@ const Input = ({
         isOutline={isOutline}
         isFullWidth={isFullWidth}
       />
-    </S.InputContainer>
+    </InputContainer>
   );
 };
 

@@ -1,10 +1,12 @@
 import { useEffect } from "react";
 import { useSelector } from "react-redux";
 import { useAction } from "../../store";
-import * as S from "./styles.js";
+import { UserContainer } from "./styles.js";
 import Button from "../UI/Button/Button";
 import LibraryInfoStatic from "../LibraryInfoStatic/LibraryInfoStatic.jsx";
-import * as C from "../../styles/components.js";
+import Wrapper from "../UI/Wrapper/Wrapper.jsx";
+import SubTitle from "../UI/SubTitle/SubTitle.jsx";
+import Hr from "../UI/Hr/Hr.jsx";
 
 const LibraryUserList = ({ status, oneBook }) => {
   //Получаем списки userов из store
@@ -58,12 +60,12 @@ const LibraryUserList = ({ status, oneBook }) => {
   }, [userTwo.length, pushUserInMyBook, removeUserInMyBook]);
 
   return (
-    <S.UserContainer>
-      <C.Hr />
-      <C.SubTitle>
+    <UserContainer>
+      <Hr />
+      <SubTitle>
         Вы можете отслеживать очереди пользователей и читать любимые книжки!
-      </C.SubTitle>
-      <C.Wrapper>
+      </SubTitle>
+      <Wrapper>
         <Button
           variant={"light-purple"}
           isSmallFontSize={true}
@@ -71,8 +73,8 @@ const LibraryUserList = ({ status, oneBook }) => {
         >
           Записаться в очередь
         </Button>
-      </C.Wrapper>
-      <C.Hr />
+      </Wrapper>
+      <Hr />
       <LibraryInfoStatic
         users={users}
         oneBook={oneBook}
@@ -80,7 +82,7 @@ const LibraryUserList = ({ status, oneBook }) => {
         pushUserInMyBook={pushUserInMyBook}
         removeUserInMyBook={removeUserInMyBook}
       />
-    </S.UserContainer>
+    </UserContainer>
   );
 };
 

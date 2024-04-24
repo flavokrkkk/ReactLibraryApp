@@ -1,8 +1,9 @@
-import Container from "../../components/Container/Container.jsx";
-import Title from "../../components/Title/Title.jsx";
 import Button from "../../components/UI/Button/Button.jsx";
+import Container from "../../components/UI/Container/Container.jsx";
+import Hr from "../../components/UI/Hr/Hr.jsx";
 import MyTable from "../../components/UI/Table/MyTable.jsx";
-import * as C from "../../styles/components.js";
+import Title from "../../components/UI/Title/Title.jsx";
+import Wrapper from "../../components/UI/Wrapper/Wrapper.jsx";
 import { useSelector } from "react-redux";
 
 const StaticPage = () => {
@@ -31,9 +32,9 @@ const StaticPage = () => {
   return (
     <Container>
       <Title>Статистика</Title>
-      <C.Hr />
+      <Hr />
       <MyTable rows={rows} isBorder={true} columns={columns} />
-      <C.Wrapper>
+      <Wrapper>
         <Button
           isFullWidth={true}
           variant={"purple"}
@@ -41,7 +42,7 @@ const StaticPage = () => {
         >
           Сброс статистики
         </Button>
-      </C.Wrapper>
+      </Wrapper>
     </Container>
   );
 };

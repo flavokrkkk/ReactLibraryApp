@@ -1,5 +1,5 @@
 import React from "react";
-import * as S from "./styles.js";
+import { UserListTwoCard, UserListTwoContainer } from "./styles.js";
 import Button from "../UI/Button/Button.jsx";
 
 const LibraryUserListTwo = ({ userTwo, removeUserInMyBook }) => {
@@ -7,8 +7,8 @@ const LibraryUserListTwo = ({ userTwo, removeUserInMyBook }) => {
     <>
       {userTwo.length > 0 ? (
         userTwo.map((user, index) => (
-          <S.UserListTwoContainer>
-            <S.UserListTwoCard>
+          <UserListTwoContainer>
+            <UserListTwoCard>
               {index + 1} {user.name}
               <p>{user.email}</p>
               <div>
@@ -20,8 +20,8 @@ const LibraryUserListTwo = ({ userTwo, removeUserInMyBook }) => {
                   Remove
                 </Button>
               </div>
-            </S.UserListTwoCard>
-          </S.UserListTwoContainer>
+            </UserListTwoCard>
+          </UserListTwoContainer>
         ))
       ) : (
         <h3>Пользователи еще не добавили книги!</h3>

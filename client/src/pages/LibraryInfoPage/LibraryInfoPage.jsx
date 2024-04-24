@@ -4,9 +4,9 @@ import { useDispatch, useSelector } from "react-redux";
 import { fetchUsers, getOneBook } from "../../store/asyncActions/asyncData";
 import { useAction } from "../../store";
 import LibraryUserList from "../../components/LibraryUserList/LibraryUserList.jsx";
-import Container from "../../components/Container/Container.jsx";
-import Title from "../../components/Title/Title.jsx";
 import LibraryInfoItem from "../../components/LibraryInfoItem/LibraryInfoItem.jsx";
+import Container from "../../components/UI/Container/Container.jsx";
+import Title from "../../components/UI/Title/Title.jsx";
 
 const LibraryInfoPage = () => {
   //Целпяем id с поисковой строки

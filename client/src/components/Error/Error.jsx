@@ -1,5 +1,5 @@
-import Container from "../Container/Container";
-import Title from "../Title/Title";
+import Container from "../UI/Container/Container";
+import Title from "../UI/Title/Title";
 
 const Error = ({ error }) => {
   return (

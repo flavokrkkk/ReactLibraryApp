@@ -1,6 +1,6 @@
 import { useCallback } from "react";
 import Button from "../UI/Button/Button.jsx";
-import * as S from "./styles.js";
+import { ButtonGroupContainer } from "./styles.js";
 
 const ButtonGroup = ({ bool, changeStatusBook, changeRemoveBook, book }) => {
   const handlerCallback = useCallback(() => {
@@ -13,7 +13,7 @@ const ButtonGroup = ({ bool, changeStatusBook, changeRemoveBook, book }) => {
   };
 
   return (
-    <S.ButtonGroupContainer>
+    <ButtonGroupContainer>
       {bool ? (
         <Button variant={"dark-purple"} onClick={changeOfStatus}>
           Доступна
@@ -23,7 +23,7 @@ const ButtonGroup = ({ bool, changeStatusBook, changeRemoveBook, book }) => {
           Не доступна
         </Button>
       )}
-    </S.ButtonGroupContainer>
+    </ButtonGroupContainer>
   );
 };
 

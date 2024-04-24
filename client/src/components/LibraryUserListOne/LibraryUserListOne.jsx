@@ -1,5 +1,5 @@
 import { useCallback } from "react";
-import * as S from "./styles.js";
+import { UserListOneCard, UserListOneContainer } from "./styles.js";
 import Button from "../UI/Button/Button.jsx";
 import { useSelector } from "react-redux";
 const LibraryUserListOne = ({
@@ -19,8 +19,8 @@ const LibraryUserListOne = ({
     <>
       {users.length > 0 ? (
         users.map((user, index) => (
-          <S.UserListOneContainer key={user.id}>
-            <S.UserListOneCard>
+          <UserListOneContainer key={user.id}>
+            <UserListOneCard>
               {index + 1}. {user.name}
               <p>{user.email}</p>
               <div>
@@ -33,8 +33,8 @@ const LibraryUserListOne = ({
                   Push To MyBooks
                 </Button>
               </div>
-            </S.UserListOneCard>
-          </S.UserListOneContainer>
+            </UserListOneCard>
+          </UserListOneContainer>
         ))
       ) : (
         <h3>Пользователи еще не добавили книги!</h3>

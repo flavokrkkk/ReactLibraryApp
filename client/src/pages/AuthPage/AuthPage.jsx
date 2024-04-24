@@ -2,7 +2,7 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { CATALOG } from "../../utils/const";
 import Form from "../../components/UI/Form/Form.jsx";
-import * as C from "../../styles/components.js";
+import Wrapper from "../../components/UI/Wrapper/Wrapper.jsx";
 
 const AuthPage = () => {
   const [isAuth, setIsAuth] = useState(false);
@@ -36,7 +36,7 @@ const AuthPage = () => {
   ];
 
   return (
-    <C.Wrapper>
+    <Wrapper>
       {isAuth ? (
         <Form
           isBorder={true}
@@ -55,7 +55,7 @@ const AuthPage = () => {
           labelNavigate={authRoute}
         />
       )}
-    </C.Wrapper>
+    </Wrapper>
   );
 };
 

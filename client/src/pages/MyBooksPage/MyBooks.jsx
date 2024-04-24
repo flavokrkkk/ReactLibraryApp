@@ -5,9 +5,10 @@ import MyBooksList from "../../components/MyBooksList/MyBooksList.jsx";
 import { useCallback } from "react";
 import { useAction } from "../../store";
 import Button from "../../components/UI/Button/Button.jsx";
-import * as C from "../../styles/components.js";
-import Container from "../../components/Container/Container.jsx";
-import Title from "../../components/Title/Title.jsx";
+import Container from "../../components/UI/Container/Container.jsx";
+import Title from "../../components/UI/Title/Title.jsx";
+import Wrapper from "../../components/UI/Wrapper/Wrapper.jsx";
+import Hr from "../../components/UI/Hr/Hr.jsx";
 
 const MyBooks = () => {
   const myBook = useSelector((state) => state.myBook.myBook);
@@ -32,7 +33,7 @@ const MyBooks = () => {
   return (
     <Container>
       <Title>MyBooks</Title>
-      <C.Wrapper>
+      <Wrapper>
         <Button
           isFullWidth={true}
           variant={"middle-purple"}
@@ -41,8 +42,8 @@ const MyBooks = () => {
         >
           Статистика
         </Button>
-      </C.Wrapper>
-      <C.Hr />
+      </Wrapper>
+      <Hr />
       <MyBooksList
         status={status}
         myBook={myBook}

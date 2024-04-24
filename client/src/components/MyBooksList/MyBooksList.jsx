@@ -1,7 +1,8 @@
 import ButtonGroup from "../ButtonGroup/ButtonGroup.jsx";
-import Title from "../Title/Title.jsx";
-import * as S from "./styles.js";
-import * as C from "../../styles/components.js";
+import { MyBookListCard, MyBookListDescription } from "./styles.js";
+import Title from "../UI/Title/Title.jsx";
+import SubTitle from "../UI/SubTitle/SubTitle.jsx";
+import Hr from "../UI/Hr/Hr.jsx";
 const MyBooksList = ({
   myBook,
   status,
@@ -15,16 +16,16 @@ const MyBooksList = ({
       ) : (
         myBook.map((book) => (
           <div key={book.id}>
-            <S.MyBookListCard>
+            <MyBookListCard>
               <div>
-                <C.SubTitle>
+                <SubTitle>
                   {book.id}. {book.title}
-                </C.SubTitle>
-                <C.Hr />
-                <C.SubTitle>Описание:</C.SubTitle>
-                <S.MyBookListDescription>
+                </SubTitle>
+                <Hr />
+                <SubTitle>Описание:</SubTitle>
+                <MyBookListDescription>
                   <h3>{book.body}</h3>
-                </S.MyBookListDescription>
+                </MyBookListDescription>
               </div>
 
               <ButtonGroup
@@ -33,7 +34,7 @@ const MyBooksList = ({
                 changeRemoveBook={changeRemoveBook}
                 book={book}
               />
-            </S.MyBookListCard>
+            </MyBookListCard>
           </div>
         ))
       )}

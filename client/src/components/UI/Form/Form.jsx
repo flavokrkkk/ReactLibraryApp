@@ -1,13 +1,13 @@
 import React from "react";
-import * as S from "./styles";
+import { FormLabel, FormStyleContainer } from "./styles";
 import Input from "../Input/Input";
 import Button from "../Button/Button";
 import PropTypes from "prop-types";
-import Title from "../../Title/Title";
+import Title from "../Title/Title";
 
 const Form = ({ data, onClick, label, labelNavigate, isBorder, marginTop }) => {
   return (
-    <S.FormStyleContainer isBorder={isBorder} marginTop={marginTop}>
+    <FormStyleContainer isBorder={isBorder} marginTop={marginTop}>
       <form>
         {data.map(({ title, subPlace, buttonText, id }) => (
           <div key={id}>
@@ -20,16 +20,14 @@ const Form = ({ data, onClick, label, labelNavigate, isBorder, marginTop }) => {
                   placeholder={place}
                 />
               ))}
-            {label && (
-              <S.FormLabel onClick={labelNavigate}>{label}</S.FormLabel>
-            )}
+            {label && <FormLabel onClick={labelNavigate}>{label}</FormLabel>}
             <Button onClick={onClick} isFullWidth={true} isBorderRadius={true}>
               {buttonText}
             </Button>
           </div>
         ))}
       </form>
-    </S.FormStyleContainer>
+    </FormStyleContainer>
   );
 };
 

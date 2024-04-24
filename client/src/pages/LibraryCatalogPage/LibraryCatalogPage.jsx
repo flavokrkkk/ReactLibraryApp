@@ -5,9 +5,10 @@ import Error from "../../components/Error/Error.jsx";
 import Loader from "../../components/UI/Loader/Loader";
 import Input from "../../components/UI/Input/Input";
 import LibraryCatalogCard from "../../components/LibraryCatalogCard/LibraryCatalogCard.jsx";
-import * as C from "../../styles/components.js";
-import Container from "../../components/Container/Container.jsx";
-import Title from "../../components/Title/Title.jsx";
+import Container from "../../components/UI/Container/Container.jsx";
+import Title from "../../components/UI/Title/Title.jsx";
+import Wrapper from "../../components/UI/Wrapper/Wrapper.jsx";
+import Hr from "../../components/UI/Hr/Hr.jsx";
 
 const LibraryCatalogPage = () => {
   const [value, setValue] = useState("");
@@ -49,7 +50,7 @@ const LibraryCatalogPage = () => {
   return (
     <Container>
       <Title>Каталог</Title>
-      <C.Wrapper>
+      <Wrapper>
         <Input
           value={value}
           isFullWidth={true}
@@ -58,8 +59,8 @@ const LibraryCatalogPage = () => {
           isOutline={true}
           placeholder={"Поиск..."}
         />
-      </C.Wrapper>
-      <C.Hr />
+      </Wrapper>
+      <Hr />
       <LibraryCatalogCard searchAndSortedBook={searchAndSortedBook} />
     </Container>
   );

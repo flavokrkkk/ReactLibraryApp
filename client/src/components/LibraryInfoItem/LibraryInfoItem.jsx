@@ -1,6 +1,8 @@
 import Button from "../../components/UI/Button/Button.jsx";
-import * as S from "./styles.js";
-import * as C from "../../styles/components.js";
+import { ButtonsStateGroup, ButtonsStateWrapper } from "./styles.js";
+import Wrapper from "../UI/Wrapper/Wrapper.jsx";
+import SubTitle from "../UI/SubTitle/SubTitle.jsx";
+import Hr from "../UI/Hr/Hr.jsx";
 
 const LibraryInfoItem = ({
   oneBook,
@@ -13,30 +15,30 @@ const LibraryInfoItem = ({
     <>
       {oneBook.length !== 0 ? (
         <div>
-          <C.SubTitle>{oneBook.title}</C.SubTitle>
-          <C.Hr />
+          <SubTitle>{oneBook.title}</SubTitle>
+          <Hr />
           <div>{oneBook.body}</div>
-          <S.ButtonsStateGroup>
-            <S.ButtonsStateWrapper>
+          <ButtonsStateGroup>
+            <ButtonsStateWrapper>
               <Button
                 isFullWidth={true}
                 variant={isCheck ? "dark-purple" : "middle-purple"}
               >
                 {isAvailableCheck}
               </Button>
-            </S.ButtonsStateWrapper>
+            </ButtonsStateWrapper>
 
-            <S.ButtonsStateWrapper>
+            <ButtonsStateWrapper>
               <Button
                 isFullWidth={true}
                 variant={isCheck ? "dark-purple" : "middle-purple"}
               >
                 {isOnHandsCheck}
               </Button>
-            </S.ButtonsStateWrapper>
-          </S.ButtonsStateGroup>
+            </ButtonsStateWrapper>
+          </ButtonsStateGroup>
 
-          <C.Wrapper>
+          <Wrapper>
             {isCheck ? (
               <Button
                 height={"h-2"}
@@ -56,10 +58,10 @@ const LibraryInfoItem = ({
                 Добавить в MyBooks
               </Button>
             )}
-          </C.Wrapper>
+          </Wrapper>
         </div>
       ) : (
-        <C.SubTitle>Информация о книге отсутсвует</C.SubTitle>
+        <SubTitle>Информация о книге отсутсвует</SubTitle>
       )}
     </>
   );

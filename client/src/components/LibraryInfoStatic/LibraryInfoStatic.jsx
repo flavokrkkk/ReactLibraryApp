@@ -1,8 +1,8 @@
 import { useAction } from "../../store";
 import LibraryUserListOne from "../LibraryUserListOne/LibraryUserListOne.jsx";
 import LibraryUserListTwo from "../LibraryUserListTwo/LibraryUserListTwo.jsx";
-import * as S from "./styles.js";
-import * as C from "../../styles/components.js";
+import { StaticContainer } from "./styles.js";
+import SubTitle from "../UI/SubTitle/SubTitle.jsx";
 
 const LibraryInfoStatic = ({
   users,
@@ -19,9 +19,9 @@ const LibraryInfoStatic = ({
   };
 
   return (
-    <S.StaticContainer>
+    <StaticContainer>
       <div>
-        <C.SubTitle>В избранном: </C.SubTitle>
+        <SubTitle>В избранном: </SubTitle>
         <LibraryUserListOne
           users={users}
           removeHandler={removeHandler}
@@ -31,13 +31,13 @@ const LibraryInfoStatic = ({
       </div>
 
       <div>
-        <C.SubTitle>В MyBooks: </C.SubTitle>
+        <SubTitle>В MyBooks: </SubTitle>
         <LibraryUserListTwo
           userTwo={userTwo}
           removeUserInMyBook={removeUserInMyBook}
         />
       </div>
-    </S.StaticContainer>
+    </StaticContainer>
   );
 };
 
