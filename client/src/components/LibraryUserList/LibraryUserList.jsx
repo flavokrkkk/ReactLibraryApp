@@ -1,9 +1,10 @@
 import { useEffect } from "react";
 import { useSelector } from "react-redux";
 import { useAction } from "../../store";
-import { UserContainer, UserListAdd } from "./LibraryUserList.js";
+import * as S from "./styles.js";
 import Button from "../UI/Button/Button";
 import LibraryInfoStatic from "../LibraryInfoStatic/LibraryInfoStatic.jsx";
+import * as C from "../../styles/components.js";
 
 const LibraryUserList = ({ status, oneBook }) => {
   //Получаем списки userов из store
@@ -19,7 +20,7 @@ const LibraryUserList = ({ status, oneBook }) => {
   } = useAction();
 
   //Функция добавления usera в очередь за книгой
-  const addUser = (userName) => {
+  const addHandler = (userName) => {
     const customer = {
       id: Date.now(),
       name: userName,
@@ -41,28 +42,28 @@ const LibraryUserList = ({ status, oneBook }) => {
   };
 
   const addUserPrompt = () => {
-    addUser(prompt());
+    addHandler(prompt());
   };
 
   useEffect(() => {
-    if (oneBook.available !== userTwo.length < 3) {
+    if (oneBook.isAvailable !== userTwo.length < 3) {
       setAvailableBookAction(userTwo.length < 3);
     }
   }, [userTwo.length, pushUserInMyBook, removeUserInMyBook]);
 
   useEffect(() => {
-    if (status.onHands === userTwo.length < 1) {
-      editStatusAction(!status.onHands);
+    if (status.isOnHands === userTwo.length < 1) {
+      editStatusAction(!status.isOnHands);
     }
   }, [userTwo.length, pushUserInMyBook, removeUserInMyBook]);
 
   return (
-    <UserContainer>
-      <hr />
-      <h2>
+    <S.UserContainer>
+      <C.Hr />
+      <C.SubTitle>
         Вы можете отслеживать очереди пользователей и читать любимые книжки!
-      </h2>
-      <UserListAdd>
+      </C.SubTitle>
+      <C.Wrapper>
         <Button
           variant={"light-purple"}
           isSmallFontSize={true}
@@ -70,8 +71,8 @@ const LibraryUserList = ({ status, oneBook }) => {
         >
           Записаться в очередь
         </Button>
-      </UserListAdd>
-      <hr />
+      </C.Wrapper>
+      <C.Hr />
       <LibraryInfoStatic
         users={users}
         oneBook={oneBook}
@@ -79,7 +80,7 @@ const LibraryUserList = ({ status, oneBook }) => {
         pushUserInMyBook={pushUserInMyBook}
         removeUserInMyBook={removeUserInMyBook}
       />
-    </UserContainer>
+    </S.UserContainer>
   );
 };
 

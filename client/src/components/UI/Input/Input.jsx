@@ -1,7 +1,6 @@
 import React from "react";
-import "./Input.scss";
 import PropTypes, { string } from "prop-types";
-import classNames from "classnames";
+import * as S from "./styles.js";
 
 const Input = ({
   onChange,
@@ -11,24 +10,17 @@ const Input = ({
   isFullWidth,
   isOutline,
 }) => {
-  const inputClass = classNames(
-    "input",
-    border,
-    { isFullWidth },
-    { none: isOutline },
-  );
-
   return (
-    <div className="input__container">
-      <div>
-        <input
-          className={inputClass}
-          placeholder={placeholder}
-          value={value}
-          onChange={onChange}
-        />
-      </div>
-    </div>
+    <S.InputContainer>
+      <S.InputComponentStyles
+        placeholder={placeholder}
+        value={value}
+        onChange={onChange}
+        border={border}
+        isOutline={isOutline}
+        isFullWidth={isFullWidth}
+      />
+    </S.InputContainer>
   );
 };
 

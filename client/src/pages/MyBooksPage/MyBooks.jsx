@@ -1,11 +1,11 @@
 import { useSelector } from "react-redux";
-import "./MyBooks.scss";
 import { useNavigate } from "react-router-dom";
 import { STATIC } from "../../utils/const";
 import MyBooksList from "../../components/MyBooksList/MyBooksList.jsx";
 import { useCallback } from "react";
 import { useAction } from "../../store";
 import Button from "../../components/UI/Button/Button.jsx";
+import * as C from "../../styles/components.js";
 import Container from "../../components/Container/Container.jsx";
 import Title from "../../components/Title/Title.jsx";
 
@@ -17,7 +17,7 @@ const MyBooks = () => {
 
   const navigate = useNavigate();
 
-  const isReaded = (book) => {
+  const changeStatusBook = (book) => {
     editStatusBookAction(book);
   };
 
@@ -25,14 +25,14 @@ const MyBooks = () => {
     navigate(STATIC);
   }, []);
 
-  const removeBook = (id) => {
+  const changeRemoveBook = (id) => {
     removeMyBooksAction(id);
   };
 
   return (
     <Container>
       <Title>MyBooks</Title>
-      <div className="myBooks__button-static">
+      <C.Wrapper>
         <Button
           isFullWidth={true}
           variant={"middle-purple"}
@@ -41,13 +41,13 @@ const MyBooks = () => {
         >
           Статистика
         </Button>
-      </div>
-      <hr />
+      </C.Wrapper>
+      <C.Hr />
       <MyBooksList
         status={status}
         myBook={myBook}
-        removeBook={removeBook}
-        isReaded={isReaded}
+        changeRemoveBook={changeRemoveBook}
+        changeStatusBook={changeStatusBook}
       />
     </Container>
   );

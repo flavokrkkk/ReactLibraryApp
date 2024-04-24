@@ -1,7 +1,7 @@
-import { PageContainer } from "./Container.js";
+import * as S from "./styles.js";
 
 const Container = ({ children }) => {
-  return <PageContainer>{children}</PageContainer>;
+  return <S.PageContainer>{children}</S.PageContainer>;
 };
 
 export default Container;

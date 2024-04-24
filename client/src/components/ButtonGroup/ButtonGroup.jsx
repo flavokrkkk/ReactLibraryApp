@@ -1,29 +1,29 @@
 import { useCallback } from "react";
 import Button from "../UI/Button/Button.jsx";
-import { ButtonGroupContainer } from "./ButtonGroup";
+import * as S from "./styles.js";
 
-const ButtonGroup = ({ status, isReaded, removeBook, book }) => {
-  const cachingMyBook = useCallback(() => {
-    isReaded(book);
-    removeBook(book.id);
+const ButtonGroup = ({ bool, changeStatusBook, changeRemoveBook, book }) => {
+  const handlerCallback = useCallback(() => {
+    changeStatusBook(book);
+    changeRemoveBook(book.id);
   }, []);
 
-  const isReading = () => {
-    isReaded(book);
+  const changeOfStatus = () => {
+    changeStatusBook(book);
   };
 
   return (
-    <ButtonGroupContainer>
-      {status.readed.id === book.id ? (
-        <Button variant={"dark-purple"} onClick={isReading}>
-          Прочитана
+    <S.ButtonGroupContainer>
+      {bool ? (
+        <Button variant={"dark-purple"} onClick={changeOfStatus}>
+          Доступна
         </Button>
       ) : (
-        <Button variant={"light-purple"} onClick={cachingMyBook}>
-          Не Прочитана
+        <Button variant={"light-purple"} onClick={handlerCallback}>
+          Не доступна
         </Button>
       )}
-    </ButtonGroupContainer>
+    </S.ButtonGroupContainer>
   );
 };
 

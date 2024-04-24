@@ -1,13 +1,13 @@
 import { useCallback, useEffect, useMemo, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import "./LibraryCatalogPage.scss";
-import { fetchMovies } from "../../store/asyncActions/asyncData";
-import Error from "../../components/Error/Error";
+import { fetchBooks } from "../../store/asyncActions/asyncData";
+import Error from "../../components/Error/Error.jsx";
 import Loader from "../../components/UI/Loader/Loader";
 import Input from "../../components/UI/Input/Input";
-import LibraryCatalogCard from "../../components/LibraryCatalogCard/LibraryCatalogCard";
-import Container from "../../components/Container/Container";
-import Title from "../../components/Title/Title";
+import LibraryCatalogCard from "../../components/LibraryCatalogCard/LibraryCatalogCard.jsx";
+import * as C from "../../styles/components.js";
+import Container from "../../components/Container/Container.jsx";
+import Title from "../../components/Title/Title.jsx";
 
 const LibraryCatalogPage = () => {
   const [value, setValue] = useState("");
@@ -18,7 +18,7 @@ const LibraryCatalogPage = () => {
   const books = useSelector((state) => state.books.books).sort();
 
   //Получаем состояние для идентификатора загрузки
-  const loading = useSelector((state) => state.books.loading);
+  const isLoading = useSelector((state) => state.books.isLoading);
 
   //Получаем состояние для обработки ошибок
   const error = useSelector((state) => state.books.error);
@@ -35,21 +35,21 @@ const LibraryCatalogPage = () => {
   }, []);
 
   useEffect(() => {
-    dispatch(fetchMovies());
+    dispatch(fetchBooks(1, 20));
   }, []);
 
   if (error) {
     return <Error error={error} />;
   }
 
-  if (loading) {
+  if (isLoading) {
     return <Loader />;
   }
 
   return (
     <Container>
       <Title>Каталог</Title>
-      <div className="library__catalog-wrapper">
+      <C.Wrapper>
         <Input
           value={value}
           isFullWidth={true}
@@ -58,8 +58,8 @@ const LibraryCatalogPage = () => {
           isOutline={true}
           placeholder={"Поиск..."}
         />
-      </div>
-      <hr />
+      </C.Wrapper>
+      <C.Hr />
       <LibraryCatalogCard searchAndSortedBook={searchAndSortedBook} />
     </Container>
   );

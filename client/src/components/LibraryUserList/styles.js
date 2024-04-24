@@ -8,8 +8,3 @@ export const UserContainer = styled.div`
     margin-top: 10px;
   }
 `;
-
-export const UserListAdd = styled.div`
-  max-width: 500px;
-  margin: 0 auto 50px;
-`;

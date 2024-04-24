@@ -1,11 +1,14 @@
 import React from "react";
-import "./Loader.scss";
+import "./styles.js";
+import * as S from "./styles.js";
 
 const Loader = () => {
   return (
-    <div>
-      <h1 className="loader__wrapper loader">Loading...</h1>
-    </div>
+    <S.LoaderContainer>
+      <S.LoaderTitle className="loader__wrapper loader">
+        Loading...
+      </S.LoaderTitle>
+    </S.LoaderContainer>
   );
 };
 

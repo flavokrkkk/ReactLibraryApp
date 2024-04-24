@@ -1,21 +1,26 @@
 import { useCallback } from "react";
-import { UserListOneContainer, UserListOneCard } from "./LibraryUserListOne.js";
+import * as S from "./styles.js";
 import Button from "../UI/Button/Button.jsx";
-
-const LibraryUserListOne = ({ users, onRead, pushUserInMyBook, oneBook }) => {
+import { useSelector } from "react-redux";
+const LibraryUserListOne = ({
+  users,
+  removeHandler,
+  pushUserInMyBook,
+  oneBook,
+}) => {
+  const userTwo = useSelector((state) => state.usersTwo.usersTwo);
   const actionWithUser = useCallback((user) => {
     pushUserInMyBook(user);
-    onRead(user.id);
+    removeHandler(user.id);
   }, []);
 
-  const bool = oneBook.available === true ? false : true;
-
+  const bool = oneBook.isAvailable === true ? false : true;
   return (
     <>
       {users.length > 0 ? (
         users.map((user, index) => (
-          <UserListOneContainer key={user.id}>
-            <UserListOneCard>
+          <S.UserListOneContainer key={user.id}>
+            <S.UserListOneCard>
               {index + 1}. {user.name}
               <p>{user.email}</p>
               <div>
@@ -28,8 +33,8 @@ const LibraryUserListOne = ({ users, onRead, pushUserInMyBook, oneBook }) => {
                   Push To MyBooks
                 </Button>
               </div>
-            </UserListOneCard>
-          </UserListOneContainer>
+            </S.UserListOneCard>
+          </S.UserListOneContainer>
         ))
       ) : (
         <h3>Пользователи еще не добавили книги!</h3>

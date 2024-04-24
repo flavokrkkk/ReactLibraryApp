@@ -1,8 +1,7 @@
-import "./Title.js";
-import { TitleContainer } from "./Title.js";
+import * as S from "./styles.js";
 
 const Title = ({ children }) => {
-  return <TitleContainer>{children}</TitleContainer>;
+  return <S.TitleContainer>{children}</S.TitleContainer>;
 };
 
 export default Title;

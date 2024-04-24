@@ -9,13 +9,13 @@ const {
   getOneBookAction,
 } = useAction();
 
-export const fetchUsers = (limit = 10) => {
+export const fetchUsers = (limit = 10, page = 1) => {
   return async function () {
     try {
       const response = await axios.get(
         `https://jsonplaceholder.typicode.com/users`,
         {
-          params: { _limit: limit },
+          params: { _limit: limit, _page: page },
         },
       );
       return addUserAction(response.data);
@@ -25,7 +25,7 @@ export const fetchUsers = (limit = 10) => {
   };
 };
 
-export const fetchMovies = (currentPage = 1) => {
+export const fetchBooks = (currentPage = 1, limit = 10) => {
   return async function () {
     try {
       fetchBooksLoadingAction();
@@ -33,7 +33,7 @@ export const fetchMovies = (currentPage = 1) => {
       const response = await axios.get(
         `https://jsonplaceholder.typicode.com/posts`,
         {
-          params: { _page: currentPage },
+          params: { _page: currentPage, _limit: limit },
         },
       );
       setTimeout(() => {

@@ -2,6 +2,7 @@ import { ADD_USER_TWO, REMOVE_USER_TWO } from "../actionCreators";
 
 const initialState = {
   usersTwo: [],
+  isInclude: false,
 };
 
 export const userTwoReducer = (state = initialState, action) => {

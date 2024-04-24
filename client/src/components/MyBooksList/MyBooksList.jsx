@@ -1,38 +1,43 @@
 import ButtonGroup from "../ButtonGroup/ButtonGroup.jsx";
 import Title from "../Title/Title.jsx";
-import { MyBookListCard, MyBookListDescription } from "./MyBooksList.js";
-
-const MyBooksList = ({ myBook, status, isReaded, removeBook }) => {
+import * as S from "./styles.js";
+import * as C from "../../styles/components.js";
+const MyBooksList = ({
+  myBook,
+  status,
+  changeStatusBook,
+  changeRemoveBook,
+}) => {
   return (
-    <div>
+    <>
       {myBook.length === 0 ? (
         <Title>MyBooks пуст!</Title>
       ) : (
         myBook.map((book) => (
           <div key={book.id}>
-            <MyBookListCard>
+            <S.MyBookListCard>
               <div>
-                <h2>
+                <C.SubTitle>
                   {book.id}. {book.title}
-                </h2>
-                <hr />
-                <h2>Описание:</h2>
-                <MyBookListDescription>
+                </C.SubTitle>
+                <C.Hr />
+                <C.SubTitle>Описание:</C.SubTitle>
+                <S.MyBookListDescription>
                   <h3>{book.body}</h3>
-                </MyBookListDescription>
+                </S.MyBookListDescription>
               </div>
 
               <ButtonGroup
                 status={status}
-                isReaded={isReaded}
-                removeBook={removeBook}
+                changeStatusBook={changeStatusBook}
+                changeRemoveBook={changeRemoveBook}
                 book={book}
               />
-            </MyBookListCard>
+            </S.MyBookListCard>
           </div>
         ))
       )}
-    </div>
+    </>
   );
 };
 

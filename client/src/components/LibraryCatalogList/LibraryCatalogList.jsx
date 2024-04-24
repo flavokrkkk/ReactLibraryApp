@@ -1,11 +1,7 @@
 import { useCallback } from "react";
 import { useNavigate } from "react-router-dom";
 import Button from "../UI/Button/Button.jsx";
-import {
-  BookCard,
-  BookCardDescription,
-  BookCardTitle,
-} from "./LibraryCatalogList.js";
+import * as S from "./styles.js";
 
 const LibraryCatalogList = ({ book, index }) => {
   const navigate = useNavigate();
@@ -15,11 +11,11 @@ const LibraryCatalogList = ({ book, index }) => {
   }, []);
 
   return (
-    <BookCard>
-      <BookCardTitle>
+    <S.BookCard>
+      <S.BookCardTitle>
         {index + 1}. {book.title}
-      </BookCardTitle>
-      <BookCardDescription>{book.body}</BookCardDescription>
+      </S.BookCardTitle>
+      <S.BookCardDescription>{book.body}</S.BookCardDescription>
       <div>
         <h3>Онлайн-библиотека Sbook</h3>
       </div>
@@ -28,7 +24,7 @@ const LibraryCatalogList = ({ book, index }) => {
           Хочу прочитать
         </Button>
       </div>
-    </BookCard>
+    </S.BookCard>
   );
 };
 

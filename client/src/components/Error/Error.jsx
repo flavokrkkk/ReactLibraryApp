@@ -1,10 +1,11 @@
-import Title from "../Title/Title.jsx";
-import { ErrorContainer } from "./Error.js";
+import Container from "../Container/Container";
+import Title from "../Title/Title";
+
 const Error = ({ error }) => {
   return (
-    <ErrorContainer>
+    <Container>
       <Title>{error}</Title>
-    </ErrorContainer>
+    </Container>
   );
 };
 

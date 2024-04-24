@@ -1,6 +1,5 @@
-import "./Button.scss";
 import PropTypes from "prop-types";
-import classNames from "classnames";
+import * as S from "./styles.js";
 
 const Button = ({
   children,
@@ -12,19 +11,20 @@ const Button = ({
   height,
   isSmallFontSize,
 }) => {
-  //Использование библиотеки classnames
-  const btnCLass = classNames("button", variant, height, {
-    isFullWidth,
-    isBorderRadius,
-    isSmallFontSize,
-  });
-
   return (
-    <div className="button__wrapper">
-      <button onClick={onClick} disabled={isDisabled} className={btnCLass}>
+    <S.ButtonContainer>
+      <S.ButtonComponentStyles
+        onClick={onClick}
+        disabled={isDisabled}
+        height={height}
+        variant={variant}
+        isFullWidth={isFullWidth}
+        isBorderRadius={isBorderRadius}
+        isSmallFontSize={isSmallFontSize}
+      >
         {children}
-      </button>
-    </div>
+      </S.ButtonComponentStyles>
+    </S.ButtonContainer>
   );
 };
 

@@ -1,12 +1,12 @@
-import Container from "../../components/Container/Container";
-import Title from "../../components/Title/Title";
-import Button from "../../components/UI/Button/Button";
-import MyTable from "../../components/UI/Table/MyTable";
-import "./StaticPage.scss";
+import Container from "../../components/Container/Container.jsx";
+import Title from "../../components/Title/Title.jsx";
+import Button from "../../components/UI/Button/Button.jsx";
+import MyTable from "../../components/UI/Table/MyTable.jsx";
+import * as C from "../../styles/components.js";
 import { useSelector } from "react-redux";
 
 const StaticPage = () => {
-  const deletedStatic = () => {
+  const handlerRemoveStatic = () => {
     window.location.reload();
   };
 
@@ -31,13 +31,17 @@ const StaticPage = () => {
   return (
     <Container>
       <Title>Статистика</Title>
-      <hr />
+      <C.Hr />
       <MyTable rows={rows} isBorder={true} columns={columns} />
-      <div className="removed__static">
-        <Button isFullWidth={true} variant={"purple"} onClick={deletedStatic}>
+      <C.Wrapper>
+        <Button
+          isFullWidth={true}
+          variant={"purple"}
+          onClick={handlerRemoveStatic}
+        >
           Сброс статистики
         </Button>
-      </div>
+      </C.Wrapper>
     </Container>
   );
 };

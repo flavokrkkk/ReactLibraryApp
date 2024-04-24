@@ -1,13 +1,12 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import "./LibraryInfoPage.scss";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchUsers, getOneBook } from "../../store/asyncActions/asyncData";
 import { useAction } from "../../store";
-import Button from "../../components/UI/Button/Button";
-import LibraryUserList from "../../components/LibraryUserList/LibraryUserList";
-import Title from "../../components/Title/Title";
-import Container from "../../components/Container/Container";
+import LibraryUserList from "../../components/LibraryUserList/LibraryUserList.jsx";
+import Container from "../../components/Container/Container.jsx";
+import Title from "../../components/Title/Title.jsx";
+import LibraryInfoItem from "../../components/LibraryInfoItem/LibraryInfoItem.jsx";
 
 const LibraryInfoPage = () => {
   //Целпяем id с поисковой строки
@@ -37,12 +36,13 @@ const LibraryInfoPage = () => {
   };
 
   //Уменьшаем кол-во бизнес логики
-  const isCheck = myBooksId(oneBook.id) === true || oneBook.available === false;
-  const isAvailableCheck = oneBook.available ? "Доступна" : "Недоступна";
-  const isOnHandsCheck = status.onHands ? "На руках" : "Доступна";
+  const isCheck =
+    myBooksId(oneBook.id) === true || oneBook.isAvailable === false;
+  const isAvailableCheck = oneBook.isAvailable ? "Доступна" : "Недоступна";
+  const isOnHandsCheck = status.isOnHands ? "На руках" : "Доступна";
 
   //Функция добавления книги в myBook
-  const addMyBook = () => {
+  const changeAddMyBook = () => {
     if (inMyBooks) {
       alert("Книга уже добавлена!");
     }
@@ -56,7 +56,7 @@ const LibraryInfoPage = () => {
   };
 
   useEffect(() => {
-    dispatch(fetchUsers(10));
+    dispatch(fetchUsers(10, 1));
     dispatch(getOneBook(params.id));
   }, []);
 
@@ -67,56 +67,13 @@ const LibraryInfoPage = () => {
   return (
     <Container>
       <Title>Информация о книге</Title>
-      {oneBook.length !== 0 ? (
-        <div>
-          <h2 className="library__book-title">{oneBook.title}</h2>
-          <hr />
-          <div className="library__page-description-bold">{oneBook.body}</div>
-          <div className="library__page-button-group">
-            <div className="library__page-button-wrapper">
-              <Button
-                isFullWidth={true}
-                variant={isCheck ? "dark-purple" : "middle-purple"}
-              >
-                {isAvailableCheck}
-              </Button>
-            </div>
-
-            <div className="library__page-button-wrapper">
-              <Button
-                isFullWidth={true}
-                variant={isCheck ? "dark-purple" : "middle-purple"}
-              >
-                {isOnHandsCheck}
-              </Button>
-            </div>
-          </div>
-
-          <div className="library__page-button-checked">
-            {isCheck ? (
-              <Button
-                height={"h-2"}
-                isFullWidth={true}
-                variant={"light-purple"}
-                isDisabled={true}
-              >
-                Добавлена в MyBooks
-              </Button>
-            ) : (
-              <Button
-                height={"h-2"}
-                isFullWidth={true}
-                variant={"light-purple"}
-                onClick={addMyBook}
-              >
-                Добавить в MyBooks
-              </Button>
-            )}
-          </div>
-        </div>
-      ) : (
-        <h2>Информация о книге отсутсвует</h2>
-      )}
+      <LibraryInfoItem
+        changeAddMyBook={changeAddMyBook}
+        isCheck={isCheck}
+        isOnHandsCheck={isOnHandsCheck}
+        isAvailableCheck={isAvailableCheck}
+        oneBook={oneBook}
+      />
       <LibraryUserList status={status} oneBook={oneBook} />
     </Container>
   );

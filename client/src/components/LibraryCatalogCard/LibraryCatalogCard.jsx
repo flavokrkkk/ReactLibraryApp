@@ -1,23 +1,23 @@
 import LibraryCatalogList from "../LibraryCatalogList/LibraryCatalogList.jsx";
 import Title from "../Title/Title.jsx";
-import { CatalogCard, CatalogCardNone } from "./LibraryCatalogCard.js";
+import * as S from "./styles.js";
 const LibraryCatalogCard = ({ searchAndSortedBook }) => {
   return (
-    <div>
+    <>
       {searchAndSortedBook.length > 0 ? (
-        <CatalogCard>
+        <S.CatalogCard>
           {searchAndSortedBook.map((book, index) => (
             <div key={book.id}>
               <LibraryCatalogList book={book} index={index} />
             </div>
           ))}
-        </CatalogCard>
+        </S.CatalogCard>
       ) : (
-        <CatalogCardNone>
+        <S.CatalogCardNone>
           <Title>К сожалению каталог пуст!</Title>
-        </CatalogCardNone>
+        </S.CatalogCardNone>
       )}
-    </div>
+    </>
   );
 };
 

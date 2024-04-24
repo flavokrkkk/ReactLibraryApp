@@ -1,8 +1,8 @@
 import { useAction } from "../../store";
 import LibraryUserListOne from "../LibraryUserListOne/LibraryUserListOne.jsx";
 import LibraryUserListTwo from "../LibraryUserListTwo/LibraryUserListTwo.jsx";
-import "./LibraryInfoStatic.js";
-import { StaticContainer } from "./LibraryInfoStatic.js";
+import * as S from "./styles.js";
+import * as C from "../../styles/components.js";
 
 const LibraryInfoStatic = ({
   users,
@@ -14,30 +14,30 @@ const LibraryInfoStatic = ({
   const { removeUserAction } = useAction();
 
   //Функция удаления пользователя
-  const onRead = (id) => {
+  const removeHandler = (id) => {
     removeUserAction(id);
   };
 
   return (
-    <StaticContainer>
+    <S.StaticContainer>
       <div>
-        <h2>В избранном: </h2>
+        <C.SubTitle>В избранном: </C.SubTitle>
         <LibraryUserListOne
           users={users}
-          onRead={onRead}
+          removeHandler={removeHandler}
           oneBook={oneBook}
           pushUserInMyBook={pushUserInMyBook}
         />
       </div>
 
       <div>
-        <h2>В MyBooks: </h2>
+        <C.SubTitle>В MyBooks: </C.SubTitle>
         <LibraryUserListTwo
           userTwo={userTwo}
           removeUserInMyBook={removeUserInMyBook}
         />
       </div>
-    </StaticContainer>
+    </S.StaticContainer>
   );
 };
 

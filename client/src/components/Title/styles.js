@@ -1,7 +1,3 @@
-// .page__title {
-
-// }
-
 import styled from "styled-components";
 
 export const TitleContainer = styled.div`
