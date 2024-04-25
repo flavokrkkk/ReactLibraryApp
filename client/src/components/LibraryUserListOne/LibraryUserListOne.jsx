@@ -14,18 +14,18 @@ const LibraryUserListOne = ({
     removeHandler(user.id);
   }, []);
 
-  const bool = oneBook.isAvailable === true ? false : true;
+  const bool = !oneBook.isAvailable;
   return (
     <>
       {users.length > 0 ? (
         users.map((user, index) => (
           <UserListOneContainer key={user.id}>
             <UserListOneCard>
-              {index + 1}. {user.name}
+              {`${index + 1}. ${user.name}`}
               <p>{user.email}</p>
               <div>
                 <Button
-                  isFullWidth={true}
+                  isFullWidth
                   variant="purple"
                   onClick={() => actionWithUser(user)}
                   isDisabled={bool}

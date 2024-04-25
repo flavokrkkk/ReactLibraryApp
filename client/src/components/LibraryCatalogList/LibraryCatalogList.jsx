@@ -12,9 +12,7 @@ const LibraryCatalogList = ({ book, index }) => {
 
   return (
     <BookCard>
-      <BookCardTitle>
-        {index + 1}. {book.title}
-      </BookCardTitle>
+      <BookCardTitle>{`${index + 1}. ${book.title}`}</BookCardTitle>
       <BookCardDescription>{book.body}</BookCardDescription>
       <div>
         <h3>Онлайн-библиотека Sbook</h3>

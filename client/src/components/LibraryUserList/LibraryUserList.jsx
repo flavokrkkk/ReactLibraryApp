@@ -16,7 +16,6 @@ const LibraryUserList = ({ status, oneBook }) => {
     addUserOneAction,
     addUserTwoAction,
     editStatusAction,
-    removeMyBooksAction,
     removeUserTwoAction,
     setAvailableBookAction,
   } = useAction();
@@ -38,9 +37,6 @@ const LibraryUserList = ({ status, oneBook }) => {
   //Функция удаления пользователей из myBook
   const removeUserInMyBook = (user) => {
     removeUserTwoAction(user);
-    if (userTwo[0].id === 101) {
-      removeMyBooksAction(user.id);
-    }
   };
 
   const addUserPrompt = () => {
@@ -68,7 +64,7 @@ const LibraryUserList = ({ status, oneBook }) => {
       <Wrapper>
         <Button
           variant={"light-purple"}
-          isSmallFontSize={true}
+          isSmallFontSize
           onClick={addUserPrompt}
         >
           Записаться в очередь

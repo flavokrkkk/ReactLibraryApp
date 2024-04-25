@@ -35,7 +35,7 @@ const MyBooks = () => {
       <Title>MyBooks</Title>
       <Wrapper>
         <Button
-          isFullWidth={true}
+          isFullWidth
           variant={"middle-purple"}
           height={"h-2"}
           onClick={navigateTo}

@@ -53,10 +53,10 @@ const LibraryCatalogPage = () => {
       <Wrapper>
         <Input
           value={value}
-          isFullWidth={true}
+          isFullWidth
           border={"b-red-2"}
           onChange={onChange}
-          isOutline={true}
+          isOutline
           placeholder={"Поиск..."}
         />
       </Wrapper>

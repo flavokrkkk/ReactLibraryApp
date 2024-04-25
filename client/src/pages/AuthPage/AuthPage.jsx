@@ -39,7 +39,7 @@ const AuthPage = () => {
     <Wrapper>
       {isAuth ? (
         <Form
-          isBorder={true}
+          isBorder
           data={authData}
           onClick={navigateTo}
           label={`Нет аккаунта? Зарегистрируйтесь`}
@@ -48,7 +48,7 @@ const AuthPage = () => {
         />
       ) : (
         <Form
-          isBorder={true}
+          isBorder
           data={registerData}
           label={`Есть аккаунт? Войдите`}
           onClick={navigateTo}

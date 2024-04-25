@@ -1,21 +1,25 @@
-import React from "react";
+import React, { useCallback } from "react";
 import { UserListTwoCard, UserListTwoContainer } from "./styles.js";
 import Button from "../UI/Button/Button.jsx";
 
 const LibraryUserListTwo = ({ userTwo, removeUserInMyBook }) => {
+  const handleRemoveBook = useCallback((id) => {
+    removeUserInMyBook(id);
+  }, []);
+
   return (
     <>
       {userTwo.length > 0 ? (
         userTwo.map((user, index) => (
           <UserListTwoContainer>
             <UserListTwoCard>
-              {index + 1} {user.name}
+              {`${index + 1}. ${user.name}`}
               <p>{user.email}</p>
               <div>
                 <Button
-                  isFullWidth={true}
+                  isFullWidth
                   variant={"purple"}
-                  onClick={() => removeUserInMyBook(user.id)}
+                  onClick={() => handleRemoveBook(user.id)}
                 >
                   Remove
                 </Button>

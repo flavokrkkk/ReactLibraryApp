@@ -18,9 +18,7 @@ const MyBooksList = ({
           <div key={book.id}>
             <MyBookListCard>
               <div>
-                <SubTitle>
-                  {book.id}. {book.title}
-                </SubTitle>
+                <SubTitle>{`${book.id}. ${book.title}`}</SubTitle>
                 <Hr />
                 <SubTitle>Описание:</SubTitle>
                 <MyBookListDescription>

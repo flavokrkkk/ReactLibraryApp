@@ -21,7 +21,7 @@ const LibraryInfoItem = ({
           <ButtonsStateGroup>
             <ButtonsStateWrapper>
               <Button
-                isFullWidth={true}
+                isFullWidth
                 variant={isCheck ? "dark-purple" : "middle-purple"}
               >
                 {isAvailableCheck}
@@ -30,7 +30,7 @@ const LibraryInfoItem = ({
 
             <ButtonsStateWrapper>
               <Button
-                isFullWidth={true}
+                isFullWidth
                 variant={isCheck ? "dark-purple" : "middle-purple"}
               >
                 {isOnHandsCheck}
@@ -42,16 +42,16 @@ const LibraryInfoItem = ({
             {isCheck ? (
               <Button
                 height={"h-2"}
-                isFullWidth={true}
+                isFullWidth
                 variant={"light-purple"}
-                isDisabled={true}
+                isDisabled
               >
                 Добавлена в MyBooks
               </Button>
             ) : (
               <Button
                 height={"h-2"}
-                isFullWidth={true}
+                isFullWidth
                 variant={"light-purple"}
                 onClick={changeAddMyBook}
               >

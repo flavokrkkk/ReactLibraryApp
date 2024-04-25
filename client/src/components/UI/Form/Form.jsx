@@ -15,13 +15,14 @@ const Form = ({ data, onClick, label, labelNavigate, isBorder, marginTop }) => {
             {subPlace &&
               subPlace.map((place) => (
                 <Input
-                  isFullWidth={true}
+                  key={place}
+                  isFullWidth
                   border={"b-purple-2"}
                   placeholder={place}
                 />
               ))}
             {label && <FormLabel onClick={labelNavigate}>{label}</FormLabel>}
-            <Button onClick={onClick} isFullWidth={true} isBorderRadius={true}>
+            <Button onClick={onClick} isFullWidth isBorderRadius>
               {buttonText}
             </Button>
           </div>

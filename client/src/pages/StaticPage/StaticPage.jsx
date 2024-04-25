@@ -33,7 +33,7 @@ const StaticPage = () => {
     <Container>
       <Title>Статистика</Title>
       <Hr />
-      <MyTable rows={rowsData} isBorder={true} columns={columnsData} />
+      <MyTable rows={rowsData} isBorder columns={columnsData} />
       <Wrapper>
         <Button
           isFullWidth={true}
