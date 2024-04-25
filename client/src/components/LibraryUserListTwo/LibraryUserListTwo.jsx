@@ -11,7 +11,7 @@ const LibraryUserListTwo = ({ userTwo, removeUserInMyBook }) => {
     <>
       {userTwo.length > 0 ? (
         userTwo.map((user, index) => (
-          <UserListTwoContainer>
+          <UserListTwoContainer key={user.id}>
             <UserListTwoCard>
               {`${index + 1}. ${user.name}`}
               <p>{user.email}</p>
