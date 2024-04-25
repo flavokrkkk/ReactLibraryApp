@@ -35,25 +35,25 @@ const Button = ({
 export default Button;
 
 Button.propTypes = {
-  children: PropTypes.string,
+  isSmallFontSize: PropTypes.bool,
+  isBorderRadius: PropTypes.bool,
+  isFullWidth: PropTypes.bool,
   isDisabled: PropTypes.bool,
-  onClick: PropTypes.func,
+  children: PropTypes.string,
   variant: PropTypes.oneOf([
     "purple",
     "light-purple",
     "middle-purple",
     "dark-purple",
   ]),
-  isBorderRadius: PropTypes.bool,
-  isFullWidth: PropTypes.bool,
   height: PropTypes.oneOf(["h-1", "h-2"]),
-  isSmallFontSize: PropTypes.bool,
+  onClick: PropTypes.func,
 };
 
 Button.defaultProps = {
   isDisabled: false,
-  variant: "purple",
   isFullWidth: false,
   isBorderRadius: false,
   isSmallFontSize: false,
+  variant: "purple",
 };

@@ -85,41 +85,47 @@ export const ButtonComponentStyles = styled(ButtonComponent)`
     css`
       border-radius: 20px;
     `} 
+
+   
     //Variant
 
-  ${({ variant }) =>
-    variant === "purple" &&
-    css`
-      background-color: #babad3;
-      &:before {
-        background-color: #ababc9;
-      }
-    `}
-
-  ${({ variant }) =>
-    variant === "light-purple" &&
-    css`
-      background-color: #d0d0e5;
-      &:before {
-        background-color: #c5c5e6;
-      }
-    `}
-
-  ${({ variant }) =>
-    variant === "middle-purple" &&
-    css`
-      background-color: #d0d0e5;
-      &:before {
-        background-color: #c5c5e6;
-      }
-    `}
-
-  ${({ variant }) =>
-    variant === "dark-purple" &&
-    css`
-      background-color: #8888c9;
-      &:before {
-        background-color: #9797c4;
-      }
-    `}
+    ${({ variant }) => {
+    switch (variant !== "") {
+      case variant === "purple":
+        return css`
+          background-color: #babad3;
+          &:before {
+            background-color: #ababc9;
+          }
+        `;
+      case variant === "light-purple":
+        return css`
+          background-color: #d0d0e5;
+          &:before {
+            background-color: #c5c5e6;
+          }
+        `;
+      case variant === "middle-purple":
+        return css`
+          background-color: #d0d0e5;
+          &:before {
+            background-color: #c5c5e6;
+          }
+        `;
+      case variant === "dark-purple":
+        return css`
+          background-color: #8888c9;
+          &:before {
+            background-color: #9797c4;
+          }
+        `;
+      default:
+        return css`
+          background-color: #babad3;
+          &:before {
+            background-color: #ababc9;
+          }
+        `;
+    }
+  }}
 `;

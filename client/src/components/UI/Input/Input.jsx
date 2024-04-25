@@ -27,15 +27,16 @@ const Input = ({
 export default Input;
 
 Input.propTypes = {
-  onChange: PropTypes.func,
-  placeholder: PropTypes.string,
-  value: PropTypes.string,
   isOutline: PropTypes.bool,
   isFullWidth: PropTypes.bool,
+  placeholder: PropTypes.string,
+  value: PropTypes.string,
   border: PropTypes.oneOf(["b-purple-2", "b-red-2"]),
+  onChange: PropTypes.func,
 };
 
 Input.defaultProps = {
-  placeholder: "",
   isFullWidth: false,
+  placeholder: "",
+  border: "b-purple-2",
 };

@@ -12,17 +12,22 @@ export const InputComponent = styled.input`
 `;
 
 export const InputComponentStyles = styled(InputComponent)`
-  ${({ border }) =>
-    border === "b-purple-2" &&
-    css`
-      border: 2px solid #babad3;
-    `};
-
-  ${({ border }) =>
-    border === "b-red-2" &&
-    css`
-      border: 2px solid #d196a1;
-    `}
+  ${({ border }) => {
+    switch (border !== "") {
+      case border === "b-purple-2":
+        return css`
+          border: 2px solid #babad3;
+        `;
+      case border === "b-red-2":
+        return css`
+          border: 2px solid #d196a1;
+        `;
+      default:
+        return css`
+          border: 2px solid #babad3;
+        `;
+    }
+  }}
 
   //Outline
 

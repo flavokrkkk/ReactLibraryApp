@@ -28,8 +28,8 @@ const MyTable = ({ rows, columns, isBorder }) => {
 export default MyTable;
 
 MyTable.propTypes = {
-  rows: PropTypes.array.isRequired,
   isBorder: PropTypes.bool,
+  rows: PropTypes.array.isRequired,
   columns: PropTypes.array.isRequired,
 };
 

@@ -34,16 +34,16 @@ const Form = ({ data, onClick, label, labelNavigate, isBorder, marginTop }) => {
 export default Form;
 
 Form.propTypes = {
+  isBorder: PropTypes.bool,
+  label: PropTypes.string,
+  marginTop: PropTypes.oneOf(["m-100", "m-200"]),
   data: PropTypes.array.isRequired,
   onClick: PropTypes.func,
-  label: PropTypes.string,
   labelNavigate: PropTypes.func,
-  isBorder: PropTypes.bool,
-  marginTop: PropTypes.oneOf(["m-100", "m-200"]),
 };
 
 Form.defaultProps = {
-  data: [],
   isBorder: false,
   marginTop: "m-200",
+  data: [],
 };

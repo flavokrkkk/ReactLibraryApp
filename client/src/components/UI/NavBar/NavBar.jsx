@@ -18,8 +18,8 @@ const NavBar = ({ pages, bg }) => {
 export default NavBar;
 
 NavBar.propTypes = {
-  pages: PropTypes.array.isRequired,
   bg: PropTypes.oneOf(["purple", "light-purple"]),
+  pages: PropTypes.array.isRequired,
 };
 
 NavBar.defaultProps = {

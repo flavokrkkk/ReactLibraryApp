@@ -11,17 +11,22 @@ export const FormLabel = styled.label`
 `;
 
 export const FormStyleContainer = styled(FormContainer)`
-  ${({ marginTop }) =>
-    marginTop === "m-100" &&
-    css`
-      margin-top: 100px;
-    `}
-
-  ${({ marginTop }) =>
-    marginTop === "m-200" &&
-    css`
-      margin-top: 200px;
-    `}
+  ${({ marginTop }) => {
+    switch (marginTop !== "") {
+      case marginTop === "m-100":
+        return css`
+          margin-top: 100px;
+        `;
+      case marginTop === "m-200":
+        return css`
+          margin-top: 200px;
+        `;
+      default:
+        return css`
+          margin-top: 200px;
+        `;
+    }
+  }}
 
   ${({ isBorder }) =>
     isBorder &&

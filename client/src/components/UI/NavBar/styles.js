@@ -16,15 +16,20 @@ export const NavBarLink = styled.span`
 `;
 
 export const NavBarStyles = styled(NavBarContainer)`
-  ${({ bg }) =>
-    bg === "purple" &&
-    css`
-      background-color: #babad3;
-    `}
-
-  ${({ bg }) =>
-    bg === "light-purple" &&
-    css`
-      background-color: #d0d0e5;
-    `}
+  ${({ bg }) => {
+    switch (bg !== "") {
+      case bg === "purple":
+        return css`
+          background-color: #babad3;
+        `;
+      case bg === "light-purple":
+        return css`
+          background-color: #d0d0e5;
+        `;
+      default:
+        return css`
+          background-color: "light-purple";
+        `;
+    }
+  }}
 `;

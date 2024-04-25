@@ -15,25 +15,25 @@ const StaticPage = () => {
   const users = useSelector((state) => state.users.users);
   const userTwo = useSelector((state) => state.usersTwo.usersTwo);
 
-  const columns = [
-    { id: 1, title: "Каталог" },
-    { id: 2, title: "Пользователи" },
-    { id: 3, title: "Избранное" },
-    { id: 4, title: "MyBook" },
-  ];
-
-  const rows = [
+  const rowsData = [
     { id: 1, info: books.length, body: "книг" },
     { id: 2, info: users.length + userTwo.length, body: "пользователей" },
     { id: 3, info: users.length, body: "книг" },
     { id: 4, info: userTwo.length, body: "книг" },
   ];
 
+  const columnsData = [
+    { id: 1, title: "Каталог" },
+    { id: 2, title: "Пользователи" },
+    { id: 3, title: "Избранное" },
+    { id: 4, title: "MyBook" },
+  ];
+
   return (
     <Container>
       <Title>Статистика</Title>
       <Hr />
-      <MyTable rows={rows} isBorder={true} columns={columns} />
+      <MyTable rows={rowsData} isBorder={true} columns={columnsData} />
       <Wrapper>
         <Button
           isFullWidth={true}
