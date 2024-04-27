@@ -65,8 +65,8 @@ const LibraryInfoPage = () => {
         isCheck={isCheck}
         isOnHandsCheck={isOnHandsCheck}
         isAvailableCheck={isAvailableCheck}
-        changeAddMyBook={changeAddMyBook}
         oneBook={oneBook}
+        changeAddMyBook={changeAddMyBook}
       />
       <LibraryUserList status={status} oneBook={oneBook} />
     </Container>

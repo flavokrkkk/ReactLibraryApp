@@ -35,11 +35,7 @@ const StaticPage = () => {
       <Hr />
       <MyTable rows={rowsData} isBorder columns={columnsData} />
       <Wrapper>
-        <Button
-          isFullWidth={true}
-          variant={"purple"}
-          onClick={handleDeleteStatic}
-        >
+        <Button isFullWidth variant={"purple"} onClick={handleDeleteStatic}>
           Reset statistics
         </Button>
       </Wrapper>
