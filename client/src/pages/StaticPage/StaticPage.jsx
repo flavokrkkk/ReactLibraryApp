@@ -1,0 +1,45 @@
+import Container from "../../components/Container/Container";
+import Title from "../../components/Title/Title";
+import Button from "../../components/UI/Button/Button";
+import MyTable from "../../components/UI/Table/MyTable";
+import "./StaticPage.scss";
+import { useSelector } from "react-redux";
+
+const StaticPage = () => {
+  const deletedStatic = () => {
+    window.location.reload();
+  };
+
+  const books = useSelector((state) => state.books.books);
+  const users = useSelector((state) => state.users.users);
+  const userTwo = useSelector((state) => state.usersTwo.usersTwo);
+
+  const columns = [
+    { id: 1, title: "Каталог" },
+    { id: 2, title: "Пользователи" },
+    { id: 3, title: "Избранное" },
+    { id: 4, title: "MyBook" },
+  ];
+
+  const rows = [
+    { id: 1, info: books.length, body: "книг" },
+    { id: 2, info: users.length + userTwo.length, body: "пользователей" },
+    { id: 3, info: users.length, body: "книг" },
+    { id: 4, info: userTwo.length, body: "книг" },
+  ];
+
+  return (
+    <Container>
+      <Title>Статистика</Title>
+      <hr />
+      <MyTable rows={rows} isBorder={true} columns={columns} />
+      <div className="removed__static">
+        <Button isFullWidth={true} variant={"purple"} onClick={deletedStatic}>
+          Сброс статистики
+        </Button>
+      </div>
+    </Container>
+  );
+};
+
+export default StaticPage;

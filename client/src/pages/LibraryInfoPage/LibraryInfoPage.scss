@@ -1,0 +1,31 @@
+.library__page-description-bold {
+  margin-top: 30px;
+  margin-bottom: 30px;
+  font-weight: 300;
+}
+
+hr {
+  margin-bottom: 30px;
+  margin-top: 30px;
+}
+
+.library__page-button-group {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-flow: wrap;
+}
+
+.library__book-title {
+  font-size: 23px;
+  margin-bottom: 30px;
+}
+
+.library__page-button-wrapper {
+  min-width: 150px;
+}
+
+.library__page-button-checked {
+  max-width: 500px;
+  margin: 0 auto;
+}

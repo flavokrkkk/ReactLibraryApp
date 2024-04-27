@@ -29,7 +29,7 @@ export const bookReducer = (state = initialState, action) => {
     case ADD_BOOK:
       return { state, books: [action.payload, ...state.books] };
     case SET_CURRENT_PAGE:
-      return { ...state, currentPage: action.payload };
+      return { ...state, currentPage: state.currentPage };
     default:
       return state;
   }

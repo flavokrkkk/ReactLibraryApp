@@ -16,7 +16,7 @@ export const fetchUsers = (limit = 10) => {
         `https://jsonplaceholder.typicode.com/users`,
         {
           params: { _limit: limit },
-        }
+        },
       );
       return addUserAction(response.data);
     } catch (err) {
@@ -25,7 +25,7 @@ export const fetchUsers = (limit = 10) => {
   };
 };
 
-export const fetchMovies = (currentPage) => {
+export const fetchMovies = (currentPage = 1) => {
   return async function () {
     try {
       fetchBooksLoadingAction();
@@ -34,7 +34,7 @@ export const fetchMovies = (currentPage) => {
         `https://jsonplaceholder.typicode.com/posts`,
         {
           params: { _page: currentPage },
-        }
+        },
       );
       setTimeout(() => {
         fetchBooksAction(response.data);
@@ -49,7 +49,7 @@ export const getOneBook = (id) => {
   return async function () {
     try {
       const response = await axios.get(
-        `https://jsonplaceholder.typicode.com/posts/${id}`
+        `https://jsonplaceholder.typicode.com/posts/${id}`,
       );
       getOneBookAction(response.data);
     } catch (err) {

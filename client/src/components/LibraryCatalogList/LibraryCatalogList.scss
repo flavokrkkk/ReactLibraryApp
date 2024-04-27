@@ -1,0 +1,30 @@
+.library__catalog-list {
+  border: 1px solid black;
+  padding: 30px;
+  border-radius: 20px;
+  margin-bottom: 40px;
+}
+
+.library__catalog-list-title {
+  font-size: 22px;
+  font-weight: 500;
+  padding-bottom: 40px;
+}
+
+.library_catalog-list-description {
+  font-size: 18px;
+  font-weight: 300;
+  padding-bottom: 40px;
+}
+
+.library__catalog-list-author {
+  font-size: 18px;
+  font-weight: 300;
+  padding-bottom: 10px;
+  padding-top: 10px;
+}
+
+.library__catalog-list-author-title {
+  font-weight: 400;
+  text-transform: uppercase;
+}
