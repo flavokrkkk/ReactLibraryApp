@@ -1,42 +1,42 @@
 import { useAction } from "../../store";
-import LibraryUserListOne from "../LibraryUserListOne/LibraryUserListOne";
-import LibraryUserListTwo from "../LibraryUserListTwo/LibraryUserListTwo";
-import "./LibraryInfoStatic.scss";
+import { StaticContainer } from "./styles.js";
+import SubTitle from "../UI/SubTitle/SubTitle.jsx";
+import LibraryUserItemOne from ".././LibraryUserItemOne/LibraryUserItemOne.jsx";
+import LibraryUserItemTwo from ".././LibraryUserItemTwo/LibraryUserItemTwo.jsx";
 
 const LibraryInfoStatic = ({
   users,
   oneBook,
-  pushUserInMyBook,
-  removeUserInMyBook,
   userTwo,
+  handlePushUser,
+  toggleBookReadStatus,
 }) => {
   const { removeUserAction } = useAction();
 
-  //Функция удаления пользователя
-  const onRead = (id) => {
+  const handleRemoveUser = (id) => {
     removeUserAction(id);
   };
 
   return (
-    <div className="library__info-static">
+    <StaticContainer>
       <div>
-        <h2>В избранном: </h2>
-        <LibraryUserListOne
+        <SubTitle>Favorites: </SubTitle>
+        <LibraryUserItemOne
           users={users}
-          onRead={onRead}
           oneBook={oneBook}
-          pushUserInMyBook={pushUserInMyBook}
+          handleRemoveUser={handleRemoveUser}
+          handlePushUser={handlePushUser}
         />
       </div>
 
       <div>
-        <h2>В MyBooks: </h2>
-        <LibraryUserListTwo
+        <SubTitle>В MyBooks: </SubTitle>
+        <LibraryUserItemTwo
           userTwo={userTwo}
-          removeUserInMyBook={removeUserInMyBook}
+          toggleBookReadStatus={toggleBookReadStatus}
         />
       </div>
-    </div>
+    </StaticContainer>
   );
 };
 

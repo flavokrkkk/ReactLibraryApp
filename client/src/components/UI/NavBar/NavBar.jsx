@@ -1,31 +1,28 @@
 import { NavLink } from "react-router-dom";
-import "./NavBar.scss";
+import "./styles.js";
 import PropTypes from "prop-types";
-import classNames from "classnames";
+import { NavBarStyles, NavBarLink } from "./styles.js";
 
-const NavBar = ({ pages, bg }) => {
-  const navbarClass = classNames("navbar", bg);
-
+const NavBar = ({ bg, pages }) => {
   return (
-    <div className={navbarClass}>
+    <NavBarStyles bg={bg}>
       {pages.map(({ page, route, id }) => (
-        <div key={id}>
-          <NavLink className="navbar__links" to={route}>
-            {page}
-          </NavLink>
-        </div>
+        <NavLink to={route} key={id}>
+          <NavBarLink>{page}</NavBarLink>
+        </NavLink>
       ))}
-    </div>
+    </NavBarStyles>
   );
 };
 
 export default NavBar;
 
 NavBar.propTypes = {
-  pages: PropTypes.array.isRequired,
   bg: PropTypes.oneOf(["purple", "light-purple"]),
+  pages: PropTypes.array.isRequired,
 };
 
 NavBar.defaultProps = {
   bg: "light-purple",
+  pages: [],
 };

@@ -1,32 +1,21 @@
-import React from "react";
-import "./LibraryUserListTwo.scss";
 import Button from "../UI/Button/Button";
+import { UserListTwoCard } from "./styles";
 
-const LibraryUserListTwo = ({ userTwo, removeUserInMyBook }) => {
+const LibraryUserListTwo = ({ user, index, toggleBookReadStatus }) => {
+  const handleRemoveUserById = () => {
+    toggleBookReadStatus(user.id);
+  };
+
   return (
-    <div className="user__list-wrapper-two">
-      {userTwo.length > 0 ? (
-        userTwo.map((user, index) => (
-          <div key={user.id} className="user__list-two">
-            <div>
-              {index + 1} {user.name}
-            </div>
-            <p>{user.email}</p>
-            <div>
-              <Button
-                isFullWidth={true}
-                variant={"purple"}
-                onClick={() => removeUserInMyBook(user.id)}
-              >
-                Remove
-              </Button>
-            </div>
-          </div>
-        ))
-      ) : (
-        <h3>Пользователи еще не добавили книги!</h3>
-      )}
-    </div>
+    <UserListTwoCard>
+      {`${index + 1}. ${user.name}`}
+      <p>{user.email}</p>
+      <div>
+        <Button isFullWidth variant={"purple"} onClick={handleRemoveUserById}>
+          Remove
+        </Button>
+      </div>
+    </UserListTwoCard>
   );
 };
 

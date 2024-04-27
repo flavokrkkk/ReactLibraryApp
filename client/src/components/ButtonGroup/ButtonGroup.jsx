@@ -1,33 +1,24 @@
 import { useCallback } from "react";
-import "./ButtonGroup.scss";
-import Button from "../UI/Button/Button";
+import Button from "../UI/Button/Button.jsx";
+import { ButtonGroupContainer } from "./styles.js";
 
-const ButtonGroup = ({ status, isReaded, removeBook, book }) => {
-  const cachingMyBook = useCallback(() => {
-    isReaded(book);
-    removeBook(book.id);
+const ButtonGroup = ({ book, status, toggleBookStatus, changeRemoveBook }) => {
+  const handleRemoveBook = useCallback(() => {
+    toggleBookStatus(book);
+    changeRemoveBook(book.id);
   }, []);
 
-  const isReading = () => {
-    isReaded(book);
-  };
+  const isHasMatch = status.isRead.id === book.id;
 
   return (
-    <div className="myBook__list-button">
-      {status.readed.id === book.id ? (
-        <div>
-          <Button variant={"dark-purple"} onClick={isReading}>
-            Прочитана
-          </Button>
-        </div>
-      ) : (
-        <div>
-          <Button variant={"light-purple"} onClick={cachingMyBook}>
-            Не Прочитана
-          </Button>
-        </div>
-      )}
-    </div>
+    <ButtonGroupContainer>
+      <Button
+        variant={isHasMatch ? "dark-purple" : "light-purple"}
+        onClick={handleRemoveBook}
+      >
+        {isHasMatch ? "Read" : "Unread"}
+      </Button>
+    </ButtonGroupContainer>
   );
 };
 

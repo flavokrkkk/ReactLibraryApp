@@ -1,25 +1,25 @@
 import { useEffect } from "react";
 import { useSelector } from "react-redux";
 import { useAction } from "../../store";
-import "./LibraryUserList.scss";
+import { UserContainer } from "./styles.js";
 import Button from "../UI/Button/Button";
-import LibraryInfoStatic from "../LibraryInfoStatic/LibraryInfoStatic";
+import LibraryInfoStatic from "../LibraryInfoStatic/LibraryInfoStatic.jsx";
+import Wrapper from "../UI/Wrapper/Wrapper.jsx";
+import SubTitle from "../UI/SubTitle/SubTitle.jsx";
+import Hr from "../UI/Hr/Hr.jsx";
 
 const LibraryUserList = ({ status, oneBook }) => {
-  //Получаем списки userов из store
   const users = useSelector((state) => state.users.users);
   const userTwo = useSelector((state) => state.usersTwo.usersTwo);
   const {
     addUserOneAction,
     addUserTwoAction,
     editStatusAction,
-    removeMyBooksAction,
     removeUserTwoAction,
     setAvailableBookAction,
   } = useAction();
 
-  //Функция добавления usera в очередь за книгой
-  const addUser = (userName) => {
+  const createNewUser = (userName) => {
     const customer = {
       id: Date.now(),
       name: userName,
@@ -27,58 +27,54 @@ const LibraryUserList = ({ status, oneBook }) => {
     addUserOneAction(customer);
   };
 
-  //Функция добавления userов которые добавили в myBook
-  const pushUserInMyBook = (users) => {
+  const handlePushUser = (users) => {
     addUserTwoAction(users);
   };
 
-  //Функция удаления пользователей из myBook
-  const removeUserInMyBook = (user) => {
+  const toggleBookReadStatus = (user) => {
     removeUserTwoAction(user);
-    if (userTwo[0].id === 101) {
-      removeMyBooksAction(user.id);
-    }
   };
 
-  const addUserPrompt = () => {
-    addUser(prompt());
+  const createNewUserPrompt = () => {
+    createNewUser(prompt());
   };
 
   useEffect(() => {
-    if (oneBook.available !== userTwo.length < 3) {
+    if (oneBook.isAvailable !== userTwo.length < 3) {
       setAvailableBookAction(userTwo.length < 3);
     }
-  }, [userTwo.length, pushUserInMyBook, removeUserInMyBook]);
+  }, [userTwo.length, handlePushUser, toggleBookReadStatus]);
 
   useEffect(() => {
-    if (status.onHands === userTwo.length < 1) {
-      editStatusAction(!status.onHands);
+    if (status.isOnHands === userTwo.length < 1) {
+      editStatusAction(!status.isOnHands);
     }
-  }, [userTwo.length, pushUserInMyBook, removeUserInMyBook]);
+  }, [userTwo.length, handlePushUser, toggleBookReadStatus]);
 
   return (
-    <div className="library__user-list">
-      <hr />
-      <h2>
-        Вы можете отслеживать очереди пользователей и читать любимые книжки!
-      </h2>
-      <div className="library__page-addUser">
+    <UserContainer>
+      <Hr />
+      <SubTitle>
+        You can track user queues and read your favorite books!
+      </SubTitle>
+      <Wrapper>
         <Button
+          isSmallFontSize
           variant={"light-purple"}
-          isSmallFontSize={true}
-          onClick={addUserPrompt}
+          onClick={createNewUserPrompt}
         >
-          Записаться в очередь
+          Sign up for the stack
         </Button>
-      </div>
+      </Wrapper>
+      <Hr />
       <LibraryInfoStatic
         users={users}
         oneBook={oneBook}
         userTwo={userTwo}
-        pushUserInMyBook={pushUserInMyBook}
-        removeUserInMyBook={removeUserInMyBook}
+        handlePushUser={handlePushUser}
+        toggleBookReadStatus={toggleBookReadStatus}
       />
-    </div>
+    </UserContainer>
   );
 };
 

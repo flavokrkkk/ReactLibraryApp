@@ -1,10 +1,11 @@
-import "./Error.scss";
+import Container from "../UI/Container/Container";
+import Title from "../UI/Title/Title";
 
 const Error = ({ error }) => {
   return (
-    <div>
-      <h1 className="error__wrapper error">{error}</h1>
-    </div>
+    <Container>
+      <Title>{error}</Title>
+    </Container>
   );
 };
 

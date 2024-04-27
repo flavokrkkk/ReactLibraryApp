@@ -1,105 +1,61 @@
-import "./AuthPage.scss";
 import { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { CATALOG } from "../../utils/const";
-import Button from "../../components/UI/Button/Button";
-import Input from "../../components/UI/Input/Input";
+import Form from "../../components/UI/Form/Form.jsx";
+import Wrapper from "../../components/UI/Wrapper/Wrapper.jsx";
 
 const AuthPage = () => {
   const [isAuth, setIsAuth] = useState(false);
 
   const navigate = useNavigate();
 
-  const navigateTo = () => {
+  const handleNavigation = () => {
     navigate(CATALOG);
   };
-
-  const noAuthRoute = () => {
-    setIsAuth(false);
+  0;
+  const handleAuthRoute = () => {
+    setIsAuth(!isAuth);
   };
 
-  const checkAuthRoute = () => {
-    setIsAuth(true);
-  };
+  const registerData = [
+    {
+      id: 1,
+      title: "Registration",
+      subPlace: ["E-mail", "Password"],
+      buttonText: "Sign In",
+    },
+  ];
+
+  const authData = [
+    {
+      id: 2,
+      title: "Authorization",
+      subPlace: ["E-mail", "Password"],
+      buttonText: "Sign Up",
+    },
+  ];
 
   return (
-    <section className="main-block">
-      <div className="form-box">
-        <div>
-          <form>
-            {isAuth == true ? (
-              <h2 className="title">Login</h2>
-            ) : (
-              <h2 className="title">Registration</h2>
-            )}
-            <div>
-              <Input
-                border={"b-purple-2"}
-                isOutline={true}
-                type="email"
-                isFullWidth={true}
-                required
-                placeholder="E-mail"
-              />
-            </div>
-            <div>
-              <Input
-                border={"b-purple-2"}
-                isOutline={true}
-                type="password"
-                isFullWidth={true}
-                required
-                placeholder="Password"
-              />
-            </div>
-            <div className="forget">
-              {isAuth == true ? (
-                <label>
-                  Нет аккаунта ?
-                  <a href="#" onClick={noAuthRoute}>
-                    Зарегестрируйтесь!
-                  </a>
-                </label>
-              ) : (
-                <label>
-                  Есть аккаунт ?
-                  <a className="label__href" href="#" onClick={checkAuthRoute}>
-                    Войдите!
-                  </a>
-                </label>
-              )}
-            </div>
-            {isAuth == true ? (
-              <Button
-                isBorderRadius={true}
-                variant={"light-purple"}
-                isFullWidth={true}
-                onClick={navigateTo}
-              >
-                Sign in
-              </Button>
-            ) : (
-              <Button
-                isBorderRadius={true}
-                isFullWidth={true}
-                variant="light-purple"
-                onClick={navigateTo}
-              >
-                Sign up
-              </Button>
-            )}
-
-            <Link to={CATALOG} className="auth_link">
-              <div className="register">
-                <p>
-                  <a href="#">Sbook</a>
-                </p>
-              </div>
-            </Link>
-          </form>
-        </div>
-      </div>
-    </section>
+    <Wrapper>
+      {isAuth ? (
+        <Form
+          isBorder
+          data={authData}
+          label={`Don't have an account? Register`}
+          marginTop={"m-200"}
+          labelNavigate={handleAuthRoute}
+          onClick={handleNavigation}
+        />
+      ) : (
+        <Form
+          isBorder
+          data={registerData}
+          label={`Do you have an account? Sign in`}
+          onClick={handleNavigation}
+          labelNavigate={handleAuthRoute}
+        />
+      )}
+    </Wrapper>
   );
 };
 

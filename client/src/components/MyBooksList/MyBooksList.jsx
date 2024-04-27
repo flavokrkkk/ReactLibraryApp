@@ -1,37 +1,44 @@
-import ButtonGroup from "../ButtonGroup/ButtonGroup";
-import "./MyBooksList.scss";
+import ButtonGroup from "../ButtonGroup/ButtonGroup.jsx";
+import { MyBookListCard, MyBookListDescription } from "./styles.js";
+import Title from "../UI/Title/Title.jsx";
+import SubTitle from "../UI/SubTitle/SubTitle.jsx";
+import Hr from "../UI/Hr/Hr.jsx";
+const MyBooksList = ({
+  myBook,
+  status,
+  toggleBookStatus,
+  changeRemoveBook,
+}) => {
+  const hasIsLength = myBook.length === 0;
 
-const MyBooksList = ({ myBook, status, isReaded, removeBook }) => {
   return (
-    <div>
-      {myBook.length === 0 ? (
-        <h1 className="myBooks__sub-title">MyBooks пуст!</h1>
+    <>
+      {hasIsLength ? (
+        <Title>MyBooks empty!</Title>
       ) : (
         myBook.map((book) => (
           <div key={book.id}>
-            <div className="myBook__list">
+            <MyBookListCard>
               <div>
-                <h2>
-                  {book.id}. {book.title}
-                </h2>
-                <hr />
-                <h2>Описание:</h2>
-                <div className="myBook__list-description">
+                <SubTitle>{`${book.id}. ${book.title}`}</SubTitle>
+                <Hr />
+                <SubTitle>Description:</SubTitle>
+                <MyBookListDescription>
                   <h3>{book.body}</h3>
-                </div>
+                </MyBookListDescription>
               </div>
 
               <ButtonGroup
                 status={status}
-                isReaded={isReaded}
-                removeBook={removeBook}
                 book={book}
+                toggleBookStatus={toggleBookStatus}
+                changeRemoveBook={changeRemoveBook}
               />
-            </div>
+            </MyBookListCard>
           </div>
         ))
       )}
-    </div>
+    </>
   );
 };
 

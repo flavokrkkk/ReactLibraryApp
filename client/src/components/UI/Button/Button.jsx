@@ -1,55 +1,57 @@
-import "./Button.scss";
 import PropTypes from "prop-types";
-import classNames from "classnames";
+import { ButtonComponentStyles, ButtonContainer } from "./styles.js";
 
 const Button = ({
-  children,
-  onClick,
   isDisabled,
-  variant,
+  isSmallFontSize,
   isBorderRadius,
   isFullWidth,
   height,
-  isSmallFontSize,
+  variant,
+  children,
+  onClick,
 }) => {
-  //Использование библиотеки classnames
-  const btnCLass = classNames("button", variant, height, {
-    isFullWidth,
-    isBorderRadius,
-    isSmallFontSize,
-  });
-
   return (
-    <div className="button__wrapper">
-      <button onClick={onClick} disabled={isDisabled} className={btnCLass}>
+    <ButtonContainer>
+      <ButtonComponentStyles
+        disabled={isDisabled}
+        isFullWidth={isFullWidth}
+        isBorderRadius={isBorderRadius}
+        isSmallFontSize={isSmallFontSize}
+        height={height}
+        variant={variant}
+        onClick={onClick}
+      >
         {children}
-      </button>
-    </div>
+      </ButtonComponentStyles>
+    </ButtonContainer>
   );
 };
 
 export default Button;
 
 Button.propTypes = {
-  children: PropTypes.string,
+  isSmallFontSize: PropTypes.bool,
+  isBorderRadius: PropTypes.bool,
+  isFullWidth: PropTypes.bool,
   isDisabled: PropTypes.bool,
-  onClick: PropTypes.func,
+  children: PropTypes.string,
   variant: PropTypes.oneOf([
     "purple",
     "light-purple",
     "middle-purple",
     "dark-purple",
   ]),
-  isBorderRadius: PropTypes.bool,
-  isFullWidth: PropTypes.bool,
   height: PropTypes.oneOf(["h-1", "h-2"]),
-  isSmallFontSize: PropTypes.bool,
+  onClick: PropTypes.func,
 };
 
 Button.defaultProps = {
   isDisabled: false,
-  variant: "purple",
   isFullWidth: false,
   isBorderRadius: false,
   isSmallFontSize: false,
+  variant: "purple",
+  height: "h-1",
+  onClick: () => console.log("Function onClick not defined "),
 };

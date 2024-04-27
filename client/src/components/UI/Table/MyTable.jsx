@@ -1,13 +1,11 @@
-import "./MyTable.scss";
+import "./styles.js";
 import PropTypes from "prop-types";
-import classNames from "classnames";
+import { TableContainer, TableStyles } from "./styles.js";
 
-const MyTable = ({ rows, columns, isBorder }) => {
-  const table_border = classNames("table_col", { isBorder });
-
+const MyTable = ({ isBorder, rows, columns }) => {
   return (
-    <div className="table">
-      <table className={table_border}>
+    <TableContainer>
+      <TableStyles isBorder={isBorder}>
         <thead>
           <tr>
             {columns.map(({ title, id }) => (
@@ -22,19 +20,21 @@ const MyTable = ({ rows, columns, isBorder }) => {
             ))}
           </tr>
         </tbody>
-      </table>
-    </div>
+      </TableStyles>
+    </TableContainer>
   );
 };
 
 export default MyTable;
 
 MyTable.propTypes = {
-  rows: PropTypes.array.isRequired,
   isBorder: PropTypes.bool,
+  rows: PropTypes.array.isRequired,
   columns: PropTypes.array.isRequired,
 };
 
 MyTable.defaultProps = {
   isBorder: false,
+  rows: [],
+  columns: [],
 };

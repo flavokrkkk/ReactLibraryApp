@@ -1,13 +1,13 @@
 import { useSelector } from "react-redux";
-import "./MyBooks.scss";
 import { useNavigate } from "react-router-dom";
 import { STATIC } from "../../utils/const";
-import MyBooksList from "../../components/MyBooksList/MyBooksList";
-import { useCallback } from "react";
+import MyBooksList from "../../components/MyBooksList/MyBooksList.jsx";
 import { useAction } from "../../store";
-import Button from "../../components/UI/Button/Button";
-import Container from "../../components/Container/Container";
-import Title from "../../components/Title/Title";
+import Button from "../../components/UI/Button/Button.jsx";
+import Container from "../../components/UI/Container/Container.jsx";
+import Title from "../../components/UI/Title/Title.jsx";
+import Wrapper from "../../components/UI/Wrapper/Wrapper.jsx";
+import Hr from "../../components/UI/Hr/Hr.jsx";
 
 const MyBooks = () => {
   const myBook = useSelector((state) => state.myBook.myBook);
@@ -17,37 +17,37 @@ const MyBooks = () => {
 
   const navigate = useNavigate();
 
-  const isReaded = (book) => {
+  const toggleBookStatus = (book) => {
     editStatusBookAction(book);
   };
 
-  const navigateTo = useCallback(() => {
+  const handleNavigation = () => {
     navigate(STATIC);
-  }, []);
+  };
 
-  const removeBook = (id) => {
+  const changeRemoveBook = (id) => {
     removeMyBooksAction(id);
   };
 
   return (
     <Container>
       <Title>MyBooks</Title>
-      <div className="myBooks__button-static">
+      <Wrapper>
         <Button
-          isFullWidth={true}
+          isFullWidth
           variant={"middle-purple"}
           height={"h-2"}
-          onClick={navigateTo}
+          onClick={handleNavigation}
         >
-          Статистика
+          Statistics
         </Button>
-      </div>
-      <hr />
+      </Wrapper>
+      <Hr />
       <MyBooksList
         status={status}
         myBook={myBook}
-        removeBook={removeBook}
-        isReaded={isReaded}
+        changeRemoveBook={changeRemoveBook}
+        toggleBookStatus={toggleBookStatus}
       />
     </Container>
   );

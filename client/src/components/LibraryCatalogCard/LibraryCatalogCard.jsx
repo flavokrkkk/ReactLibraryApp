@@ -1,23 +1,26 @@
-import LibraryCatalogList from "../LibraryCatalogList/LibraryCatalogList";
-import "./LibraryCatalogCard.scss";
+import LibraryCatalogList from "../LibraryCatalogList/LibraryCatalogList.jsx";
+import Title from "../UI/Title/Title.jsx";
+import { CatalogCard, CatalogCardNone } from "./styles.js";
 
-const LibraryCatalogCard = ({ searchAndSortedBook }) => {
+const LibraryCatalogCard = ({ memoizedSortedBook }) => {
+  const hasIsLength = memoizedSortedBook.length > 0;
+
   return (
-    <div>
-      {searchAndSortedBook.length > 0 ? (
-        <div className="library__catalog-card">
-          {searchAndSortedBook.map((book, index) => (
+    <>
+      {hasIsLength ? (
+        <CatalogCard>
+          {memoizedSortedBook.map((book, index) => (
             <div key={book.id}>
               <LibraryCatalogList book={book} index={index} />
             </div>
           ))}
-        </div>
+        </CatalogCard>
       ) : (
-        <div className="library__catalog-card-zero">
-          <h1>К сожалению каталог пуст!</h1>
-        </div>
+        <CatalogCardNone>
+          <Title>Unfortunately the directory is empty!</Title>
+        </CatalogCardNone>
       )}
-    </div>
+    </>
   );
 };
 

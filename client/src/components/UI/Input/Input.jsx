@@ -1,49 +1,44 @@
-import React from "react";
-import "./Input.scss";
-import PropTypes, { string } from "prop-types";
-import classNames from "classnames";
+import PropTypes from "prop-types";
+import { InputContainer, InputComponentStyles } from "./styles.js";
 
 const Input = ({
-  onChange,
+  isFullWidth,
+  isOutline,
   value,
   placeholder,
   border,
-  isFullWidth,
-  isOutline,
+  onChange,
 }) => {
-  const inputClass = classNames(
-    "input",
-    border,
-    { isFullWidth },
-    { none: isOutline },
-  );
-
   return (
-    <div className="input__container">
-      <div>
-        <input
-          className={inputClass}
-          placeholder={placeholder}
-          value={value}
-          onChange={onChange}
-        />
-      </div>
-    </div>
+    <InputContainer>
+      <InputComponentStyles
+        isOutline={isOutline}
+        isFullWidth={isFullWidth}
+        placeholder={placeholder}
+        value={value}
+        border={border}
+        onChange={onChange}
+      />
+    </InputContainer>
   );
 };
 
 export default Input;
 
 Input.propTypes = {
-  onChange: PropTypes.func,
-  placeholder: PropTypes.string,
-  value: PropTypes.string,
   isOutline: PropTypes.bool,
   isFullWidth: PropTypes.bool,
+  placeholder: PropTypes.string,
+  value: PropTypes.string,
   border: PropTypes.oneOf(["b-purple-2", "b-red-2"]),
+  onChange: PropTypes.func,
 };
 
 Input.defaultProps = {
-  placeholder: "",
   isFullWidth: false,
+  isOutline: false,
+  placeholder: "",
+  value: "",
+  border: "b-purple-2",
+  onChange: () => console.log("Function onChange not defined!"),
 };
