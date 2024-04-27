@@ -59,8 +59,8 @@ const LibraryUserList = ({ status, oneBook }) => {
       </SubTitle>
       <Wrapper>
         <Button
-          variant={"light-purple"}
           isSmallFontSize
+          variant={"light-purple"}
           onClick={createNewUserPrompt}
         >
           Sign up for the stack

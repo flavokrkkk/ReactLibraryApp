@@ -41,10 +41,10 @@ const AuthPage = () => {
         <Form
           isBorder
           data={authData}
-          onClick={handleNavigation}
           label={`Don't have an account? Register`}
-          labelNavigate={handleAuthRoute}
           marginTop={"m-200"}
+          labelNavigate={handleAuthRoute}
+          onClick={handleNavigation}
         />
       ) : (
         <Form

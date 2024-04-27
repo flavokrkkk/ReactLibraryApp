@@ -10,9 +10,9 @@ const LibraryUserItemTwo = ({ userTwo, toggleBookReadStatus }) => {
         userTwo.map((user, index) => (
           <UserListTwoContainer key={user.id}>
             <LibraryUserListTwo
-              toggleBookReadStatus={toggleBookReadStatus}
               index={index}
               user={user}
+              toggleBookReadStatus={toggleBookReadStatus}
             />
           </UserListTwoContainer>
         ))

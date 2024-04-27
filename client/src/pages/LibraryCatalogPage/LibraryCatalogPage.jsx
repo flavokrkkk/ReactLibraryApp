@@ -48,12 +48,12 @@ const LibraryCatalogPage = () => {
       <Title>Catalog</Title>
       <Wrapper>
         <Input
-          value={value}
           isFullWidth
-          border={"b-red-2"}
-          onChange={handleInputChange}
           isOutline
+          value={value}
+          border={"b-red-2"}
           placeholder={"Search..."}
+          onChange={handleInputChange}
         />
       </Wrapper>
       <Hr />

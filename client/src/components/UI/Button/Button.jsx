@@ -2,25 +2,25 @@ import PropTypes from "prop-types";
 import { ButtonComponentStyles, ButtonContainer } from "./styles.js";
 
 const Button = ({
-  children,
-  onClick,
   isDisabled,
-  variant,
+  isSmallFontSize,
   isBorderRadius,
   isFullWidth,
   height,
-  isSmallFontSize,
+  variant,
+  children,
+  onClick,
 }) => {
   return (
     <ButtonContainer>
       <ButtonComponentStyles
-        onClick={onClick}
         disabled={isDisabled}
-        height={height}
-        variant={variant}
         isFullWidth={isFullWidth}
         isBorderRadius={isBorderRadius}
         isSmallFontSize={isSmallFontSize}
+        height={height}
+        variant={variant}
+        onClick={onClick}
       >
         {children}
       </ButtonComponentStyles>

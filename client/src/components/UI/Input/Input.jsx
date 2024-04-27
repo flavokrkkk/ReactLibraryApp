@@ -2,22 +2,22 @@ import PropTypes from "prop-types";
 import { InputContainer, InputComponentStyles } from "./styles.js";
 
 const Input = ({
-  onChange,
+  isFullWidth,
+  isOutline,
   value,
   placeholder,
   border,
-  isFullWidth,
-  isOutline,
+  onChange,
 }) => {
   return (
     <InputContainer>
       <InputComponentStyles
-        placeholder={placeholder}
-        value={value}
-        onChange={onChange}
-        border={border}
         isOutline={isOutline}
         isFullWidth={isFullWidth}
+        placeholder={placeholder}
+        value={value}
+        border={border}
+        onChange={onChange}
       />
     </InputContainer>
   );

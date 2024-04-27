@@ -42,11 +42,11 @@ const LibraryInfoItem = ({
 
           <Wrapper>
             <Button
-              height={"h-2"}
               isFullWidth
+              isDisabled={isCheck}
+              height={"h-2"}
               variant={"light-purple"}
               onClick={changeAddMyBook}
-              isDisabled={isCheck}
             >
               {isCheck ? `Added to вMyBooks` : `Add to MyBooks`}
             </Button>

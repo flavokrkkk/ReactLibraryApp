@@ -4,7 +4,7 @@ import { LoaderContainer, LoaderTitle } from "./styles.js";
 const Loader = () => {
   return (
     <LoaderContainer>
-      <LoaderTitle className="loader__wrapper loader">Loading...</LoaderTitle>
+      <LoaderTitle>Loading...</LoaderTitle>
     </LoaderContainer>
   );
 };

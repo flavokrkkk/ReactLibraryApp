@@ -62,10 +62,10 @@ const LibraryInfoPage = () => {
     <Container>
       <Title>Book information</Title>
       <LibraryInfoItem
-        changeAddMyBook={changeAddMyBook}
         isCheck={isCheck}
         isOnHandsCheck={isOnHandsCheck}
         isAvailableCheck={isAvailableCheck}
+        changeAddMyBook={changeAddMyBook}
         oneBook={oneBook}
       />
       <LibraryUserList status={status} oneBook={oneBook} />

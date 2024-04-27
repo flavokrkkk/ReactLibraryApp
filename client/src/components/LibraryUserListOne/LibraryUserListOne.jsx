@@ -21,9 +21,9 @@ const LibraryUserListOne = ({
         <div>
           <Button
             isFullWidth
+            isDisabled={isAccessible}
             variant="purple"
             onClick={handleWithUser}
-            isDisabled={isAccessible}
           >
             Push To MyBooks
           </Button>

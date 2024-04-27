@@ -15,11 +15,11 @@ const LibraryUserItemOne = ({
         users.map((user, index) => (
           <UserListOneContainer key={user.id}>
             <LibraryUserListOne
-              handleRemoveUser={handleRemoveUser}
-              handlePushUser={handlePushUser}
               isAccessible={isAccessible}
               index={index}
               user={user}
+              handleRemoveUser={handleRemoveUser}
+              handlePushUser={handlePushUser}
             />
           </UserListOneContainer>
         ))

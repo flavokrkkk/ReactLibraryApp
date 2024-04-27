@@ -30,9 +30,9 @@ const MyBooksList = ({
 
               <ButtonGroup
                 status={status}
+                book={book}
                 toggleBookStatus={toggleBookStatus}
                 changeRemoveBook={changeRemoveBook}
-                book={book}
               />
             </MyBookListCard>
           </div>

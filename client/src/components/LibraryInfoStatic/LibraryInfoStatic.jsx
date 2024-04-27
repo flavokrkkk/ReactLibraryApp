@@ -23,8 +23,8 @@ const LibraryInfoStatic = ({
         <SubTitle>Favorites: </SubTitle>
         <LibraryUserItemOne
           users={users}
-          handleRemoveUser={handleRemoveUser}
           oneBook={oneBook}
+          handleRemoveUser={handleRemoveUser}
           handlePushUser={handlePushUser}
         />
       </div>
