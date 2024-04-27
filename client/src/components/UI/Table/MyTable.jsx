@@ -2,7 +2,7 @@ import "./styles.js";
 import PropTypes from "prop-types";
 import { TableContainer, TableStyles } from "./styles.js";
 
-const MyTable = ({ rows, columns, isBorder }) => {
+const MyTable = ({ isBorder, rows, columns }) => {
   return (
     <TableContainer>
       <TableStyles isBorder={isBorder}>

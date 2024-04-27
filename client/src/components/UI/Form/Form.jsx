@@ -4,7 +4,7 @@ import Button from "../Button/Button";
 import PropTypes from "prop-types";
 import Title from "../Title/Title";
 
-const Form = ({ data, onClick, label, labelNavigate, isBorder, marginTop }) => {
+const Form = ({ isBorder, marginTop, data, label, labelNavigate, onClick }) => {
   return (
     <FormStyleContainer isBorder={isBorder} marginTop={marginTop}>
       <form>

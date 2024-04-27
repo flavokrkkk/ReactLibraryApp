@@ -7,9 +7,9 @@ import LibraryUserItemTwo from ".././LibraryUserItemTwo/LibraryUserItemTwo.jsx";
 const LibraryInfoStatic = ({
   users,
   oneBook,
+  userTwo,
   handlePushUser,
   toggleBookReadStatus,
-  userTwo,
 }) => {
   const { removeUserAction } = useAction();
 

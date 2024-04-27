@@ -2,7 +2,7 @@ import { useCallback } from "react";
 import Button from "../UI/Button/Button.jsx";
 import { ButtonGroupContainer } from "./styles.js";
 
-const ButtonGroup = ({ toggleBookStatus, changeRemoveBook, book, status }) => {
+const ButtonGroup = ({ book, status, toggleBookStatus, changeRemoveBook }) => {
   const handleRemoveBook = useCallback(() => {
     toggleBookStatus(book);
     changeRemoveBook(book.id);

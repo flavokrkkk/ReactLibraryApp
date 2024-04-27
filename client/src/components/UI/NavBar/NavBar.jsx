@@ -3,7 +3,7 @@ import "./styles.js";
 import PropTypes from "prop-types";
 import { NavBarStyles, NavBarLink } from "./styles.js";
 
-const NavBar = ({ pages, bg }) => {
+const NavBar = ({ bg, pages }) => {
   return (
     <NavBarStyles bg={bg}>
       {pages.map(({ page, route, id }) => (

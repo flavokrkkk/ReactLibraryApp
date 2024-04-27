@@ -2,9 +2,9 @@ import { UserListOneContainer } from "./styles.js";
 import LibraryUserListOne from "../LibraryUserListOne/LibraryUserListOne.jsx";
 const LibraryUserItemOne = ({
   users,
+  oneBook,
   handleRemoveUser,
   handlePushUser,
-  oneBook,
 }) => {
   const isAccessible = !oneBook.isAvailable;
   const hasIsLength = users.length > 0;

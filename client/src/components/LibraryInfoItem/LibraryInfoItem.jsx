@@ -5,10 +5,10 @@ import SubTitle from "../UI/SubTitle/SubTitle.jsx";
 import Hr from "../UI/Hr/Hr.jsx";
 
 const LibraryInfoItem = ({
-  oneBook,
   isCheck,
   isAvailableCheck,
   isOnHandsCheck,
+  oneBook,
   changeAddMyBook,
 }) => {
   const hasIsLength = oneBook.length !== 0;
