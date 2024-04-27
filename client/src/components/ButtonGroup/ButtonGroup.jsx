@@ -2,27 +2,22 @@ import { useCallback } from "react";
 import Button from "../UI/Button/Button.jsx";
 import { ButtonGroupContainer } from "./styles.js";
 
-const ButtonGroup = ({ changeStatusBook, changeRemoveBook, book, status }) => {
-  const handlerCallback = useCallback(() => {
-    changeStatusBook(book);
+const ButtonGroup = ({ toggleBookStatus, changeRemoveBook, book, status }) => {
+  const handleRemoveBook = useCallback(() => {
+    toggleBookStatus(book);
     changeRemoveBook(book.id);
   }, []);
 
-  const changeOfStatus = () => {
-    changeStatusBook(book);
-  };
+  const isHasMatch = status.isRead.id === book.id;
 
   return (
     <ButtonGroupContainer>
-      {status.isRead.id === book.id ? (
-        <Button variant={"dark-purple"} onClick={changeOfStatus}>
-          Прочитана
-        </Button>
-      ) : (
-        <Button variant={"light-purple"} onClick={handlerCallback}>
-          Не прочитана
-        </Button>
-      )}
+      <Button
+        variant={isHasMatch ? "dark-purple" : "light-purple"}
+        onClick={handleRemoveBook}
+      >
+        {isHasMatch ? "Read" : "Unread"}
+      </Button>
     </ButtonGroupContainer>
   );
 };

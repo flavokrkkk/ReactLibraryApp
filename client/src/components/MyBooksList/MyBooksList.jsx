@@ -6,13 +6,15 @@ import Hr from "../UI/Hr/Hr.jsx";
 const MyBooksList = ({
   myBook,
   status,
-  changeStatusBook,
+  toggleBookStatus,
   changeRemoveBook,
 }) => {
+  const hasIsLength = myBook.length === 0;
+
   return (
     <>
-      {myBook.length === 0 ? (
-        <Title>MyBooks пуст!</Title>
+      {hasIsLength ? (
+        <Title>MyBooks empty!</Title>
       ) : (
         myBook.map((book) => (
           <div key={book.id}>
@@ -20,7 +22,7 @@ const MyBooksList = ({
               <div>
                 <SubTitle>{`${book.id}. ${book.title}`}</SubTitle>
                 <Hr />
-                <SubTitle>Описание:</SubTitle>
+                <SubTitle>Description:</SubTitle>
                 <MyBookListDescription>
                   <h3>{book.body}</h3>
                 </MyBookListDescription>
@@ -28,7 +30,7 @@ const MyBooksList = ({
 
               <ButtonGroup
                 status={status}
-                changeStatusBook={changeStatusBook}
+                toggleBookStatus={toggleBookStatus}
                 changeRemoveBook={changeRemoveBook}
                 book={book}
               />

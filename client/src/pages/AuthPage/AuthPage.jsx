@@ -9,11 +9,11 @@ const AuthPage = () => {
 
   const navigate = useNavigate();
 
-  const navigateTo = () => {
+  const handleNavigation = () => {
     navigate(CATALOG);
   };
-
-  const authRoute = () => {
+  0;
+  const handleAuthRoute = () => {
     setIsAuth(!isAuth);
   };
 
@@ -41,18 +41,18 @@ const AuthPage = () => {
         <Form
           isBorder
           data={authData}
-          onClick={navigateTo}
-          label={`Нет аккаунта? Зарегистрируйтесь`}
-          labelNavigate={authRoute}
+          onClick={handleNavigation}
+          label={`Don't have an account? Register`}
+          labelNavigate={handleAuthRoute}
           marginTop={"m-200"}
         />
       ) : (
         <Form
           isBorder
           data={registerData}
-          label={`Есть аккаунт? Войдите`}
-          onClick={navigateTo}
-          labelNavigate={authRoute}
+          label={`Do you have an account? Sign in`}
+          onClick={handleNavigation}
+          labelNavigate={handleAuthRoute}
         />
       )}
     </Wrapper>

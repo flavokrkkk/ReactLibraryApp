@@ -1,4 +1,3 @@
-import React from "react";
 import "./styles.js";
 import { LoaderContainer, LoaderTitle } from "./styles.js";
 

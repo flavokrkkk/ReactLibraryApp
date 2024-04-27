@@ -1,40 +1,39 @@
 import { useAction } from "../../store";
-import LibraryUserListOne from "../LibraryUserListOne/LibraryUserListOne.jsx";
-import LibraryUserListTwo from "../LibraryUserListTwo/LibraryUserListTwo.jsx";
 import { StaticContainer } from "./styles.js";
 import SubTitle from "../UI/SubTitle/SubTitle.jsx";
+import LibraryUserItemOne from ".././LibraryUserItemOne/LibraryUserItemOne.jsx";
+import LibraryUserItemTwo from ".././LibraryUserItemTwo/LibraryUserItemTwo.jsx";
 
 const LibraryInfoStatic = ({
   users,
   oneBook,
-  pushUserInMyBook,
-  removeUserInMyBook,
+  handlePushUser,
+  toggleBookReadStatus,
   userTwo,
 }) => {
   const { removeUserAction } = useAction();
 
-  //Функция удаления пользователя
-  const removeHandler = (id) => {
+  const handleRemoveUser = (id) => {
     removeUserAction(id);
   };
 
   return (
     <StaticContainer>
       <div>
-        <SubTitle>В избранном: </SubTitle>
-        <LibraryUserListOne
+        <SubTitle>Favorites: </SubTitle>
+        <LibraryUserItemOne
           users={users}
-          removeHandler={removeHandler}
+          handleRemoveUser={handleRemoveUser}
           oneBook={oneBook}
-          pushUserInMyBook={pushUserInMyBook}
+          handlePushUser={handlePushUser}
         />
       </div>
 
       <div>
         <SubTitle>В MyBooks: </SubTitle>
-        <LibraryUserListTwo
+        <LibraryUserItemTwo
           userTwo={userTwo}
-          removeUserInMyBook={removeUserInMyBook}
+          toggleBookReadStatus={toggleBookReadStatus}
         />
       </div>
     </StaticContainer>

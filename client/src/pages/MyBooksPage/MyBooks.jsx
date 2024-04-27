@@ -2,7 +2,6 @@ import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { STATIC } from "../../utils/const";
 import MyBooksList from "../../components/MyBooksList/MyBooksList.jsx";
-import { useCallback } from "react";
 import { useAction } from "../../store";
 import Button from "../../components/UI/Button/Button.jsx";
 import Container from "../../components/UI/Container/Container.jsx";
@@ -18,13 +17,13 @@ const MyBooks = () => {
 
   const navigate = useNavigate();
 
-  const changeStatusBook = (book) => {
+  const toggleBookStatus = (book) => {
     editStatusBookAction(book);
   };
 
-  const navigateTo = useCallback(() => {
+  const handleNavigation = () => {
     navigate(STATIC);
-  }, []);
+  };
 
   const changeRemoveBook = (id) => {
     removeMyBooksAction(id);
@@ -38,9 +37,9 @@ const MyBooks = () => {
           isFullWidth
           variant={"middle-purple"}
           height={"h-2"}
-          onClick={navigateTo}
+          onClick={handleNavigation}
         >
-          Статистика
+          Statistics
         </Button>
       </Wrapper>
       <Hr />
@@ -48,7 +47,7 @@ const MyBooks = () => {
         status={status}
         myBook={myBook}
         changeRemoveBook={changeRemoveBook}
-        changeStatusBook={changeStatusBook}
+        toggleBookStatus={toggleBookStatus}
       />
     </Container>
   );

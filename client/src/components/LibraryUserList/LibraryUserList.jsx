@@ -9,7 +9,6 @@ import SubTitle from "../UI/SubTitle/SubTitle.jsx";
 import Hr from "../UI/Hr/Hr.jsx";
 
 const LibraryUserList = ({ status, oneBook }) => {
-  //Получаем списки userов из store
   const users = useSelector((state) => state.users.users);
   const userTwo = useSelector((state) => state.usersTwo.usersTwo);
   const {
@@ -20,8 +19,7 @@ const LibraryUserList = ({ status, oneBook }) => {
     setAvailableBookAction,
   } = useAction();
 
-  //Функция добавления usera в очередь за книгой
-  const addHandler = (userName) => {
+  const createNewUser = (userName) => {
     const customer = {
       id: Date.now(),
       name: userName,
@@ -29,45 +27,43 @@ const LibraryUserList = ({ status, oneBook }) => {
     addUserOneAction(customer);
   };
 
-  //Функция добавления userов которые добавили в myBook
-  const pushUserInMyBook = (users) => {
+  const handlePushUser = (users) => {
     addUserTwoAction(users);
   };
 
-  //Функция удаления пользователей из myBook
-  const removeUserInMyBook = (user) => {
+  const toggleBookReadStatus = (user) => {
     removeUserTwoAction(user);
   };
 
-  const addUserPrompt = () => {
-    addHandler(prompt());
+  const createNewUserPrompt = () => {
+    createNewUser(prompt());
   };
 
   useEffect(() => {
     if (oneBook.isAvailable !== userTwo.length < 3) {
       setAvailableBookAction(userTwo.length < 3);
     }
-  }, [userTwo.length, pushUserInMyBook, removeUserInMyBook]);
+  }, [userTwo.length, handlePushUser, toggleBookReadStatus]);
 
   useEffect(() => {
     if (status.isOnHands === userTwo.length < 1) {
       editStatusAction(!status.isOnHands);
     }
-  }, [userTwo.length, pushUserInMyBook, removeUserInMyBook]);
+  }, [userTwo.length, handlePushUser, toggleBookReadStatus]);
 
   return (
     <UserContainer>
       <Hr />
       <SubTitle>
-        Вы можете отслеживать очереди пользователей и читать любимые книжки!
+        You can track user queues and read your favorite books!
       </SubTitle>
       <Wrapper>
         <Button
           variant={"light-purple"}
           isSmallFontSize
-          onClick={addUserPrompt}
+          onClick={createNewUserPrompt}
         >
-          Записаться в очередь
+          Sign up for the stack
         </Button>
       </Wrapper>
       <Hr />
@@ -75,8 +71,8 @@ const LibraryUserList = ({ status, oneBook }) => {
         users={users}
         oneBook={oneBook}
         userTwo={userTwo}
-        pushUserInMyBook={pushUserInMyBook}
-        removeUserInMyBook={removeUserInMyBook}
+        handlePushUser={handlePushUser}
+        toggleBookReadStatus={toggleBookReadStatus}
       />
     </UserContainer>
   );

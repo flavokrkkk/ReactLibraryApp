@@ -1,5 +1,4 @@
-import React from "react";
-import PropTypes, { string } from "prop-types";
+import PropTypes from "prop-types";
 import { InputContainer, InputComponentStyles } from "./styles.js";
 
 const Input = ({
@@ -37,6 +36,9 @@ Input.propTypes = {
 
 Input.defaultProps = {
   isFullWidth: false,
+  isOutline: false,
   placeholder: "",
+  value: "",
   border: "b-purple-2",
+  onChange: () => console.log("Function onChange not defined!"),
 };

@@ -9,14 +9,11 @@ const {
   getOneBookAction,
 } = useAction();
 
-export const fetchUsers = (limit = 10, page = 1) => {
+export const fetchUsers = () => {
   return async function () {
     try {
       const response = await axios.get(
         `https://jsonplaceholder.typicode.com/users`,
-        {
-          params: { _limit: limit, _page: page },
-        },
       );
       return addUserAction(response.data);
     } catch (err) {

@@ -15,23 +15,19 @@ const LibraryCatalogPage = () => {
 
   const dispatch = useDispatch();
 
-  //Получаем отсортированный список книг
   const books = useSelector((state) => state.books.books).sort();
 
-  //Получаем состояние для идентификатора загрузки
   const isLoading = useSelector((state) => state.books.isLoading);
 
-  //Получаем состояние для обработки ошибок
   const error = useSelector((state) => state.books.error);
 
-  // Реализация поиска книг c помощью useMemo
-  const searchAndSortedBook = useMemo(() => {
+  const memoizedSortedBook = useMemo(() => {
     return books
       .sort()
       .filter((book) => book.title.toLowerCase().includes(value.toLowerCase()));
   }, [value, books]);
 
-  const onChange = useCallback((e) => {
+  const handleInputChange = useCallback((e) => {
     setValue(e.target.value);
   }, []);
 
@@ -49,19 +45,19 @@ const LibraryCatalogPage = () => {
 
   return (
     <Container>
-      <Title>Каталог</Title>
+      <Title>Catalog</Title>
       <Wrapper>
         <Input
           value={value}
           isFullWidth
           border={"b-red-2"}
-          onChange={onChange}
+          onChange={handleInputChange}
           isOutline
-          placeholder={"Поиск..."}
+          placeholder={"Search..."}
         />
       </Wrapper>
       <Hr />
-      <LibraryCatalogCard searchAndSortedBook={searchAndSortedBook} />
+      <LibraryCatalogCard memoizedSortedBook={memoizedSortedBook} />
     </Container>
   );
 };

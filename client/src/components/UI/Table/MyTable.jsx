@@ -35,4 +35,6 @@ MyTable.propTypes = {
 
 MyTable.defaultProps = {
   isBorder: false,
+  rows: [],
+  columns: [],
 };

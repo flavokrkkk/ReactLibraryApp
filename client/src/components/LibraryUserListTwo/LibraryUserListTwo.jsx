@@ -1,36 +1,21 @@
-import React, { useCallback } from "react";
-import { UserListTwoCard, UserListTwoContainer } from "./styles.js";
-import Button from "../UI/Button/Button.jsx";
+import Button from "../UI/Button/Button";
+import { UserListTwoCard } from "./styles";
 
-const LibraryUserListTwo = ({ userTwo, removeUserInMyBook }) => {
-  const handleRemoveBook = useCallback((id) => {
-    removeUserInMyBook(id);
-  }, []);
+const LibraryUserListTwo = ({ user, index, toggleBookReadStatus }) => {
+  const handleRemoveUserById = () => {
+    toggleBookReadStatus(user.id);
+  };
 
   return (
-    <>
-      {userTwo.length > 0 ? (
-        userTwo.map((user, index) => (
-          <UserListTwoContainer key={user.id}>
-            <UserListTwoCard>
-              {`${index + 1}. ${user.name}`}
-              <p>{user.email}</p>
-              <div>
-                <Button
-                  isFullWidth
-                  variant={"purple"}
-                  onClick={() => handleRemoveBook(user.id)}
-                >
-                  Remove
-                </Button>
-              </div>
-            </UserListTwoCard>
-          </UserListTwoContainer>
-        ))
-      ) : (
-        <h3>Пользователи еще не добавили книги!</h3>
-      )}
-    </>
+    <UserListTwoCard>
+      {`${index + 1}. ${user.name}`}
+      <p>{user.email}</p>
+      <div>
+        <Button isFullWidth variant={"purple"} onClick={handleRemoveUserById}>
+          Remove
+        </Button>
+      </div>
+    </UserListTwoCard>
   );
 };
 

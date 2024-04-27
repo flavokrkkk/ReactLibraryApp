@@ -1,9 +1,5 @@
 import PropTypes from "prop-types";
-import {
-  ButtonComponent,
-  ButtonComponentStyles,
-  ButtonContainer,
-} from "./styles.js";
+import { ButtonComponentStyles, ButtonContainer } from "./styles.js";
 
 const Button = ({
   children,
@@ -56,4 +52,6 @@ Button.defaultProps = {
   isBorderRadius: false,
   isSmallFontSize: false,
   variant: "purple",
+  height: "h-1",
+  onClick: () => console.log("Function onClick not defined "),
 };

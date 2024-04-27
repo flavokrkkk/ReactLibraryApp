@@ -11,9 +11,11 @@ const LibraryInfoItem = ({
   isOnHandsCheck,
   changeAddMyBook,
 }) => {
+  const hasIsLength = oneBook.length !== 0;
+
   return (
     <>
-      {oneBook.length !== 0 ? (
+      {hasIsLength ? (
         <div>
           <SubTitle>{oneBook.title}</SubTitle>
           <Hr />
@@ -39,29 +41,19 @@ const LibraryInfoItem = ({
           </ButtonsStateGroup>
 
           <Wrapper>
-            {isCheck ? (
-              <Button
-                height={"h-2"}
-                isFullWidth
-                variant={"light-purple"}
-                isDisabled
-              >
-                Добавлена в MyBooks
-              </Button>
-            ) : (
-              <Button
-                height={"h-2"}
-                isFullWidth
-                variant={"light-purple"}
-                onClick={changeAddMyBook}
-              >
-                Добавить в MyBooks
-              </Button>
-            )}
+            <Button
+              height={"h-2"}
+              isFullWidth
+              variant={"light-purple"}
+              onClick={changeAddMyBook}
+              isDisabled={isCheck}
+            >
+              {isCheck ? `Added to вMyBooks` : `Add to MyBooks`}
+            </Button>
           </Wrapper>
         </div>
       ) : (
-        <SubTitle>Информация о книге отсутсвует</SubTitle>
+        <SubTitle>No information about the book</SubTitle>
       )}
     </>
   );

@@ -1,4 +1,3 @@
-import React from "react";
 import { FormLabel, FormStyleContainer } from "./styles";
 import Input from "../Input/Input";
 import Button from "../Button/Button";
@@ -46,5 +45,8 @@ Form.propTypes = {
 Form.defaultProps = {
   isBorder: false,
   marginTop: "m-200",
+  label: "",
   data: [],
+  onClick: () => console.log("Function onClick not defined!"),
+  labelNavigate: () => console.log("Function labelNavigate not defined!"),
 };
