@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { CATALOG } from "../../utils/const";
 import Form from "../../components/UI/Form/Form.jsx";
 import Wrapper from "../../components/UI/Wrapper/Wrapper.jsx";
+import { authData, registerData } from "../../utils/mockData.js";
 
 const AuthPage = () => {
   const [isAuth, setIsAuth] = useState(false);
@@ -12,28 +13,10 @@ const AuthPage = () => {
   const handleNavigation = () => {
     navigate(CATALOG);
   };
-  0;
+
   const handleAuthRoute = () => {
     setIsAuth(!isAuth);
   };
-
-  const registerData = [
-    {
-      id: 1,
-      title: "Registration",
-      subPlace: ["E-mail", "Password"],
-      buttonText: "Sign In",
-    },
-  ];
-
-  const authData = [
-    {
-      id: 2,
-      title: "Authorization",
-      subPlace: ["E-mail", "Password"],
-      buttonText: "Sign Up",
-    },
-  ];
 
   return (
     <Wrapper>

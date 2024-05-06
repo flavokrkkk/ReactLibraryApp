@@ -17,7 +17,6 @@ export const rootReducer = combineReducers({
   books: bookReducer,
   status: statusReducer,
   users: userReducer,
-  idBook: bookReducer,
   myBook: myBooksReducer,
   usersTwo: userTwoReducer,
   oneBook: bookOneReducer,

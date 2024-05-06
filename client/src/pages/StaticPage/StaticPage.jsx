@@ -4,6 +4,8 @@ import Hr from "../../components/UI/Hr/Hr.jsx";
 import MyTable from "../../components/UI/Table/MyTable.jsx";
 import Title from "../../components/UI/Title/Title.jsx";
 import Wrapper from "../../components/UI/Wrapper/Wrapper.jsx";
+import { calculateSelectors } from "../../store/selectors/selectors.js";
+import { columnsData } from "../../utils/mockData.js";
 import { useSelector } from "react-redux";
 
 const StaticPage = () => {
@@ -11,23 +13,7 @@ const StaticPage = () => {
     window.location.reload();
   };
 
-  const books = useSelector((state) => state.books.books);
-  const users = useSelector((state) => state.users.users);
-  const userTwo = useSelector((state) => state.usersTwo.usersTwo);
-
-  const rowsData = [
-    { id: 1, info: books.length, body: "books" },
-    { id: 2, info: users.length + userTwo.length, body: "users" },
-    { id: 3, info: users.length, body: "books" },
-    { id: 4, info: userTwo.length, body: "books" },
-  ];
-
-  const columnsData = [
-    { id: 1, title: "Catalog" },
-    { id: 2, title: "Users" },
-    { id: 3, title: "Favorites" },
-    { id: 4, title: "MyBook" },
-  ];
+  const rowsData = useSelector(calculateSelectors.rowsData);
 
   return (
     <Container>
