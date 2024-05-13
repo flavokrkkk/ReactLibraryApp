@@ -16,16 +16,16 @@ const LibraryCatalogPage = () => {
 
   const dispatch = useDispatch();
 
-  const books = useSelector(booksSelectors.getBooks).sort();
+  const books = useSelector(booksSelectors.sortedBooks);
 
   const isLoading = useSelector(booksSelectors.isLoading);
 
   const error = useSelector(booksSelectors.error);
 
   const memoizedSortedBook = useMemo(() => {
-    return books
-      .sort()
-      .filter((book) => book.title.toLowerCase().includes(value.toLowerCase()));
+    return books.filter((book) =>
+      book.title.toLowerCase().includes(value.toLowerCase()),
+    );
   }, [value, books]);
 
   const handleInputChange = useCallback((e) => {

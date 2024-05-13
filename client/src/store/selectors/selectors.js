@@ -4,6 +4,9 @@ export const booksSelectors = {
   getBooks: (state) => all(state).books.books,
   isLoading: (state) => all(state).books.isLoading,
   error: (state) => all(state).books.error,
+
+  sortedBooks: (state) =>
+    all(state).books.books.sort((a, b) => a.title.localeCompare(b.title)),
 };
 
 export const statusSelectors = {
