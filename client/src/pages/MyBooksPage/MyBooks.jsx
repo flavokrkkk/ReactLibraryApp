@@ -8,10 +8,14 @@ import Container from "../../components/UI/Container/Container.jsx";
 import Title from "../../components/UI/Title/Title.jsx";
 import Wrapper from "../../components/UI/Wrapper/Wrapper.jsx";
 import Hr from "../../components/UI/Hr/Hr.jsx";
+import {
+  myBookSelectors,
+  statusSelectors,
+} from "../../store/selectors/selectors.js";
 
 const MyBooks = () => {
-  const myBook = useSelector((state) => state.myBook.myBook);
-  const status = useSelector((state) => state.status.status);
+  const myBook = useSelector(myBookSelectors.getMyBooks);
+  const status = useSelector(statusSelectors.getStatus);
 
   const { editStatusBookAction, removeMyBooksAction } = useAction();
 

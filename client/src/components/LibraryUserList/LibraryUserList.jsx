@@ -7,10 +7,14 @@ import LibraryInfoStatic from "../LibraryInfoStatic/LibraryInfoStatic.jsx";
 import Wrapper from "../UI/Wrapper/Wrapper.jsx";
 import SubTitle from "../UI/SubTitle/SubTitle.jsx";
 import Hr from "../UI/Hr/Hr.jsx";
+import {
+  usersSelectors,
+  usersTwoSelectors,
+} from "../../store/selectors/selectors.js";
 
 const LibraryUserList = ({ status, oneBook }) => {
-  const users = useSelector((state) => state.users.users);
-  const userTwo = useSelector((state) => state.usersTwo.usersTwo);
+  const users = useSelector(usersSelectors.getUsers);
+  const userTwo = useSelector(usersTwoSelectors.getUsersTwo);
   const {
     addUserOneAction,
     addUserTwoAction,

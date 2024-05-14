@@ -7,6 +7,12 @@ import LibraryUserList from "../../components/LibraryUserList/LibraryUserList.js
 import LibraryInfoItem from "../../components/LibraryInfoItem/LibraryInfoItem.jsx";
 import Container from "../../components/UI/Container/Container.jsx";
 import Title from "../../components/UI/Title/Title.jsx";
+import { customer } from "../../utils/mockData.js";
+import {
+  myBookSelectors,
+  oneBookSelectors,
+  statusSelectors,
+} from "../../store/selectors/selectors.js";
 
 const LibraryInfoPage = () => {
   const params = useParams();
@@ -17,9 +23,9 @@ const LibraryInfoPage = () => {
 
   const dispatch = useDispatch();
 
-  const status = useSelector((state) => state.status.status);
-  const oneBook = useSelector((state) => state.oneBook.oneBook);
-  const myBook = useSelector((state) => state.myBook.myBook);
+  const status = useSelector(statusSelectors.getStatus);
+  const oneBook = useSelector(oneBookSelectors.getOneBook);
+  const myBook = useSelector(myBookSelectors.getMyBooks);
 
   const checkBookId = (id) => {
     let isBool = false;
@@ -41,11 +47,7 @@ const LibraryInfoPage = () => {
       alert("The book has already been added!");
     }
     addMyBooksAction(oneBook);
-    addUserTwoAction({
-      id: 101,
-      name: "Egor Yarovitsyn",
-      email: "egoryarovitsyn1@gmail.com",
-    });
+    addUserTwoAction(customer);
     setInMyBooks(true);
   };
 
