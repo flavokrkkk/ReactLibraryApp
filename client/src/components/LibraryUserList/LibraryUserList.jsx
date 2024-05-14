@@ -14,7 +14,7 @@ import {
 
 const LibraryUserList = ({ status, oneBook }) => {
   const users = useSelector(usersSelectors.getUsers);
-  const userTwo = useSelector(usersTwoSelectors.getUsersTwo);
+  const userTwo = useSelector(usersTwoSelectors.usersTwoNoDuplicate);
   const {
     addUserOneAction,
     addUserTwoAction,

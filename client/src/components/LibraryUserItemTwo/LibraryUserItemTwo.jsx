@@ -3,11 +3,10 @@ import LibraryUserListTwo from "../LibraryUserListTwo/LibraryUserListTwo.jsx";
 
 const LibraryUserItemTwo = ({ userTwo, toggleBookReadStatus }) => {
   const hasIsLength = userTwo.length > 0;
-  const userNoDuplicate = [...new Set(userTwo)];
   return (
     <>
       {hasIsLength ? (
-        userNoDuplicate.map((user, index) => (
+        userTwo.map((user, index) => (
           <UserListTwoContainer key={user.id}>
             <LibraryUserListTwo
               index={index}

@@ -23,6 +23,8 @@ export const myBookSelectors = {
 
 export const usersTwoSelectors = {
   getUsersTwo: (state) => all(state).usersTwo.usersTwo,
+
+  usersTwoNoDuplicate: (state) => [...new Set(all(state).usersTwo.usersTwo)],
 };
 
 export const oneBookSelectors = {

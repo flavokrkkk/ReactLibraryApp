@@ -11,7 +11,7 @@ const LibraryUserItemOne = ({
 
   return (
     <>
-      {hasIsLength > 0 ? (
+      {hasIsLength ? (
         users.map((user, index) => (
           <UserListOneContainer key={user.id}>
             <LibraryUserListOne
